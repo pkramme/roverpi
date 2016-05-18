@@ -24,4 +24,4 @@ cd
 cd roverpi/source
 ./compiler.sh
 printf "... done.\n"
-printf "run\n\nsudo cp roverpi /usr/bin/\n\nto use 'sudo roverpi' to start roverpi."
+printf "run\n\nsudo cp roverpi /usr/bin/\n\nto use 'sudo roverpi' to start roverpi.\n"
