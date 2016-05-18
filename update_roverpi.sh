@@ -12,7 +12,6 @@ printf "... done.\n"
 printf "Building roverpi...\n"
 rm /usr/bin/roverpi
 git clone git@github.com:paulkramme/roverpi.git
->>>>>>> master
 cd roverpi/source
 ./compiler.sh
 printf "... done.\n"
