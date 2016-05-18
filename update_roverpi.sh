@@ -14,4 +14,4 @@ cd roverpi/source
 ./compiler.sh
 printf "... done.\n"
 cd
-printf "Run\n\nsudo rm /usr/bin/roverpi && sudo cp roverpi/source/roverpi /usr/bin\n\nto update executable."
+printf "Run\n\nsudo rm /usr/bin/roverpi && sudo cp roverpi/source/roverpi /usr/bin\n\nto update executable.\n"
