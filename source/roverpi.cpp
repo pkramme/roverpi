@@ -2,7 +2,7 @@
 
 int main()
 {
-	std::cout << "ROVERPI SOFTWARE by vortexlab" << std::endl;
 	input();
+	std::cout << "ROVERPI SOFTWARE by Paul Kramme" << std::endl;
 	return 0;
 }
