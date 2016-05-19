@@ -385,8 +385,8 @@ void input()
 			case 'k':
 				camera_right();
 				break;
-			case 'i':
-				printw("HELPMSG\nw : forward\ns : backward\na : left\nd : right\n\ne : frontlight\nr : groundlight\n\nu : camera up\nj : camera down\nh : camera left\nl : camera right\nq : quit\n");
+			//case 'i':
+			//	printw("HELPMSG\nw : forward\ns : backward\na : left\nd : right\n\ne : frontlight\nr : groundlight\n\nu : camera up\nj : camera down\nh : camera left\nl : camera right\nq : quit\n");
 			case 'q':
 				killall();
 				endwin();
