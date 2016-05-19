@@ -2,6 +2,9 @@
 #include<ncurses.h>
 #include<wiringPi.h>
 #include<cstdlib>
+#include<softPwm.h>
+#include<string>
+#include<thread>
 
 bool forwardswitch = false;
 bool backwardswitch = false;
@@ -15,8 +18,8 @@ bool camerarightswitch = false;
 bool cameraleftswitch = false;
 
 //GPIO pins
-#define forward_gpio 0
-#define backward_gpio 1
+#define forward_gpio 12
+#define backward_gpio 13
 #define right_gpio 2
 #define left_gpio 3
 #define light_front 4
@@ -26,17 +29,15 @@ bool cameraleftswitch = false;
 #define camera_y_left_gpio 8
 #define camera_y_right_gpio 9
 
+int pwmswitch = 0;
+int *ppwmswitch = &pwmswitch;
+
 #define std_d 10//standart delay in ms
 
 void mv_killall()
 {
-	if(forwardswitch == true)
-	{
-		forwardswitch = false;
-		digitalWrite(forward_gpio, 0);
-		delay(std_d);
-	}
-
+	pwmWrite(forward_gpio, 0);
+	pwmWrite(backward_gpio, 0);
 	if(leftswitch == true)
 	{
 		leftswitch = false;
@@ -72,78 +73,38 @@ void killall()
 	digitalWrite(camera_y_right_gpio, 0);
 	printw("ALL PINS DESTROYED");
 }
-
 void forward()
 {
-	if(forwardswitch == false)
+	pwmswitch += 10;
+	if(pwmswitch >= 100)
 	{
-		if(backwardswitch == true)
-		{
-			backwardswitch = false;
-			digitalWrite(backward_gpio, 0);
-			delay(std_d);
-		}
-
-		if(leftswitch == true)
-		{
-			leftswitch = false;
-			digitalWrite(left_gpio, 0);
-			delay(std_d);
-		}
-
-		if(rightswitch == true)
-		{
-			rightswitch = false;
-			digitalWrite(right_gpio, 0);
-			delay(std_d);
-		}
-
-		forwardswitch = true;
-		digitalWrite(forward_gpio, 1);
-		delay(std_d);
-
-		printw("FORWARD");
-	}
-	else
-	{
-		mv_killall();
+		pwmswitch = 100;
 	}
 }
 
 void backward()
 {
-	if(backwardswitch == false)
+	pwmswitch -= 10;
+	if(pwmswitch >= 100)
 	{
-		if(forwardswitch == true)
-		{
-			forwardswitch = false;
-			digitalWrite(forward_gpio, 0);
-			delay(std_d);
-		}
-
-		if(leftswitch == true)
-		{
-			leftswitch = false;
-			digitalWrite(left_gpio, 0);
-			delay(std_d);
-		}
-
-		if(rightswitch == true)
-		{
-			rightswitch = false;
-			digitalWrite(right_gpio, 0);
-			delay(std_d);
-		}
-
-		backwardswitch = true;
-		digitalWrite(backward_gpio, 1);
-		delay(std_d);
-
-		printw("BACKWARD");
+		pwmswitch = 100;
 	}
-	else
+}
+
+void x_move()
+{
+	while(true)
 	{
-		mv_killall();
+		if(pwmswitch >= 0 && pwmswitch <= 100)
+		{
+			pwmWrite(forward_gpio, *ppwmswitch);
+			pwmWrite(backward_gpio, 0);
+		}
+		if(pwmswitch <= 0 && pwmswitch >= -100)
+		{
+			pwmWrite(forward_gpio, 0);
+			pwmWrite(backward_gpio, *ppwmswitch);
+		}
 	}
 }
 
@@ -332,8 +293,8 @@ void camera_right()
 void input()
 {
 	wiringPiSetup();
-	pinMode(forward_gpio, OUTPUT);
-	pinMode(backward_gpio, OUTPUT);
+	pinMode(forward_gpio, PWM_OUTPUT);
+	pinMode(backward_gpio, PWM_OUTPUT);
 	pinMode(right_gpio, OUTPUT);
 	pinMode(left_gpio, OUTPUT);
 	pinMode(light_front, OUTPUT);
@@ -395,6 +356,3 @@ void input()
 		refresh();
 	}
 }
-//398
-//399
-//FOURHUNDRED!!!!!!
