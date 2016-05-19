@@ -2,14 +2,11 @@
 
 int main()
 {
-	std::thread input_module(input);
-	std::cout << "INPUT MODULE THREAD LAUNCHED" << std::endl;
-	std::thread x_move_module(x_move);
-	std::cout << "X MOVE MODULE LAUNCHED" << std::endl;
+	boost::thread_group tgroup;
+	tgroup.create_thread(boost::bind(&input));
+	tgroup.create_thread(boost::bind(&x_move));
 
-	input_module.join();
-	x_move_module.join();
-
+	tgroup.join_all();
 	std::cout << "ROVERPI SOFTWARE by Paul Kramme" << std::endl;
 	return 0;
 }
