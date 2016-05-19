@@ -18,8 +18,8 @@ bool camerarightswitch = false;
 bool cameraleftswitch = false;
 
 //GPIO pins
-#define forward_gpio 12
-#define backward_gpio 13
+#define forward_gpio 26
+#define backward_gpio 23
 #define right_gpio 2
 #define left_gpio 3
 #define light_front 4
