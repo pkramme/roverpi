@@ -86,15 +86,15 @@ void x_move()
 {
 	while(true)
 	{
-		if(pwmswitch > 1)
+		if(pwmswitch > 0)
 		{
 			pwmWrite(forward_gpio, pwmswitch);
 			pwmWrite(backward_gpio, 0);
 		}
-		else if(pwmswitch < -1)
+		else if(pwmswitch < 0)
 		{
-			pwmWrite(forward_gpio, 0);
 			pwmWrite(backward_gpio, pwmswitch);
+			pwmWrite(forward_gpio, 0);
 		}
 		else if(pwmswitch == 0)
 		{
