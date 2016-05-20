@@ -1,10 +1,11 @@
-#!bin/bash
+#!/bin/bash
 printf "ROVERPI INSTALL SCRIPT starting"
 printf "Installing nessesary dependecies...\n"
 apt-get update
 apt-get install ncurses-dev
 apt-get install git
 apt-get install clang
+apt-get install libboost-all-dev
 printf "... done.\n"
 
 printf "Copying update_roverpi.sh to home folder\n"
