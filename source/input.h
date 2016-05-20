@@ -2,8 +2,6 @@
 #include<ncurses.h>
 #include<wiringPi.h>
 #include<cstdlib>
-#include"boost/thread.hpp"
-#include"boost/bind.hpp"
 
 bool forwardswitch = false;
 bool backwardswitch = false;
