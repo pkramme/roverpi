@@ -74,12 +74,12 @@ void killall()
 }
 void forward()
 {
-	pwmswitch += 10;
+	pwmswitch += 100;
 }
 
 void backward()
 {
-	pwmswitch -= 10;
+	pwmswitch -= 100;
 }
 
 void x_move()
