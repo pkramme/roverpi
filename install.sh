@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 printf "ROVERPI INSTALL SCRIPT starting"
 printf "Installing nessesary dependecies...\n"
 apt-get update
