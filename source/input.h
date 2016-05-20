@@ -88,13 +88,13 @@ void x_move()
 	{
 		if(pwmswitch > 1)
 		{
-			pwmWrite(forward_gpio, *ppwmswitch);
+			pwmWrite(forward_gpio, pwmswitch);
 			pwmWrite(backward_gpio, 0);
 		}
 		else if(pwmswitch < -1)
 		{
 			pwmWrite(forward_gpio, 0);
-			pwmWrite(backward_gpio, *ppwmswitch);
+			pwmWrite(backward_gpio, pwmswitch);
 		}
 		else if(pwmswitch == 0)
 		{
