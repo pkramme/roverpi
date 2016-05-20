@@ -85,69 +85,7 @@ void backward()
 {
 	pwmswitch -= 100;
 }
-/*
-void x_move()
-{
-	while(true)
-	{
-		if(pwmswitch > 0)
-		{
-			if(rightswitch == false && leftswitch == false)
-			{
-				pwmWrite(forward_gpio, pwmswitch);
-				pwmWrite(backward_gpio, 0);
-				forwardswitch = true;
-			}
-			else
-			{
-				if(rightswitch == true)
-				{
-					rightswitch = false;
-					digitalWrite(right_gpio, 0);
-					delay(std_d);
-				}
 
-				if(leftswitch == true)
-				{
-					leftswitch = false;
-					digitalWrite(left_gpio, 0);
-					delay(std_d);
-				}
-			}
-		}
-		else if(pwmswitch < 0)
-		{
-			if(rightswitch == false && leftswitch == false)
-			{
-				pwmWrite(backward_gpio, pwmswitch*(-1));//unsigned int in wiringPi class needs inverted negative int input...
-				pwmWrite(forward_gpio, 0);
-				backwardswitch = true;
-			}
-			else
-			{
-				if(rightswitch == true)
-				{
-					rightswitch = false;
-					digitalWrite(right_gpio, 0);
-					delay(std_d);
-				}
-
-				if(leftswitch == true)
-				{
-					leftswitch = false;
-					digitalWrite(left_gpio, 0);
-					delay(std_d);
-				}
-			}
-		}
-		else if(pwmswitch == 0)
-		{
-			pwmWrite(forward_gpio, 0);
-			pwmWrite(backward_gpio, 0);
-		}
-	}
-}
-*/
 void x_move()
 {
 	if(pwmswitch > 0)
