@@ -84,9 +84,9 @@ void forward()
 void backward()
 {
 	pwmswitch -= 10;
-	if(pwmswitch >= 100)
+	if(pwmswitch > -100)
 	{
-		pwmswitch = 100;
+		pwmswitch = -100;
 	}
 }
 
@@ -94,12 +94,12 @@ void x_move()
 {
 	while(true)
 	{
-		if(pwmswitch >= 0 && pwmswitch <= 100)
+		if(pwmswitch > 0 && pwmswitch <= 100)
 		{
 			pwmWrite(forward_gpio, *ppwmswitch);
 			pwmWrite(backward_gpio, 0);
 		}
-		if(pwmswitch <= 0 && pwmswitch >= -100)
+		if(pwmswitch < 0 && pwmswitch >= -100)
 		{
 			pwmWrite(forward_gpio, 0);
 			pwmWrite(backward_gpio, *ppwmswitch);
