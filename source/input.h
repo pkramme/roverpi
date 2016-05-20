@@ -35,7 +35,10 @@ int pwmswitch = 0;
 void mv_killall()
 {
 	pwmWrite(forward_gpio, 0);
+	forwardswitch = false;
 	pwmWrite(backward_gpio, 0);
+	backwardswitch = false;
+
 	if(leftswitch == true)
 	{
 		leftswitch = false;
@@ -71,6 +74,7 @@ void killall()
 	digitalWrite(camera_y_right_gpio, 0);
 	printw("ALL PINS DESTROYED");
 }
+
 void forward()
 {
 	pwmswitch += 100;
@@ -87,13 +91,17 @@ void x_move()
 	{
 		if(pwmswitch > 0)
 		{
+			mv_killall();
 			pwmWrite(forward_gpio, pwmswitch);
 			pwmWrite(backward_gpio, 0);
+			forwardswitch = true;
 		}
 		else if(pwmswitch < 0)
 		{
-			pwmWrite(backward_gpio, pwmswitch*(-1));
+			mv_killall();
+			pwmWrite(backward_gpio, pwmswitch*(-1));//unsigned int in wiringPi class needs inverted negative int input...
 			pwmWrite(forward_gpio, 0);
+			backwardswitch = true;
 		}
 		else if(pwmswitch == 0)
 		{
