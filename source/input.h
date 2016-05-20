@@ -29,7 +29,6 @@ bool cameraleftswitch = false;
 #define camera_y_right_gpio 9
 
 int pwmswitch = 0;
-int *ppwmswitch = &pwmswitch;
 
 #define std_d 10//standart delay in ms
 
@@ -93,7 +92,7 @@ void x_move()
 		}
 		else if(pwmswitch < 0)
 		{
-			pwmWrite(backward_gpio, pwmswitch);
+			pwmWrite(backward_gpio, pwmswitch*(-1));
 			pwmWrite(forward_gpio, 0);
 		}
 		else if(pwmswitch == 0)
