@@ -393,5 +393,6 @@ void input()
 				std::exit(EXIT_SUCCESS);
 		}
 		refresh();
+		x_move();
 	}
 }
