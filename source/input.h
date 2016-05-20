@@ -75,19 +75,11 @@ void killall()
 void forward()
 {
 	pwmswitch += 10;
-	if(pwmswitch >= 100)
-	{
-		pwmswitch = 100;
-	}
 }
 
 void backward()
 {
 	pwmswitch -= 10;
-	if(pwmswitch < -100)
-	{
-		pwmswitch = -100;
-	}
 }
 
 void x_move()
