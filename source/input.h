@@ -79,11 +79,19 @@ void killall()
 void forward()
 {
 	pwmswitch += 100;
+	if(pwmswitch >= 1000)
+	{
+		pwmswitch = 1000;
+	}
 }
 
 void backward()
 {
 	pwmswitch -= 100;
+	if(pwmswitch <= -1000)
+	{
+		pwmswitch = -1000;
+	}
 }
 
 void x_move()
