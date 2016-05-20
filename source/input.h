@@ -38,6 +38,7 @@ void mv_killall()
 	forwardswitch = false;
 	pwmWrite(backward_gpio, 0);
 	backwardswitch = false;
+	pwmswitch = 0;
 
 	if(leftswitch == true)
 	{
@@ -214,6 +215,7 @@ void left()
 		{
 			forwardswitch = false;
 			pwmWrite(forward_gpio, 0);
+			pwmswitch = 0;
 			delay(std_d);
 		}
 
@@ -221,6 +223,7 @@ void left()
 		{
 			backwardswitch = false;
 			digitalWrite(backward_gpio, 0);
+			pwmswitch = 0;
 			delay(std_d);
 		}
 
@@ -251,6 +254,7 @@ void right()
 		{
 			forwardswitch = false;
 			pwmWrite(forward_gpio, 0);
+			pwmswitch = 0;
 			delay(std_d);
 		}
 
@@ -258,6 +262,7 @@ void right()
 		{
 			backwardswitch = false;
 			digitalWrite(backward_gpio, 0);
+			pwmswitch = 0;
 			delay(std_d);
 		}
 
