@@ -84,7 +84,7 @@ void forward()
 void backward()
 {
 	pwmswitch -= 10;
-	if(pwmswitch > -100)
+	if(pwmswitch < -100)
 	{
 		pwmswitch = -100;
 	}
