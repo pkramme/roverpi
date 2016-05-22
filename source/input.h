@@ -26,7 +26,7 @@ bool cameraleftswitch = false;
 #define camera_y_left_gpio 8
 #define camera_y_right_gpio 9
 
-int pwmswitch = 0;
+int y_pwmswitch = 0;
 
 #define std_d 10//standart delay in ms
 
@@ -36,7 +36,7 @@ void mv_killall()
 	forwardswitch = false;
 	pwmWrite(backward_gpio, 0);
 	backwardswitch = false;
-	pwmswitch = 0;
+	y_pwmswitch = 0;
 
 	if(leftswitch == true)
 	{
@@ -76,29 +76,29 @@ void killall()
 
 void forward()
 {
-	pwmswitch += 100;
-	if(pwmswitch >= 1000)
+	y_pwmswitch += 100;
+	if(y_pwmswitch >= 1000)
 	{
-		pwmswitch = 1000;
+		y_pwmswitch = 1000;
 	}
 }
 
 void backward()
 {
-	pwmswitch -= 100;
-	if(pwmswitch <= -1000)
+	y_pwmswitch -= 100;
+	if(y_pwmswitch <= -1000)
 	{
-		pwmswitch = -1000;
+		y_pwmswitch = -1000;
 	}
 }
 
 void x_move()
 {
-	if(pwmswitch > 0)
+	if(y_pwmswitch > 0)
 	{
 		if(rightswitch == false && leftswitch == false)
 		{
-			pwmWrite(forward_gpio, pwmswitch);
+			pwmWrite(forward_gpio, y_pwmswitch);
 			pwmWrite(backward_gpio, 0);
 			forwardswitch = true;
 		}
@@ -119,11 +119,11 @@ void x_move()
 			}
 		}
 	}
-	else if(pwmswitch < 0)
+	else if(y_pwmswitch < 0)
 	{
 		if(rightswitch == false && leftswitch == false)
 		{
-			pwmWrite(backward_gpio, pwmswitch*(-1));//unsigned int in wiringPi class needs inverted negative int input...
+			pwmWrite(backward_gpio, y_pwmswitch*(-1));//unsigned int in wiringPi class needs inverted negative int input...
 			pwmWrite(forward_gpio, 0);
 			backwardswitch = true;
 		}
@@ -144,7 +144,7 @@ void x_move()
 			}
 		}
 	}
-	else if(pwmswitch == 0)
+	else if(y_pwmswitch == 0)
 	{
 		pwmWrite(forward_gpio, 0);
 		pwmWrite(backward_gpio, 0);
@@ -159,7 +159,7 @@ void left()
 		{
 			forwardswitch = false;
 			pwmWrite(forward_gpio, 0);
-			pwmswitch = 0;
+			y_pwmswitch = 0;
 			delay(std_d);
 		}
 
@@ -167,7 +167,7 @@ void left()
 		{
 			backwardswitch = false;
 			digitalWrite(backward_gpio, 0);
-			pwmswitch = 0;
+			y_pwmswitch = 0;
 			delay(std_d);
 		}
 
@@ -198,7 +198,7 @@ void right()
 		{
 			forwardswitch = false;
 			pwmWrite(forward_gpio, 0);
-			pwmswitch = 0;
+			y_pwmswitch = 0;
 			delay(std_d);
 		}
 
@@ -206,7 +206,7 @@ void right()
 		{
 			backwardswitch = false;
 			digitalWrite(backward_gpio, 0);
-			pwmswitch = 0;
+			y_pwmswitch = 0;
 			delay(std_d);
 		}
 
