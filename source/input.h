@@ -32,23 +32,16 @@ int x_pwmswitch = 0;
 
 void mv_killall()
 {
-	pwmWrite(forward_gpio, 0);
-	forwardswitch = false;
-	pwmWrite(backward_gpio, 0);
-	backwardswitch = false;
+	pwmWrite(left_gpio, 0);
+	leftswitch = false;
+	pwmWrite(right_gpio, 0);
+	rightswitch = false;
 	x_pwmswitch = 0;
 
-	if(leftswitch == true)
+	if(forwardswitch == true)
 	{
-		leftswitch = false;
-		digitalWrite(left_gpio, 0);
-		delay(std_d);
-	}
-
-	if(rightswitch == true)
-	{
-		rightswitch = false;
-		digitalWrite(right_gpio, 0);
+		forwardswitch = false;
+		digitalWrite(forward_gpio, 0);
 		delay(std_d);
 	}
 
@@ -176,6 +169,7 @@ void x_move()
 			pwmWrite(left_gpio, x_pwmswitch);
 			pwmWrite(right_gpio, 0);
 			leftswitch = true;
+			mvprintw(0,0,"LEFT SPEED %d",x_pwmswitch);
 		}
 		else
 		{
@@ -201,6 +195,7 @@ void x_move()
 			pwmWrite(right_gpio, x_pwmswitch*(-1));//unsigned int in wiringPi class needs inverted negative int input...
 			pwmWrite(left_gpio, 0);
 			rightswitch = true;
+			mvprintw(0,0,"RIGHT SPEED %d", x_pwmswitch);
 		}
 		else
 		{
