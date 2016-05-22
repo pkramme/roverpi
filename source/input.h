@@ -26,7 +26,7 @@ bool cameraleftswitch = false;
 #define camera_y_left_gpio 8
 #define camera_y_right_gpio 9
 
-int y_pwmswitch = 0;
+int x_pwmswitch = 0;
 
 #define std_d 10//standart delay in ms
 
@@ -36,7 +36,7 @@ void mv_killall()
 	forwardswitch = false;
 	pwmWrite(backward_gpio, 0);
 	backwardswitch = false;
-	y_pwmswitch = 0;
+	x_pwmswitch = 0;
 
 	if(leftswitch == true)
 	{
@@ -76,137 +76,12 @@ void killall()
 
 void forward()
 {
-	y_pwmswitch += 100;
-	if(y_pwmswitch >= 1000)
+	if(forwardswitch == false)
 	{
-		y_pwmswitch = 1000;
-	}
-}
-
-void backward()
-{
-	y_pwmswitch -= 100;
-	if(y_pwmswitch <= -1000)
-	{
-		y_pwmswitch = -1000;
-	}
-}
-
-void x_move()
-{
-	if(y_pwmswitch > 0)
-	{
-		if(rightswitch == false && leftswitch == false)
-		{
-			pwmWrite(forward_gpio, y_pwmswitch);
-			pwmWrite(backward_gpio, 0);
-			forwardswitch = true;
-		}
-		else
-		{
-			if(rightswitch == true)
-			{
-				rightswitch = false;
-				digitalWrite(right_gpio, 0);
-				delay(std_d);
-			}
-
-			if(leftswitch == true)
-			{
-				leftswitch = false;
-				digitalWrite(left_gpio, 0);
-				delay(std_d);
-			}
-		}
-	}
-	else if(y_pwmswitch < 0)
-	{
-		if(rightswitch == false && leftswitch == false)
-		{
-			pwmWrite(backward_gpio, y_pwmswitch*(-1));//unsigned int in wiringPi class needs inverted negative int input...
-			pwmWrite(forward_gpio, 0);
-			backwardswitch = true;
-		}
-		else
-		{
-			if(rightswitch == true)
-			{
-				rightswitch = false;
-				digitalWrite(right_gpio, 0);
-				delay(std_d);
-			}
-
-			if(leftswitch == true)
-			{
-				leftswitch = false;
-				digitalWrite(left_gpio, 0);
-				delay(std_d);
-			}
-		}
-	}
-	else if(y_pwmswitch == 0)
-	{
-		pwmWrite(forward_gpio, 0);
-		pwmWrite(backward_gpio, 0);
-	}
-}
-
-void left()
-{
-	if(leftswitch == false)
-	{
-		if(forwardswitch == true)
-		{
-			forwardswitch = false;
-			pwmWrite(forward_gpio, 0);
-			y_pwmswitch = 0;
-			delay(std_d);
-		}
-
 		if(backwardswitch == true)
 		{
 			backwardswitch = false;
 			digitalWrite(backward_gpio, 0);
-			y_pwmswitch = 0;
-			delay(std_d);
-		}
-
-		if(rightswitch == true)
-		{
-			rightswitch = false;
-			digitalWrite(right_gpio, 0);
-			delay(std_d);
-		}
-
-		leftswitch = true;
-		digitalWrite(left_gpio, 1);
-		delay(std_d);
-
-		printw("LEFT");
-	}
-	else
-	{
-		mv_killall();
-	}
-}
-
-void right()
-{
-	if(rightswitch == false)
-	{
-		if(forwardswitch == true)
-		{
-			forwardswitch = false;
-			pwmWrite(forward_gpio, 0);
-			y_pwmswitch = 0;
-			delay(std_d);
-		}
-
-		if(backwardswitch == true)
-		{
-			backwardswitch = false;
-			digitalWrite(backward_gpio, 0);
-			y_pwmswitch = 0;
 			delay(std_d);
 		}
 
@@ -217,15 +92,139 @@ void right()
 			delay(std_d);
 		}
 
-		rightswitch = true;
-		digitalWrite(right_gpio, 1);
+		if(rightswitch == true)
+		{
+			rightswitch = false;
+			digitalWrite(right_gpio, 0);
+			delay(std_d);
+		}
+
+		forwardswitch = true;
+		digitalWrite(forward_gpio, 1);
 		delay(std_d);
 
-		printw("RIGHT");
+		printw("FORWARD");
 	}
 	else
 	{
 		mv_killall();
+	}
+}
+
+void backward()
+{
+	if(backwardswitch == false)
+	{
+		if(forwardswitch == true)
+		{
+			forwardswitch = false;
+			digitalWrite(forward_gpio, 0);
+			delay(std_d);
+		}
+
+		if(leftswitch == true)
+		{
+			leftswitch = false;
+			digitalWrite(left_gpio, 0);
+			delay(std_d);
+		}
+
+		if(rightswitch == true)
+		{
+			rightswitch = false;
+			digitalWrite(right_gpio, 0);
+			delay(std_d);
+		}
+
+		backwardswitch = true;
+		digitalWrite(backward_gpio, 1);
+		delay(std_d);
+
+		printw("BACKWARD");
+	}
+	else
+	{
+		mv_killall();
+	}
+}
+
+
+void left()
+{
+	x_pwmswitch += 100;
+	if(x_pwmswitch >= 1000)
+	{
+		x_pwmswitch = 1000;
+	}
+}
+
+void right()
+{
+	x_pwmswitch -= 100;
+	if(x_pwmswitch <= -1000)
+	{
+		x_pwmswitch = -1000;
+	}
+}
+
+void x_move()
+{
+	if(x_pwmswitch > 0)
+	{
+		if(forwardswitch == false && backwardswitch == false)
+		{
+			pwmWrite(left_gpio, x_pwmswitch);
+			pwmWrite(right_gpio, 0);
+			leftswitch = true;
+		}
+		else
+		{
+			if(forwardswitch == true)
+			{
+				forwardswitch = false;
+				digitalWrite(forward_gpio, 0);
+				delay(std_d);
+			}
+
+			if(backwardswitch == true)
+			{
+				backwardswitch = false;
+				digitalWrite(backward_gpio, 0);
+				delay(std_d);
+			}
+		}
+	}
+	else if(x_pwmswitch < 0)
+	{
+		if(forwardswitch == false && backwardswitch == false)
+		{
+			pwmWrite(right_gpio, x_pwmswitch*(-1));//unsigned int in wiringPi class needs inverted negative int input...
+			pwmWrite(left_gpio, 0);
+			rightswitch = true;
+		}
+		else
+		{
+			if(forwardswitch == true)
+			{
+				forwardswitch = false;
+				digitalWrite(forward_gpio, 0);
+				delay(std_d);
+			}
+
+			if(backwardswitch == true)
+			{
+				backwardswitch = false;
+				digitalWrite(backward_gpio, 0);
+				delay(std_d);
+			}
+		}
+	}
+	else if(x_pwmswitch == 0)
+	{
+		pwmWrite(left_gpio, 0);
+		leftswitch = false;
+		pwmWrite(right_gpio, 0);
+		rightswitch = false;
 	}
 }
 
