@@ -81,14 +81,14 @@ void forward()
 		if(leftswitch == true)
 		{
 			leftswitch = false;
-			digitalWrite(left_gpio, 0);
+			pwmWrite(left_gpio, 0);
 			delay(std_d);
 		}
 
 		if(rightswitch == true)
 		{
 			rightswitch = false;
-			digitalWrite(right_gpio, 0);
+			pwmWrite(right_gpio, 0);
 			delay(std_d);
 		}
 
@@ -118,14 +118,14 @@ void backward()
 		if(leftswitch == true)
 		{
 			leftswitch = false;
-			digitalWrite(left_gpio, 0);
+			pwmWrite(left_gpio, 0);
 			delay(std_d);
 		}
 
 		if(rightswitch == true)
 		{
 			rightswitch = false;
-			digitalWrite(right_gpio, 0);
+			pwmWrite(right_gpio, 0);
 			delay(std_d);
 		}
 
