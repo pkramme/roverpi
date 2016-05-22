@@ -17,8 +17,8 @@ bool cameraleftswitch = false;
 //GPIO pins
 #define forward_gpio 0
 #define backward_gpio 1
-#define right_gpio 2
-#define left_gpio 3
+#define right_gpio 26
+#define left_gpio 23
 #define light_front 4
 #define light_ground 5
 #define camera_x_down_gpio 6
@@ -26,28 +26,22 @@ bool cameraleftswitch = false;
 #define camera_y_left_gpio 8
 #define camera_y_right_gpio 9
 
+int x_pwmswitch = 0;
+
 #define std_d 10//standart delay in ms
 
 void mv_killall()
 {
+	pwmWrite(left_gpio, 0);
+	leftswitch = false;
+	pwmWrite(right_gpio, 0);
+	rightswitch = false;
+	x_pwmswitch = 0;
+
 	if(forwardswitch == true)
 	{
 		forwardswitch = false;
 		digitalWrite(forward_gpio, 0);
-		delay(std_d);
-	}
-
-	if(leftswitch == true)
-	{
-		leftswitch = false;
-		digitalWrite(left_gpio, 0);
-		delay(std_d);
-	}
-
-	if(rightswitch == true)
-	{
-		rightswitch = false;
-		digitalWrite(right_gpio, 0);
 		delay(std_d);
 	}
 
@@ -87,15 +81,17 @@ void forward()
 		if(leftswitch == true)
 		{
 			leftswitch = false;
-			digitalWrite(left_gpio, 0);
+			pwmWrite(left_gpio, 0);
 			delay(std_d);
+			x_pwmswitch = 0;
 		}
 
 		if(rightswitch == true)
 		{
 			rightswitch = false;
-			digitalWrite(right_gpio, 0);
+			pwmWrite(right_gpio, 0);
 			delay(std_d);
+			x_pwmswitch = 0;
 		}
 
 		forwardswitch = true;
@@ -124,15 +120,17 @@ void backward()
 		if(leftswitch == true)
 		{
 			leftswitch = false;
-			digitalWrite(left_gpio, 0);
+			pwmWrite(left_gpio, 0);
 			delay(std_d);
+			x_pwmswitch = 0;
 		}
 
 		if(rightswitch == true)
 		{
 			rightswitch = false;
-			digitalWrite(right_gpio, 0);
+			pwmWrite(right_gpio, 0);
 			delay(std_d);
+			x_pwmswitch = 0;
 		}
 
 		backwardswitch = true;
@@ -147,77 +145,85 @@ void backward()
 	}
 }
 
+
 void left()
 {
-	if(leftswitch == false)
+	x_pwmswitch += 100;
+	if(x_pwmswitch >= 1000)
 	{
-		if(forwardswitch == true)
-		{
-			forwardswitch = false;
-			digitalWrite(forward_gpio, 0);
-			delay(std_d);
-		}
-
-		if(backwardswitch == true)
-		{
-			backwardswitch = false;
-			digitalWrite(backward_gpio, 0);
-			delay(std_d);
-		}
-
-		if(rightswitch == true)
-		{
-			rightswitch = false;
-			digitalWrite(right_gpio, 0);
-			delay(std_d);
-		}
-
-		leftswitch = true;
-		digitalWrite(left_gpio, 1);
-		delay(std_d);
-
-		printw("LEFT");
-	}
-	else
-	{
-		mv_killall();
+		x_pwmswitch = 1000;
 	}
 }
 
 void right()
 {
-	if(rightswitch == false)
+	x_pwmswitch -= 100;
+	if(x_pwmswitch <= -1000)
 	{
-		if(forwardswitch == true)
-		{
-			forwardswitch = false;
-			digitalWrite(forward_gpio, 0);
-			delay(std_d);
-		}
-
-		if(backwardswitch == true)
-		{
-			backwardswitch = false;
-			digitalWrite(backward_gpio, 0);
-			delay(std_d);
-		}
-
-		if(leftswitch == true)
-		{
-			leftswitch = false;
-			digitalWrite(left_gpio, 0);
-			delay(std_d);
-		}
-
-		rightswitch = true;
-		digitalWrite(right_gpio, 1);
-		delay(std_d);
-
-		printw("RIGHT");
+		x_pwmswitch = -1000;
 	}
-	else
+}
+
+void x_move()
+{
+	if(x_pwmswitch > 0)
 	{
-		mv_killall();
+		if(forwardswitch == false && backwardswitch == false)
+		{
+			pwmWrite(left_gpio, x_pwmswitch);
+			pwmWrite(right_gpio, 0);
+			leftswitch = true;
+			mvprintw(0,0,"LEFT SPEED %d",x_pwmswitch);
+		}
+		else
+		{
+			if(forwardswitch == true)
+			{
+				forwardswitch = false;
+				digitalWrite(forward_gpio, 0);
+				delay(std_d);
+			}
+
+			if(backwardswitch == true)
+			{
+				backwardswitch = false;
+				digitalWrite(backward_gpio, 0);
+				delay(std_d);
+			}
+		}
+	}
+	else if(x_pwmswitch < 0)
+	{
+		if(forwardswitch == false && backwardswitch == false)
+		{
+			pwmWrite(right_gpio, x_pwmswitch*(-1));//unsigned int in wiringPi class needs inverted negative int input...
+			pwmWrite(left_gpio, 0);
+			rightswitch = true;
+			mvprintw(0,0,"RIGHT SPEED %d", x_pwmswitch);
+		}
+		else
+		{
+			if(forwardswitch == true)
+			{
+				forwardswitch = false;
+				digitalWrite(forward_gpio, 0);
+				delay(std_d);
+			}
+
+			if(backwardswitch == true)
+			{
+				backwardswitch = false;
+				digitalWrite(backward_gpio, 0);
+				delay(std_d);
+			}
+		}
+	}
+	else if(x_pwmswitch == 0)
+	{
+		pwmWrite(left_gpio, 0);
+		leftswitch = false;
+		pwmWrite(right_gpio, 0);
+		rightswitch = false;
 	}
 }
 
@@ -334,8 +340,8 @@ void input()
 	wiringPiSetup();
 	pinMode(forward_gpio, OUTPUT);
 	pinMode(backward_gpio, OUTPUT);
-	pinMode(right_gpio, OUTPUT);
-	pinMode(left_gpio, OUTPUT);
+	pinMode(right_gpio, PWM_OUTPUT);
+	pinMode(left_gpio, PWM_OUTPUT);
 	pinMode(light_front, OUTPUT);
 	pinMode(light_ground, OUTPUT);
 	pinMode(camera_x_up_gpio, OUTPUT);
@@ -368,9 +374,12 @@ void input()
 				right();
 				break;
 			case 'e':
-				front_light();
+				mv_killall();
 				break;
 			case 'r':
+				front_light();
+				break;
+			case 't':
 				ground_light();
 				break;
 			case 'u':
@@ -393,5 +402,6 @@ void input()
 				std::exit(EXIT_SUCCESS);
 		}
 		refresh();
+		x_move();
 	}
 }

@@ -1,10 +1,15 @@
 #!/bin/bash
+<<<<<<< HEAD
+printf "ROVERPI INSTALL SCRIPT starting\n"
+=======
 printf "ROVERPI INSTALL SCRIPT starting"
+>>>>>>> master
 printf "Installing nessesary dependecies...\n"
 apt-get update
 apt-get install ncurses-dev
 apt-get install git
 apt-get install clang
+apt-get install libboost-all-dev
 printf "... done.\n"
 
 printf "Copying update_roverpi.sh to home folder\n"
@@ -21,7 +26,7 @@ printf "... done.\n"
 
 printf "Building roverpi...\n"
 cd
-cd roverpi/source
+cd /home/pi/roverpi/source
 ./compiler.sh
 printf "... done.\n"
 printf "run\n\nsudo cp roverpi /usr/bin/\n\nto use 'sudo roverpi' to start roverpi.\n"
