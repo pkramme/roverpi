@@ -339,10 +339,10 @@ void camera_right()
 void input()
 {
 	wiringPiSetup();
-	pinMode(forward_gpio, PWM_OUTPUT);
-	pinMode(backward_gpio, PWM_OUTPUT);
-	pinMode(right_gpio, OUTPUT);
-	pinMode(left_gpio, OUTPUT);
+	pinMode(forward_gpio, OUTPUT);
+	pinMode(backward_gpio, OUTPUT);
+	pinMode(right_gpio, PWM_OUTPUT);
+	pinMode(left_gpio, PWM_OUTPUT);
 	pinMode(light_front, OUTPUT);
 	pinMode(light_ground, OUTPUT);
 	pinMode(camera_x_up_gpio, OUTPUT);
