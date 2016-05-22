@@ -1,5 +1,5 @@
 #!/bin/bash
-printf "ROVERPI INSTALL SCRIPT starting"
+printf "ROVERPI INSTALL SCRIPT starting\n"
 printf "Installing nessesary dependecies...\n"
 apt-get update
 apt-get install ncurses-dev
@@ -22,7 +22,7 @@ printf "... done.\n"
 
 printf "Building roverpi...\n"
 cd
-cd roverpi/source
+cd /home/pi/roverpi/source
 ./compiler.sh
 printf "... done.\n"
 printf "run\n\nsudo cp roverpi /usr/bin/\n\nto use 'sudo roverpi' to start roverpi.\n"
