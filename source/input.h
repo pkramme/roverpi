@@ -83,6 +83,7 @@ void forward()
 			leftswitch = false;
 			pwmWrite(left_gpio, 0);
 			delay(std_d);
+			x_pwmswitch = 0;
 		}
 
 		if(rightswitch == true)
@@ -90,6 +91,7 @@ void forward()
 			rightswitch = false;
 			pwmWrite(right_gpio, 0);
 			delay(std_d);
+			x_pwmswitch = 0;
 		}
 
 		forwardswitch = true;
@@ -120,6 +122,7 @@ void backward()
 			leftswitch = false;
 			pwmWrite(left_gpio, 0);
 			delay(std_d);
+			x_pwmswitch = 0;
 		}
 
 		if(rightswitch == true)
@@ -127,6 +130,7 @@ void backward()
 			rightswitch = false;
 			pwmWrite(right_gpio, 0);
 			delay(std_d);
+			x_pwmswitch = 0;
 		}
 
 		backwardswitch = true;
