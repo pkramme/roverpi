@@ -374,9 +374,12 @@ void input()
 				right();
 				break;
 			case 'e':
-				front_light();
+				mv_killall();
 				break;
 			case 'r':
+				front_light();
+				break;
+			case 't':
 				ground_light();
 				break;
 			case 'u':
