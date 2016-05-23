@@ -338,20 +338,20 @@ void camera_right()
 void helpmessage()
 {
 	mvprintw(0,0,"---HELPMESSAGE---");
-	mvprintw(0,1,"Movekeys");
-	mvprintw(1,2,"w - forward");
-	mvprintw(1,3,"a - left");
-	mvprintw(1,4,"s - backward");
-	mvprintw(1,5,"d - right");
-	mvprintw(1,6,"e - killall");
-	mvprintw(0,7,"Lightkeys");
-	mvprintw(1,8,"r - front light");
-	mvprintw(1,9,"t - ground light");
-	mvprintw(0,10,"Camera Movekeys");
-	mvprintw(1,11,"u - cam up");
-	mvprintw(1,12,"h - cam left");
-	mvprintw(1,13,"j - cam down");
-	mvprintw(1,14,"k - cam right");
+	mvprintw(1,0,"Movekeys");
+	mvprintw(2,1,"w - forward");
+	mvprintw(3,1,"a - left");
+	mvprintw(4,1,"s - backward");
+	mvprintw(5,1,"d - right");
+	mvprintw(6,1,"e - killall");
+	mvprintw(7,0,"Lightkeys");
+	mvprintw(8,1,"r - front light");
+	mvprintw(9,1,"t - ground light");
+	mvprintw(10,0,"Camera Movekeys");
+	mvprintw(11,1,"u - cam up");
+	mvprintw(12,1,"h - cam left");
+	mvprintw(13,1,"j - cam down");
+	mvprintw(14,1,"k - cam right");
 	refresh();
 }
 
