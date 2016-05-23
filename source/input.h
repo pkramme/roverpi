@@ -335,6 +335,26 @@ void camera_right()
 	}
 }
 
+void helpmessage()
+{
+	mvprintw(0,0,"---HELPMESSAGE---");
+	mvprintw(0,1,"Movekeys");
+	mvprintw(1,2,"w - forward");
+	mvprintw(1,3,"a - left");
+	mvprintw(1,4,"s - backward");
+	mvprintw(1,5,"d - right");
+	mvprintw(1,6,"e - killall");
+	mvprintw(0,7,"Lightkeys");
+	mvprintw(1,8,"r - front light");
+	mvprintw(1,9,"t - ground light");
+	mvprintw(0,10,"Camera Movekeys");
+	mvprintw(1,11,"u - cam up");
+	mvprintw(1,12,"h - cam left");
+	mvprintw(1,13,"j - cam down");
+	mvprintw(1,14,"k - cam right");
+	refresh();
+}
+
 void input()
 {
 	wiringPiSetup();
@@ -393,6 +413,9 @@ void input()
 				break;
 			case 'k':
 				camera_right();
+				break;
+			case 'i':
+				helpmessage();
 				break;
 			case 'q':
 				killall();
