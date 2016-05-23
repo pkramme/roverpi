@@ -1,9 +1,5 @@
 #!/bin/bash
-<<<<<<< HEAD
 printf "ROVERPI INSTALL SCRIPT starting\n"
-=======
-printf "ROVERPI INSTALL SCRIPT starting"
->>>>>>> master
 printf "Installing nessesary dependecies...\n"
 apt-get update
 apt-get install ncurses-dev
