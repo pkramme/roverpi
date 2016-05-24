@@ -381,46 +381,71 @@ void input()
 		switch(input_handler)
 		{
 			case 'w':
+			{
 				forward();
 				break;
+			}
 			case 's':
+			{
 				backward();
 				break;
+			}
 			case 'a':
+			{
 				left();
-				refresh();
 				break;
+			}
 			case 'd':
+			{
 				right();
 				break;
+			}
 			case 'e':
+			{
 				mv_killall();
 				break;
+			}
 			case 'r':
+			{
 				front_light();
 				break;
+			}
 			case 't':
+			{
 				ground_light();
 				break;
+			}
 			case 'u':
+			{
 				camera_up();
 				break;
+			}
 			case 'j':
+			{
 				camera_down();
 				break;
+			}
 			case 'h':
+			{
 				camera_left();
 				break;
+			}
 			case 'k':
+			{
 				camera_right();
 				break;
+			}
 			case 'i':
+			{
 				helpmessage();
 				break;
+			}
 			case 'q':
+			{
 				killall();
 				endwin();
 				std::exit(EXIT_SUCCESS);
+			}
 		}
 		refresh();
 		x_move();
