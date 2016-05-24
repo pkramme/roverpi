@@ -1,8 +1,16 @@
+//========================================
+//INCLUDE GUARD
+#ifndef __INPUT_H_INCLUDED__
+#define __INPUT_H_INCLUDED__
+//========================================
+//INCLUDE
 #include<iostream>
 #include<ncurses.h>
 #include<wiringPi.h>
 #include<cstdlib>
 
+//========================================
+//SWITCH DECLERATIONS
 bool forwardswitch = false;
 bool backwardswitch = false;
 bool leftswitch = false;
@@ -14,7 +22,8 @@ bool cameradownswitch = false;
 bool camerarightswitch = false;
 bool cameraleftswitch = false;
 
-//GPIO pins
+//========================================
+//GPIO PIN DECLERATIONS
 #define forward_gpio 0
 #define backward_gpio 1
 #define right_gpio 26
@@ -451,3 +460,4 @@ void input()
 		x_move();
 	}
 }
+#endif
