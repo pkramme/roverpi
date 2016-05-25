@@ -2,6 +2,7 @@
 //INCLUDE GUARD
 #ifndef __INPUT_H_INCLUDED__
 #define __INPUT_H_INCLUDED__
+
 //========================================
 //INCLUDE
 #include<iostream>
@@ -193,12 +194,16 @@ void x_move()
 				delay(std_d);
 			}
 
-			if(backwardswitch == true)
+			else if(backwardswitch == true)
 			{
 				backwardswitch = false;
 				digitalWrite(backward_gpio, 0);
 				delay(std_d);
 			}
+			pwmWrite(left_gpio, x_pwmswitch);
+			pwmWrite(right_gpio, 0);
+			leftswitch = true;
+			mvprintw(0,0,"LEFT SPEED %d",x_pwmswitch);
 		}
 	}
 	else if(x_pwmswitch < 0)
@@ -219,12 +224,16 @@ void x_move()
 				delay(std_d);
 			}
 
-			if(backwardswitch == true)
+			else if(backwardswitch == true)
 			{
 				backwardswitch = false;
 				digitalWrite(backward_gpio, 0);
 				delay(std_d);
 			}
+			pwmWrite(right_gpio, x_pwmswitch*(-1));
+			pwmWrite(left_gpio, 0);
+			rightswitch = true;
+			mvprintw(0,0,"RIGHT SPEED %d", x_pwmswitch);
 		}
 	}
 	else if(x_pwmswitch == 0)
