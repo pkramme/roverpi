@@ -1,6 +1,6 @@
 # RoverPi Project
 
-## Project requirements:
+## Project requirements
 - Controlling a few motors, lights and servos via GPIO
 - Controlling remotely, even via smartphone
 - Easy to use installation and update scripts
