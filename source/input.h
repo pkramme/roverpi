@@ -32,13 +32,13 @@ bool cameraleftswitch = false;
 #define light_front 4
 #define light_ground 5
 #define camera_x_down_gpio 6
-#define camera_x_up_gpio 27 //7 is lighted
+#define camera_x_up_gpio 27
 #define camera_y_left_gpio 8
 #define camera_y_right_gpio 9
 
 int x_pwmswitch = 0;
 
-#define std_d 10//standart delay in ms
+#define std_d 10//standard delay in ms
 
 void mv_killall()
 {
@@ -286,13 +286,13 @@ void camera_up()
 
 		cameraupswitch = true;
 		digitalWrite(camera_x_up_gpio, 1);
-		printw("CAMERA UP ROTATION ENGAGED");
+		printw("CAMERA UP ROTATION [ENGAGED]");
 	}
 	else
 	{
 		cameraupswitch = false;
 		digitalWrite(camera_x_up_gpio, 0);
-		printw("CAMERA UP ROTATION DISENGAGED");
+		printw("CAMERA UP ROTATION [DISENGAGED]");
 	}
 }
 
@@ -305,13 +305,13 @@ void camera_down()
 
 		cameradownswitch = true;
 		digitalWrite(camera_x_down_gpio, 1);
-		printw("CAMERA DOWN ROTATION ENGAGED");
+		printw("CAMERA DOWN ROTATION [ENGAGED]");
 	}
 	else
 	{
 		cameradownswitch = false;
 		digitalWrite(camera_x_down_gpio, 0);
-		printw("CAMERA DOWN ROTATION DISENGAGED");
+		printw("CAMERA DOWN ROTATION [DISENGAGED]");
 	}
 }
 
@@ -324,13 +324,13 @@ void camera_left()
 
 		cameraleftswitch = true;
 		digitalWrite(camera_y_left_gpio, 1);
-		printw("CAMERA LEFT ROTATION ENGAGED");
+		printw("CAMERA LEFT ROTATION [ENGAGED]");
 	}
 	else
 	{
 		cameraleftswitch = false;
 		digitalWrite(camera_y_left_gpio, 0);
-		printw("CAMERA LEFT ROTATION DISENGAGED");
+		printw("CAMERA LEFT ROTATION [DISENGAGED]");
 	}
 }
 
@@ -343,13 +343,13 @@ void camera_right()
 
 		camerarightswitch = true;
 		digitalWrite(camera_y_right_gpio, 1);
-		printw("CAMERA RIGHT ROTATION ENGAGED");
+		printw("CAMERA RIGHT ROTATION [ENGAGED]");
 	}
 	else
 	{
 		camerarightswitch = false;
 		digitalWrite(camera_y_right_gpio, 0);
-		printw("CAMERA RIGHT ROTATION DISENGAGED");
+		printw("CAMERA RIGHT ROTATION [DISENGAGED]");
 	}
 }
 
