@@ -22,6 +22,7 @@ bool cameraupswitch = false;
 bool cameradownswitch = false;
 bool camerarightswitch = false;
 bool cameraleftswitch = false;
+bool quitpinswitch = false;
 
 //========================================
 //GPIO PIN DECLERATIONS
@@ -35,6 +36,7 @@ bool cameraleftswitch = false;
 #define camera_x_up_gpio 27
 #define camera_y_left_gpio 8
 #define camera_y_right_gpio 9
+#define quitpin_gpio 10
 
 int x_pwmswitch = 0;
 
@@ -373,6 +375,15 @@ void helpmessage()
 	refresh();
 }
 
+void quitpin()
+{
+	quitpinswitch = true;
+	digitalWrite(quitpin_gpio, 1);
+	delay(50);
+	digitalWrite(quitpin_gpio, 0);
+	quitpinswitch = false;
+}
+
 void input()
 {
 	wiringPiSetup();
@@ -461,6 +472,7 @@ void input()
 			case 'q':
 			{
 				killall();
+				quitpin();
 				endwin();
 				std::exit(EXIT_SUCCESS);
 			}
