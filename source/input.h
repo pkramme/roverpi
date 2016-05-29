@@ -397,6 +397,7 @@ void input()
 	pinMode(camera_x_down_gpio, OUTPUT);
 	pinMode(camera_y_left_gpio, OUTPUT);
 	pinMode(camera_y_right_gpio, OUTPUT);
+	pinMode(quitpin_gpio, OUTPUT);
 	initscr();
 	raw();
 	noecho();
