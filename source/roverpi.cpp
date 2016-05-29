@@ -1,8 +1,19 @@
 #include"input.h"
+#include"version.h"
 
-int main()
+int main(int argc, char *argv[])
 {
-	std::cout << "ROVERPI SOFTWARE by Paul Kramme" << std::endl;
-	input();
+	if(argc == 1)
+	{
+		input();
+	}
+	else
+	{
+		switch((*argv)[1])
+		{
+			case '--version':
+				version();
+		}
+	}
 	return 0;
 }
