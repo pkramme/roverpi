@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 			std::cout << "s - backward" << std::endl;
 			std::cout << "d - right" << std::endl;
 			std::cout << "e - killall" << std::endl;
-			std::cout << "Lightkeys" std::endl;
+			std::cout << "Lightkeys" << std::endl;
 			std::cout << "r - front light" std::endl;
 			std::cout << "t - ground light" << std::endl;
 			std::cout << "Camera Movekeys" << std::endl;
