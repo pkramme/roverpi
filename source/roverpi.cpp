@@ -9,10 +9,10 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		switch((*argv)[1])
+		std::string argument1 = argv[1];
+		if(argument1 == "-v")
 		{
-			case '-v':
-				version();
+			version();
 		}
 	}
 	return 0;
