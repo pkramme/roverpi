@@ -75,14 +75,14 @@ if(digitalRead(right)==HIGH){
 
 
 if(counterx>axismaxx){
-  counterx= 170;}
+  counterx= axismaxx;}
 if(counterx<axisminx){
-  counterx= 10;}
+  counterx= axisminx;}
 
 if(countery>axismaxy){
-  countery= 170;}
+  countery= axismaxy;}
 if(countery<axisminy){
-  countery= 10;}
+  countery= axisminy;}
   
   ifreset();
   delay(del);
