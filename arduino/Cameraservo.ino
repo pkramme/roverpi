@@ -10,7 +10,7 @@ const int axismaxx=170;
 const int axisminx=10;
 const int axismaxy=170;
 const int axisminy=10;
-//10° - 170° Drehbereich
+//10° - 170° pivoting range
 
 const int up=9;
 const int down=8;
@@ -53,9 +53,6 @@ void setup() {
 }
 
 void loop() {
-//Serial.print(counter1);
-//Serial.print("\t");
-//Serial.println(counter2);
 
 MSx.write(counterx);
 MSy.write(countery);
