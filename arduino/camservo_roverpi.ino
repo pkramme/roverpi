@@ -1,85 +1,139 @@
 #include <Servo.h>
 
-Servo MS1;
-Servo MS2;
-int counter1;
-int counter2;
-//10° - 170° Drehbereich
+Servo MSx;
+Servo MSy;
 
-int del = 100;
-int schritte = 1;
+int counterx;
+int countery;
 
-//Defines here
+const int axismaxx = 170;
+const int axisminx = 10;
+const int axismaxy = 170;
+const int axisminy = 10;
+//10° - 170° pivoting range
+
+const int up = 9;
+const int down = 8;
+const int left = 7;
+const int right = 6;
+
+const int servox = 4;
+const int servoy = 3;
+
+const int reset = 10;
+
+const int del = 25;
+const int steps = 1;
+
+
+
 
 void setup()
 {
-	Serial.begin(9600);
-	MS1.attach(4);
-	MS2.attach(3);
-	counter1 = 90;
-	counter2 = 90;
-	pinMode(7, INPUT);
-	pinMode(6, INPUT);
+	//Serial.begin(9600); //For Serial communication
+	MSx.attach(servox);
+	MSy.attach(servoy);
+	counterx = 90;
+	countery = 90;
 
-	pinMode(9, INPUT);
-	pinMode(8, INPUT);
-	MS1.write(15);
-	MS2.write(15);
-	delay(300);
-	MS1.write(160);
-	MS2.write(160);
-	delay(500);
+	pinMode(up, INPUT);
+	pinMode(down, INPUT);
+	pinMode(left, INPUT);
+	pinMode(right, INPUT);
+	pinMode(reset, INPUT);
+
+ /* //Servotest
+ MSx.write(15);
+ MSy.write(15);
+ delay(300);
+ MSx.write(160);
+ MSy.write(160);
+ delay(500);
+ */
 }
 
 void loop()
 {
-	Serial.print(counter1);
-	Serial.print("\t");
-	Serial.println(counter2);
-	MS1.write(counter1);
-	MS2.write(counter2);
+	MSx.write(counterx);
+	MSy.write(countery);
 
-	if(digitalRead(7) == HIGH)
+	if(digitalRead(up) == HIGH)
 	{
-		counter1 = counter1 + schritte;
-		delay(del);
+		counterx += steps;
 	}
 
-	if(digitalRead(6) == HIGH)
+	if(digitalRead(down) == HIGH)
 	{
-		counter1 = counter1 - schritte;
-		delay(del);
+		counterx -= steps;
+  	}
+
+	if(digitalRead(left) == HIGH)
+	{
+		countery += steps;
 	}
 
-	if(digitalRead(9) == HIGH)
+	if(digitalRead(right) == HIGH)
 	{
-		counter2 = counter2 + schritte;
-		delay(del);
+		countery -= steps;
 	}
 
-	if(digitalRead(8) == HIGH)
+	if(counterx > axismaxx)
 	{
-		counter2 = counter2 - schritte;
-		delay(del);
+		counterx = axismaxx;
 	}
 
-	if(counter1 > 170)
+	if(counterx < axisminx)
 	{
-		counter1 = 170;
+		counterx = axisminx;
 	}
 
-	if(counter1 < 10)
+	if(countery > axismaxy)
 	{
-		counter1 = 10;
+		countery = axismaxy;
 	}
 
-	if(counter2 > 170)
+	if(countery < axisminy)
 	{
-		counter2 = 170;
+		countery = axisminy;
 	}
 
-	if(counter2 < 10)
+	ifreset();
+	delay(del);
+	ifreset();
+}
+
+void ifreset()
+{
+	if(digitalRead(reset) == HIGH)
 	{
-		counter2 = 10;
+		while((counterx != 90) || (countery != 90))
+		{
+			if(counterx < 90)
+			{
+				counterx++;
+				delay(del);
+			}
+
+			if(counterx > 90)
+			{
+				counterx--;
+				delay(del);
+			}
+
+			if(countery < 90)
+			{
+				countery++;
+				delay(del);
+			}
+
+			if(countery > 90)
+			{
+				countery--;
+				delay(del);
+			}
+
+			MSx.write(counterx);
+			MSy.write(countery);
+		}
 	}
 }
