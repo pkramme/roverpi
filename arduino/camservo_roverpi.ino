@@ -111,29 +111,26 @@ void ifreset()
 			if(counterx < 90)
 			{
 				counterx++;
-				delay(del);
 			}
 
 			if(counterx > 90)
 			{
 				counterx--;
-				delay(del);
 			}
 
 			if(countery < 90)
 			{
 				countery++;
-				delay(del);
 			}
 
 			if(countery > 90)
 			{
 				countery--;
-				delay(del);
 			}
 
 			MSx.write(counterx);
 			MSy.write(countery);
+			delay(del);
 		}
 	}
 }
