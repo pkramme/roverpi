@@ -6,7 +6,7 @@
 - Easy to use installation and update scripts
 - Easy to use remote control
 - Low latency
-- Stable connection, that goes through common errors like firewalls
+- Stable connection, that goes through common errors like firewalls.
 
 ## Project meets
 - C++ for speed and to harden knowledge
