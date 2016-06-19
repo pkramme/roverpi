@@ -24,18 +24,7 @@
 
 //========================================
 //WIRING PI SETUP
-wiringPiSetup();
-pinMode(forward_gpio, OUTPUT);
-pinMode(backward_gpio, OUTPUT);
-pinMode(right_gpio, PWM_OUTPUT);
-pinMode(left_gpio, PWM_OUTPUT);
-pinMode(light_front, OUTPUT);
-pinMode(light_ground, OUTPUT);
-pinMode(camera_x_up_gpio, OUTPUT);
-pinMode(camera_x_down_gpio, OUTPUT);
-pinMode(camera_y_left_gpio, OUTPUT);
-pinMode(camera_y_right_gpio, OUTPUT);
-pinMode(quitpin_gpio, OUTPUT);
+
 
 //========================================
 //SWITCH DECLERATIONS
@@ -399,6 +388,18 @@ void quitpin()
 
 void input()
 {
+	wiringPiSetup();
+	pinMode(forward_gpio, OUTPUT);
+	pinMode(backward_gpio, OUTPUT);
+	pinMode(right_gpio, PWM_OUTPUT);
+	pinMode(left_gpio, PWM_OUTPUT);
+	pinMode(light_front, OUTPUT);
+	pinMode(light_ground, OUTPUT);
+	pinMode(camera_x_up_gpio, OUTPUT);
+	pinMode(camera_x_down_gpio, OUTPUT);
+	pinMode(camera_y_left_gpio, OUTPUT);
+	pinMode(camera_y_right_gpio, OUTPUT);
+	pinMode(quitpin_gpio, OUTPUT);
 	initscr();
 	raw();
 	noecho();
