@@ -9,6 +9,7 @@
 #include<ncurses.h>
 #include<wiringPi.h>
 #include<cstdlib>
+#include"setup.h"
 
 #define forward_gpio 0
 #define backward_gpio 1
