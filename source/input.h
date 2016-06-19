@@ -9,8 +9,7 @@
 #include<ncurses.h>
 #include<wiringPi.h>
 #include<cstdlib>
-
-
+#include"setup.h"
 
 #define std_d 10//standard delay in ms
 
