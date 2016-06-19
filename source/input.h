@@ -10,6 +10,18 @@
 #include<wiringPi.h>
 #include<cstdlib>
 
+#define forward_gpio 0
+#define backward_gpio 1
+#define right_gpio 26
+#define left_gpio 23
+#define light_front 4
+#define light_ground 5
+#define camera_x_down_gpio 6
+#define camera_x_up_gpio 27
+#define camera_y_left_gpio 8
+#define camera_y_right_gpio 9
+#define quitpin_gpio 10
+
 //========================================
 //WIRING PI SETUP
 wiringPiSetup();
@@ -39,21 +51,7 @@ bool camerarightswitch = false;
 bool cameraleftswitch = false;
 bool quitpinswitch = false;
 
-
-#define forward_gpio 0
-#define backward_gpio 1
-#define right_gpio 26
-#define left_gpio 23
-#define light_front 4
-#define light_ground 5
-#define camera_x_down_gpio 6
-#define camera_x_up_gpio 27
-#define camera_y_left_gpio 8
-#define camera_y_right_gpio 9
-#define quitpin_gpio 10
-
 int x_pwmswitch = 0;
-
 
 #define std_d 10//standard delay in ms
 
