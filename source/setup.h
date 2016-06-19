@@ -30,8 +30,7 @@ bool camerarightswitch = false;
 bool cameraleftswitch = false;
 bool quitpinswitch = false;
 
-//========================================
-//GPIO PIN DECLERATIONS
+
 #define forward_gpio 0
 #define backward_gpio 1
 #define right_gpio 26
