@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<string.h>
+#include"test.h"
 
 int main(int argc, char *argv[])
 {
@@ -14,6 +15,7 @@ int main(int argc, char *argv[])
 		if(strcmp((argv)[1], "test") == 0)
 		{
 			printf("MODE: TEST MODE\n");
+			testinit();
 		}
 		else if(strcmp((argv)[1], "direct") == 0)
 		{
