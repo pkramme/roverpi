@@ -13,15 +13,19 @@ int main(int argc, char *argv[])
 	{	
 		if(strcmp((argv)[1], "test") == 0)
 		{
-			printf("TEST MODE\n");
+			printf("MODE: TEST MODE\n");
 		}
 		else if(strcmp((argv)[1], "direct") == 0)
 		{
-			printf("DIRECT MODE\n");
+			printf("MODE: DIRECT MODE\n");
 		}
 		else if(strcmp((argv)[1], "headless") == 0)
 		{
-			printf("HEADLESS MODE\n");
+			printf("MODE: HEADLESS MODE\n");
+		}
+		else if(strcmp((argv)[1], "remote") == 0)
+		{
+			printf("MODE: REMOTE MODE\n");
 		}
 		else
 		{
