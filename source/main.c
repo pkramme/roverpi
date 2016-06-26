@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
-			printf("choose a mode");
+			printf("Choose between 'direct', 'headless', 'remote' and 'test'");
 		}
 	}
 	return 0;
