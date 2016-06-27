@@ -29,9 +29,12 @@ int test()
 		printf("BCM2835 INITIALIZATION FAILED.\n");
 		return 1;
 	}
-	pin_test(PIN1, 3, 2000);
-	//add more
-	return 0;
+	else
+	{
+		pin_test(PIN1, 3, 2000);
+		//add more
+		return 0;
+	}
 }
 	
 void testinit()
