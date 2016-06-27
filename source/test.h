@@ -8,6 +8,7 @@
 
 void pin_test(char pin, int time, int delay)
 {
+	bcm2835_gpio_fsel(pin, BCM2835_GPIO_FSEL_OUTP);
 	int internalcounter = 0;
 	while(internalcounter <= time)
 	{
@@ -52,7 +53,7 @@ void testinit()
 	if(answer == 'y')
 	{
 		printf("EXECUTE TEST.\n");
-		setup();
+		//setup();
 		test();
 	}
 	else
