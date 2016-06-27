@@ -33,7 +33,7 @@ int test()
 	}
 	else
 	{
-		pin_test(PIN1, 3, 2000);
+		pin_test(RPI_GPIO_P1_11, 3, 2000);
 		//add more
 		bcm2835_close();
 		if(bcm2835_close() == 0)
