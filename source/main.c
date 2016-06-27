@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
-			printf("Choose between 'direct', 'headless', 'remote' and 'test'");
+			printf("Choose between 'direct', 'headless', 'remote' and 'test'\n");
 		}
 	}
 	return 0;
