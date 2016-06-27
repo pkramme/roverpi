@@ -24,7 +24,8 @@ void pin_test(char pin, int time, int delay)
 
 int test()
 {
-	if(!bcm2835_init())
+	bcm2835_init();
+	if(bcm2835_init() == 0)
 	{
 		printf("BCM2835 INITIALIZATION FAILED.\n");
 		return 1;
@@ -33,6 +34,11 @@ int test()
 	{
 		pin_test(PIN1, 3, 2000);
 		//add more
+		bcm2835_close();
+		if(bcm2835_close() == 0)
+		{
+			printf("BCM2835 CLOSING FAILED.\n");
+		}
 		return 0;
 	}
 }
