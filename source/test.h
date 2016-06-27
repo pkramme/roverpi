@@ -12,15 +12,15 @@ void pin_test(char pin, int time, int delay)
 	int internalcounter = 0;
 	while(internalcounter <= time)
 	{
-		printf("Activating %c in %d ", pin, time);
+		printf("Activating %c in %d \n", pin, time);
 		--time;
 		bcm2835_delay(1000);
 	}
-	printf("Activating %d", pin);
+	printf("Activating %d\n", pin);
 	bcm2835_gpio_write(pin, HIGH);
 	bcm2835_delay(delay);
 	bcm2835_gpio_write(pin, HIGH);
-	printf("Deactivated %d", pin);
+	printf("Deactivated %d\n", pin);
 }
 
 int test()
