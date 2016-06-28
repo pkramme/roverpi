@@ -17,6 +17,7 @@ void pin_test(char pin, int time, int delay)
 		bcm2835_delay(1000);
 	}
 	printf("Activating %d\n", pin);
+	bcm2835_gpio_fsel(pin, BCM2835_GPIO_FSEL_OUTP);
 	bcm2835_gpio_write(pin, HIGH);
 	bcm2835_delay(delay);
 	bcm2835_gpio_write(pin, HIGH);
