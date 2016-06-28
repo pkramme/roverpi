@@ -3,7 +3,7 @@
 
 #include<bcm2835.h>
 #include<stdio.h>
-#include"defines.h"
+//#include"defines.h"
 #include<string.h>
 
 void pin_test(char pin, int time, int delay)
@@ -33,7 +33,7 @@ int test()
 	}
 	else
 	{
-		pin_test(RPI_GPIO_P1_11, 3, 2000);
+		pin_test(RPI_GPIO_P1_17, 3, 2000);
 		//add more
 		bcm2835_close();
 		if(bcm2835_close() == 0)
