@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
 	printf("RoverPi Software v2\n");
 	if(argc != 2)
 	{
-		printf("USAGE: %s mode\n", argv[1]);
+		printf("USAGE: %s mode\n", argv[0]);
 		return 1;
 	}
 	else
