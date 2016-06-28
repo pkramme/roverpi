@@ -9,7 +9,7 @@
 
 void setup()
 {
-	bcm2835_gpio_fsel(PIN1, BCM2835_GPIO_FSEL_OUTP);
+	bcm2835_gpio_fsel(RPI_GPIO_P1_11, BCM2835_GPIO_FSEL_OUTP);
 }
 
 #endif
