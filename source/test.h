@@ -20,7 +20,7 @@ void pin_test(char pin, int time, int delay)
 	bcm2835_gpio_fsel(pin, BCM2835_GPIO_FSEL_OUTP);
 	bcm2835_gpio_write(pin, HIGH);
 	bcm2835_delay(delay);
-	bcm2835_gpio_write(pin, HIGH);
+	bcm2835_gpio_write(pin, LOW);
 	printf("Deactivated %d\n", pin);
 }
 
