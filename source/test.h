@@ -30,8 +30,12 @@ int test()
 	if(bcm2835_init() == 0)
 	{
 		printf("BCM2835 INITIALIZATION FAILED.\n");
+		printf("ABORTING.\n");
 		return 1;
 	}
+	if(bcm2835_init() == 1)
+	{
+		printf("BCM2835 INITIALIZATION SUCCESSFUL.\n");
 	else
 	{
 		pin_test(RPI_GPIO_P1_12, 3, 2000);
@@ -40,6 +44,10 @@ int test()
 		if(bcm2835_close() == 0)
 		{
 			printf("BCM2835 CLOSING FAILED.\n");
+		}
+		if(bcm2835_close() == 1)
+		{
+			prinft("BCM2835 CLOSING SUCCESSFUL.\n");
 		}
 		return 0;
 	}
