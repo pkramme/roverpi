@@ -15,7 +15,17 @@ int main(int argc, char *argv[])
 		if(strcmp((argv)[1], "test") == 0)
 		{
 			printf("MODE: TEST MODE\n");
-			testinit();
+			/*
+			if(strcmp((argv)[2], "override") == 0)
+			{
+				test();
+			}
+			else
+			{
+				testinit();
+			}
+			*/
+			testinit(); //REMOVE IF ABOVE BLOCK IS UNCOMMENTED!
 		}
 		else if(strcmp((argv)[1], "direct") == 0)
 		{

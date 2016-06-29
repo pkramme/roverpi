@@ -36,6 +36,7 @@ int test()
 	if(bcm2835_init() == 1)
 	{
 		printf("BCM2835 INITIALIZATION SUCCESSFUL.\n");
+	}
 	else
 	{
 		pin_test(RPI_GPIO_P1_12, 3, 2000);
@@ -47,7 +48,7 @@ int test()
 		}
 		if(bcm2835_close() == 1)
 		{
-			prinft("BCM2835 CLOSING SUCCESSFUL.\n");
+			printf("BCM2835 CLOSING SUCCESSFUL.\n");
 		}
 		return 0;
 	}
@@ -58,7 +59,7 @@ void testinit()
 	printf("TEST MODE INITIALISING\n");
 	printf("This test uses the Broadcom pin numberings.\nDo you want to continue?\n");
 	char answer;
-	scanf(" %c", &answer);
+	gets(answer);
 	if(answer == 'y')
 	{
 		printf("EXECUTE TEST.\n");
