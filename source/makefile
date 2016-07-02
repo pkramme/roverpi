@@ -1,3 +1,2 @@
 all:
-	clang main.c
-	valgrind ./a.out
+	clang main.c -l bcm2835
