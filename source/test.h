@@ -14,9 +14,9 @@ void pin_test(char pin, int time, int delay)
 	int internalcounter = 0;
 	while(internalcounter <= time)
 	{
-		printf("Activating %c in %d \n", pin, time);
-		--time;
+		printf("Activating a in %d\n", time);
 		bcm2835_delay(1000);
+		--time;
 	}
 	printf("Activating %d\n", pin);
 	bcm2835_gpio_fsel(pin, BCM2835_GPIO_FSEL_OUTP);
@@ -52,12 +52,12 @@ int test()
 		}
 		else
 		{
-			printf("UNKNOWN EXCEPTION.\n");
+			printf("UNKNOWN EXCEPTION AT CLOSING.\n");
 		}
 	}
 	else
 	{
-		printf("UNKNOWN EXCEPTION.\n");
+		printf("UNKNOWN EXCEPTION AT INIT.\n");
 	}
 	return 0;  
 }
@@ -65,7 +65,7 @@ int test()
 void testinit()
 {
 	printf("TEST MODE INITIALISING\n");
-	printf("This test uses the Broadcom pin numberings.\nDo you want to continue?\n");
+	printf("This test uses the Broadcom pin numberings.\nDo you want to continue? (yes/no)\n");
 	char answer[4];
 	char positiv[4] = "yes";
 	char negativ[3] = "no";
@@ -86,7 +86,7 @@ void testinit()
 	}
 	else
 	{
-		printf("TEST ABORTED\n");
+		printf("TEST ABORTED.\n");
 	}
 }
 
