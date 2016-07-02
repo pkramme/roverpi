@@ -14,7 +14,7 @@ void pin_test(char pin, int time, int delay)
 	int internalcounter = 0;
 	while(internalcounter <= time)
 	{
-		printf("Activating a in %d\n", time);
+		printf("Activating a pin in %d\n", time);
 		bcm2835_delay(1000);
 		--time;
 	}
