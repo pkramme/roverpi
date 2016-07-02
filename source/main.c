@@ -43,10 +43,12 @@ int main(int argc, char *argv[])
 		else if(strcmp((argv)[1], "--direct") == 0)
 		{
 			printf("MODE: DIRECT MODE\n");
+			direct_init();
 		}
 		else if(strcmp((argv)[1], "-d") == 0)
 		{
 			printf("MODE: DIRECT MODE\n");
+			direct_init();
 		}
 		
 		/*

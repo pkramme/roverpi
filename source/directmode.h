@@ -1,39 +1,69 @@
 #ifndef _DIRECTMODE_H_
-#define _DIRECTMODE_h_
+#define _DIRECTMODE_H_
+
+#include<bcm2835.h>
+#include<ncurses.h>
+
+void terminator()
+{
+	endwin();
+}
 
 void screen_setup()
 {
 	//ncursesinit here!
+	printf("NCURSES SETUP INITIATED");
+	initscr();
+	raw();
+	keypad(stdscr, TRUE);
+	noecho();
+	printw("NCURSES SETUP COMPLETE");
 }
 
-void setup()
+int input()
 {
-	//PINS HERE!
+	int input;
+	while(1)
+	{
+		input = getch();
+		switch(input)
+		{
+			case 'w':
+			{
+				printw("FORWARD");
+				refresh();
+				break;
+			}
+			case 'a':
+			{
+				printw("LEFT");
+				refresh();
+				break;
+			}
+
+			case 'q':
+			{
+				printw("QUIT");
+				refresh();
+				endwin();
+				return 0;
+				//terminator();
+			}
+		}
+	}
 }
 
-void forward
+
+void direct_init()
 {
-	//FORWARD
+	//pin_setup();
+	screen_setup();
+	input();
 }
-
-void backward()
+/*
+void terminator()
 {
-	//BACKWARD
+	endwin();
 }
-
-void left()
-{
-	//LEFT
-}
-
-void right()
-{
-	//RIGHT
-}
-
-void input()
-{
-	//INPUT LOOP HERE
-}
-
+*/
 #endif
