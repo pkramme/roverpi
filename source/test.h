@@ -8,13 +8,13 @@
 
 #define BCM2835_DEBUG_MODE_SWITCH 1
 
-void pin_test(char pin, int time, int delay)
+void pin_test(char mesg_name[256], char pin, int time, int delay)
 {
 	bcm2835_gpio_fsel(pin, BCM2835_GPIO_FSEL_OUTP);
 	int internalcounter = 0;
 	while(internalcounter <= time)
 	{
-		printf("Activating a pin in %d\n", time);
+		printf("Activating %s in %d\n", mesg_name, time);
 		bcm2835_delay(1000);
 		--time;
 	}
@@ -39,8 +39,8 @@ int test()
 	else if(bcm2835_init() == 1)
 	{
 		printf("BCM2835 INITIALIZATION SUCCESSFUL.\n");
-		pin_test(RPI_GPIO_P1_12, 3, 2000);
-		pin_test(RPI_GPIO_P1_11, 3, 2000);
+		pin_test("onepintorulethemall", RPI_GPIO_P1_12, 3, 2000);
+		pin_test("anotherpin", RPI_GPIO_P1_11, 3, 2000);
 		bcm2835_close();
 		if(bcm2835_close() == 0)
 		{
