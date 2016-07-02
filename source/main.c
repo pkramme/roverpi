@@ -1,3 +1,4 @@
+typedef enum { false, true } bool;
 #include<stdio.h>
 #include<string.h>
 #include"argument.h"
@@ -15,6 +16,9 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
+		arg1 = argv[1];
+		arg2 = argv[2];
+		arg3 = argv[3];
 		/*
 		TEST MODE ARG LINK
 		*/
