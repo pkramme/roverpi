@@ -50,8 +50,8 @@ int test()
 		{
 			printf("BCM2835 CLOSING SUCCESSFUL.\n");
 		}
-		return 0;
 	}
+	return 0;  
 }
 	
 void testinit()
@@ -59,7 +59,7 @@ void testinit()
 	printf("TEST MODE INITIALISING\n");
 	printf("This test uses the Broadcom pin numberings.\nDo you want to continue?\n");
 	char answer;
-	gets(answer);
+	gets(&answer);
 	if(answer == 'y')
 	{
 		printf("EXECUTE TEST.\n");
