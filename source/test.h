@@ -3,7 +3,6 @@
 
 #include<bcm2835.h>
 #include<stdio.h>
-//#include"defines.h"
 #include<string.h>
 
 #define BCM2835_DEBUG_MODE_SWITCH 1
