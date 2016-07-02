@@ -6,6 +6,8 @@
 //#include"defines.h"
 #include<string.h>
 
+#define BCM2835_DEBUG_MODE_SWITCH 1
+
 void pin_test(char pin, int time, int delay)
 {
 	bcm2835_gpio_fsel(pin, BCM2835_GPIO_FSEL_OUTP);
@@ -26,6 +28,7 @@ void pin_test(char pin, int time, int delay)
 
 int test()
 {
+	bcm2835_set_debug(BCM2835_DEBUG_MODE_SWITCH);
 	bcm2835_init();
 	if(bcm2835_init() == 0)
 	{
@@ -33,12 +36,9 @@ int test()
 		printf("ABORTING.\n");
 		return 1;
 	}
-	if(bcm2835_init() == 1)
+	else if(bcm2835_init() == 1)
 	{
 		printf("BCM2835 INITIALIZATION SUCCESSFUL.\n");
-	}
-	else
-	{
 		pin_test(RPI_GPIO_P1_12, 3, 2000);
 		pin_test(RPI_GPIO_P1_11, 3, 2000);
 		bcm2835_close();
@@ -46,10 +46,18 @@ int test()
 		{
 			printf("BCM2835 CLOSING FAILED.\n");
 		}
-		if(bcm2835_close() == 1)
+		else if(bcm2835_close() == 1)
 		{
 			printf("BCM2835 CLOSING SUCCESSFUL.\n");
 		}
+		else
+		{
+			printf("UNKNOWN EXCEPTION.\n");
+		}
+	}
+	else
+	{
+		printf("UNKNOWN EXCEPTION.\n");
 	}
 	return 0;  
 }
@@ -58,9 +66,19 @@ void testinit()
 {
 	printf("TEST MODE INITIALISING\n");
 	printf("This test uses the Broadcom pin numberings.\nDo you want to continue?\n");
-	char answer;
-	gets(&answer);
-	if(answer == 'y')
+	char answer[4];
+	char positiv[4] = "yes";
+	char negativ[3] = "no";
+	//gets(&answer); /*gets depreceated*/
+	if(fgets(answer, sizeof(answer), stdin))
+	{
+		/*DO NOTHING input worked*/
+	}
+	else
+	{
+		printf("INPUT FAILED.");
+	}
+	if(strcmp(answer, positiv) == 0)
 	{
 		printf("EXECUTE TEST.\n");
 		//setup();
