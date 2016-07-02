@@ -26,28 +26,30 @@ int input()
 	while(1)
 	{
 		input = getch();
+		clear();
 		switch(input)
 		{
 			case 'w':
 			{
-				printw("FORWARD");
-				refresh();
+				printw("FORWARD\n");
 				break;
 			}
 			case 'a':
 			{
-				printw("LEFT");
-				refresh();
+				printw("LEFT\n");
 				break;
 			}
 
 			case 'q':
 			{
-				printw("QUIT");
-				refresh();
+				clear();
 				endwin();
+				printf("QUIT\n");
 				return 0;
-				//terminator();
+			}
+			default:
+			{
+				printw("KEY ERROR");
 			}
 		}
 	}
@@ -60,10 +62,4 @@ void direct_init()
 	screen_setup();
 	input();
 }
-/*
-void terminator()
-{
-	endwin();
-}
-*/
 #endif
