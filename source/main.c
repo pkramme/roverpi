@@ -33,6 +33,7 @@ int main(int argc, char *argv[])
 		else if(strcmp((argv)[1], "-t") == 0)
 		{
 			printf("MODE: TEST MODE\n");
+			testinit();
 		}
 
 		/*
