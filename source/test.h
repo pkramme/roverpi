@@ -4,6 +4,7 @@
 #include<bcm2835.h>
 #include<stdio.h>
 #include<string.h>
+#include"move.h"
 
 #define BCM2835_DEBUG_MODE_SWITCH 1
 

@@ -3,6 +3,7 @@
 
 #include<bcm2835.h>
 #include<ncurses.h>
+#include"move.h"
 
 void terminator()
 {

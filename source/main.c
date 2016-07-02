@@ -2,6 +2,7 @@
 #include<string.h>
 #include"test.h"
 #include"directmode.h"
+#include"move.h"
 
 int main(int argc, char *argv[])
 {
@@ -12,11 +13,21 @@ int main(int argc, char *argv[])
 		return 1;
 	}
 	else
-	{	
+	{
+		char arg1[] = &argv[1];
+		char arg_test[] = "--test";
+		char arg_test_short[] = "-t";
+		char arg_direct[] = "--direct";
+		char arg_direct_short[] = "-d";
+		char arg_headless[] = "--headless";
+		char arg_headless_short[] = "-h";
+		char arg_remote[] = "--remote";
+		char arg_remote_short[] = "-r";
+		
 		/*
 		TEST MODE ARG LINK
 		*/
-		if(strcmp((argv)[1], "--test") == 0)
+		if(strcmp((argv)[1], arg_test) == 0)
 		{
 			printf("MODE: TEST MODE\n");
 			/*
@@ -31,7 +42,7 @@ int main(int argc, char *argv[])
 			*/
 			testinit(); //REMOVE IF ABOVE BLOCK IS UNCOMMENTED!
 		}
-		else if(strcmp((argv)[1], "-t") == 0)
+		else if(strcmp((argv)[1], arg_test_short) == 0)
 		{
 			printf("MODE: TEST MODE\n");
 			testinit();
@@ -40,12 +51,12 @@ int main(int argc, char *argv[])
 		/*
 		DIRECT MODE ARG LINK
 		*/
-		else if(strcmp((argv)[1], "--direct") == 0)
+		else if(strcmp((argv)[1], arg_direct) == 0)
 		{
 			printf("MODE: DIRECT MODE\n");
 			direct_init();
 		}
-		else if(strcmp((argv)[1], "-d") == 0)
+		else if(strcmp((argv)[1], arg_direct_short) == 0)
 		{
 			printf("MODE: DIRECT MODE\n");
 			direct_init();
@@ -54,11 +65,11 @@ int main(int argc, char *argv[])
 		/*
 		HEADLESS MODE ARG LINK
 		*/
-		else if(strcmp((argv)[1], "--headless") == 0)
+		else if(strcmp((argv)[1], arg_headless) == 0)
 		{
 			printf("MODE: HEADLESS MODE\n");
 		}
-		else if(strcmp((argv)[1], "-h") == 0)
+		else if(strcmp((argv)[1], arg_headless_short) == 0)
 		{
 			printf("MODE: HEADLESS MODE\n");
 		}
@@ -66,11 +77,11 @@ int main(int argc, char *argv[])
 		/*
 		REMOTE MODE ARG LINK
 		*/
-		else if(strcmp((argv)[1], "--remote") == 0)
+		else if(strcmp((argv)[1], arg_remote) == 0)
 		{
 			printf("MODE: REMOTE MODE\n");
 		}
-		else if(strcmp((argv)[1], "-r") == 0)
+		else if(strcmp((argv)[1], arg_remote_short) == 0)
 		{
 			printf("MODE: REMOTE MODE\n");
 		}
