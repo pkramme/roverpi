@@ -38,14 +38,18 @@ int test()
 	else if(bcm2835_init() == 1)
 	{
 		printf("BCM2835 INITIALIZATION SUCCESSFUL.\n");
+		/*
+		YOUR PINS FROM HERE...
+		*/
 		pin_test("onepintorulethemall", RPI_GPIO_P1_12, 3, 2000);
-		//pin_test("anotherpin", RPI_GPIO_P1_11, 3, 2000);
-		forward("init");
-		forward("switch");
-		forward("status");
-		forward("switch");
-		forward("status");
+		forward_set(1);
+		forward_status();
+		forward_set(0);
+		forward_status();
 
+		/*
+		...TO HERE.
+		*/
 		bcm2835_close();
 		if(bcm2835_close() == 0)
 		{

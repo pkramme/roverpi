@@ -21,6 +21,9 @@ char status_offline[] = "offline";
 int forward_state = 0;
 int forward_init = 1;
 
+//OLD CODE
+//DO NOT USE!
+/*
 void forward(char status[])
 {
 	//int state = 0;
@@ -156,10 +159,62 @@ void forward(char status[])
 		printf("EXCEPTION OCCURED: FORWARD ELSE CALLED");
 	}
 }
+*/
 
-void backward(char status[])
+void forward_set(int arg)
 {
-	//args
+	switch(arg)
+	{
+		case 2:
+		{
+			//printf("SWITCH MODE\n");
+			switch(forward_state)
+			{
+				case 0:
+				{
+					//printf("ACTIVATE\n");
+					bcm2835_gpio_write(forward_def, 0x1);
+					forward_state = 1;
+					break;
+				}
+				case 1:
+				{
+					//printf("DEACTIVATE\n");
+					bcm2835_gpio_write(forward_def, 0x0);
+					forward_state = 0;
+					break;
+				}
+			}
+			break;
+		}
+		case 0:
+		{
+			bcm2835_gpio_write(forward_def, 0x0);
+			forward_state = 0;
+			break;
+		}
+		case 1:
+		{
+			bcm2835_gpio_write(forward_def, 0x1);
+			forward_state = 1;
+			break;
+		}
+	}
 }
 
+int forward_status(void)
+{
+	switch(forward_state)
+	{
+		case 1:
+		{
+			return 1;
+		}
+		case 0:
+		{
+			return 0;
+		}
+	}
+	return 0;
+}
 #endif

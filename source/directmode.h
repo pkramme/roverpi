@@ -8,6 +8,8 @@
 int input()
 {
 	int input;
+	//bcm2835_init();
+	//bcm2835_set_debug(BCM2835_DEBUG_MODE_SWITCH);
 	while(1)
 	{
 		input = getch();
@@ -17,8 +19,21 @@ int input()
 			{
 				//setvbuf(stdout, NULL, _IOBLF, 0);
 				//forward("init");
-				forward("switch");
-				forward("status");
+				//forward("switch");
+				//forward("status");
+				forward_set(2);
+				if(forward_status() == 1)
+				{
+					printf("FORWARD ACTIVATED\n");
+				}
+				else if(forward_status() == 0)
+				{
+					printf("FORWARD DEACTIVATED\n");
+				}
+				else
+				{
+					printf("EXCEPTION OCCURED: FORWARD STATUS ELSE\n");
+				}
 				break;
 			}
 			case 'a':
@@ -30,6 +45,7 @@ int input()
 			case 'q':
 			{
 				printf("QUIT\n");
+				bcm2835_close();
 				return 0;
 			}
 			default:
@@ -43,7 +59,15 @@ int input()
 
 void direct_init()
 {
-	//pin_setup();
-	input();
+	bcm2835_set_debug(BCM2835_DEBUG_MODE_SWITCH);
+	if(!bcm2835_init())
+	{
+		printf("INITIALIZATION FAILED.\n");
+	}
+	else
+	{
+		//pin_setup();
+		input();
+	}
 }
 #endif
