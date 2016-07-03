@@ -1,3 +1,4 @@
+#define BCM2835_DEBUG_MODE_SWITCH 1
 typedef enum { false, true } bool;
 #include<stdio.h>
 #include<string.h>

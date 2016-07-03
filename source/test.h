@@ -6,7 +6,6 @@
 #include<string.h>
 #include"move.h"
 
-#define BCM2835_DEBUG_MODE_SWITCH 1
 
 void pin_test(char mesg_name[256], char pin, int time, int delay)
 {

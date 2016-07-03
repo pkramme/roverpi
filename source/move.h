@@ -127,7 +127,7 @@ void forward(char status[])
 		{
 			if(bcm2835_init() == 0)
 			{
-				bcm2835_set_debug(1);
+				bcm2835_set_debug(BCM2835_DEBUG_MODE_SWITCH);
 				bcm2835_init();
 				if(bcm2835_init() == 0)
 				{
