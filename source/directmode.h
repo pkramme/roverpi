@@ -50,7 +50,7 @@ int input()
 			}
 			default:
 			{
-				printf("KEY ERROR");
+				printf("KEY ERROR\n");
 			}
 		}
 	}
@@ -70,4 +70,5 @@ void direct_init()
 		input();
 	}
 }
+
 #endif

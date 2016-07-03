@@ -77,7 +77,6 @@ void testinit()
 	printf("This test uses the Broadcom pin numberings.\nDo you want to continue? (yes/no)\n");
 	char answer[4];
 	char positiv[4] = "yes";
-	char negativ[3] = "no";
 	//gets(&answer); /*gets depreceated*/
 	if(fgets(answer, sizeof(answer), stdin))
 	{

@@ -23,9 +23,10 @@ int forward_init = 1;
 
 //OLD CODE
 //DO NOT USE!
-/*
+
 void forward(char status[])
 {
+	printf("THE USE OF THIS FUNCTION IS DEPRECIATED. USE forward_set() INSTEAD\n");
 	//int state = 0;
 	//int init = 0;
 	if(strcmp(status, status_switch) == 0)
@@ -159,7 +160,6 @@ void forward(char status[])
 		printf("EXCEPTION OCCURED: FORWARD ELSE CALLED");
 	}
 }
-*/
 
 void forward_set(int arg)
 {
