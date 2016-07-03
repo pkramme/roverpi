@@ -3,6 +3,7 @@
 
 #include<bcm2835.h>
 #include"argument.h"
+#include<ncurses.h>
 
 #define forward_def RPI_GPIO_P1_16
 #define backward_def RPI_GPIO_P1_12
@@ -18,39 +19,39 @@ char status_init[] = "init";
 
 void forward(char status[])
 {
-	bool state = false;
-	bool init = false;
+	int state = 0;
+	int init = 0;
 	if(strcmp(status, status_online) == 0)
 	{
 		//SET ONLINE
-		state = true;
+		state = 1;
 		bcm2835_gpio_write(forward_def, 0x1);
 	}
 	else if(strcmp(status, status_offline) == 0)
 	{
 		//SET OFFLINE
-		state = false;
+		state = 0;
 		bcm2835_gpio_write(forward_def, 0x0);
 	}
 	else if(strcmp(status, status_status) == 0)
 	{
-		if(state == true)
+		if(state == 1)
 		{
 			if(strcmp(arg1, arg_test) == 0)
 			{
-				printf("FORWARD STATE: TRUE");
+				printf("FORWARD STATE: TRUE\n");
 			}
 			else if(strcmp(arg1, arg_test_short) == 0)
 			{
-				printf("FORWARD STATE: TRUE");
+				printf("FORWARD STATE: TRUE\n");
 			}
 			else if(strcmp(arg1, arg_direct) == 0)
 			{
-				printw("FORWARD STATE: TRUE");
+				printw("FORWARD STATE: TRUE\n");
 			}
 			else if(strcmp(arg1, arg_direct_short) == 0)
 			{
-				printw("FORWARD STATE: TRUE");
+				printw("FORWARD STATE: TRUE\n");
 			}
 			else if(strcmp(arg1, arg_headless) == 0)
 			{
@@ -62,34 +63,38 @@ void forward(char status[])
 			}
 			else if(strcmp(arg1, arg_remote) == 0)
 			{
-				printw("FORWARD STATE: TRUE");
+				printw("FORWARD STATE: TRUE\n");
 			}
 			else if(strcmp(arg1, arg_remote_short) == 0)
 			{
-				printw("FORWARD STATE: TRUE");
+				printw("FORWARD STATE: TRUE\n");
 			}
 			else
 			{
-				printf("EXCEPTION OCCURED: FORWARD ELSE ARG CALLED");
+				printf("EXCEPTION OCCURED: FORWARD ELSE ARG CALLED\n");
 			}
 		}
-		else if(state == false)
+		else if(state == 0)
 		{
 			printf("FORWARD STATE: FALSE");
 		}
 	}
 	else if(strcmp(status, status_init) == 0)
 	{
-		if(bcm2835_init() == 0)
+		if(init != 1)
 		{
-			bcm2835_init();
 			if(bcm2835_init() == 0)
 			{
-				printf("EXCEPTION OCCURED: ERROR INITIALIZING BCM2835");
+				bcm2835_set_debug(1);
+				bcm2835_init();
+				if(bcm2835_init() == 0)
+				{
+					printf("EXCEPTION OCCURED: ERROR INITIALIZING BCM2835");
+				}
 			}
+			bcm2835_gpio_fsel(forward_def, BCM2835_GPIO_FSEL_OUTP);
+			init = 1;
 		}
-		bcm2835_gpio_fsel(forward_def, BCM2835_GPIO_FSEL_OUTP);
-		init = true;
 	}
 	else
 	{

@@ -32,7 +32,9 @@ int input()
 		{
 			case 'w':
 			{
-				printw("FORWARD\n");
+				forward("init");
+				forward("online");
+				forward("status");
 				break;
 			}
 			case 'a':

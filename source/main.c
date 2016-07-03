@@ -4,7 +4,6 @@ typedef enum { false, true } bool;
 #include"argument.h"
 #include"test.h"
 #include"directmode.h"
-#include"move.h"
 
 int main(int argc, char *argv[])
 {
@@ -16,9 +15,12 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
+		/*
 		arg1 = argv[1];
 		arg2 = argv[2];
 		arg3 = argv[3];
+		*/
+		strcpy(arg1, argv[1]);
 		/*
 		TEST MODE ARG LINK
 		*/

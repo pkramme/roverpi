@@ -1,6 +1,10 @@
 #ifndef _ARGUMENT_H_
 #define _ARGUMENT_H_
 
+char arg1[256];
+char arg2[256];
+char arg3[256];
+
 char arg_test[] = "--test";
 char arg_test_short[] = "-t";
 char arg_direct[] = "--direct";
