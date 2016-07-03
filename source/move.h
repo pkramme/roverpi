@@ -12,8 +12,7 @@
 
 #define debug 1
 
-char status_online[] = "online";
-char status_offline[] = "offline";
+char status_switch[] = "switch";
 char status_status[] = "status";
 char status_init[] = "init";
 
@@ -23,18 +22,18 @@ void forward(char status[])
 {
 	//int state = 0;
 	int init = 0;
-	if(strcmp(status, status_online) == 0)
+	if(strcmp(status, status_switch) == 0)
 	{
-		//SET ONLINE
-		forward_state = 1;
-		//printf("%d", state);
-		bcm2835_gpio_write(forward_def, 0x1);
-	}
-	else if(strcmp(status, status_offline) == 0)
-	{
-		//SET OFFLINE
-		forward_state = 0;
-		bcm2835_gpio_write(forward_def, 0x0);
+		if(forward_state == 0)
+		{
+			forward_state = 1;
+			bcm2835_gpio_write(forward_def, 0x1);
+		}
+		else if(forward_state == 1)
+		{
+			forward_state = 0;
+			bcm2835_gpio_write(forward_def, 0x0);
+		}
 	}
 	else if(strcmp(status, status_status) == 0)
 	{
@@ -74,12 +73,48 @@ void forward(char status[])
 			}
 			else
 			{
-				printf("EXCEPTION OCCURED: FORWARD ELSE ARG CALLED\n");
+				printf("EXCEPTION OCCURED: FORWARD ELSE ARG CALLED (POS)\n");
 			}
 		}
 		else if(forward_state == 0)
 		{
-			printf("FORWARD STATE: FALSE");
+			if(strcmp(arg1, arg_test) == 0)
+                        {
+                                printf("FORWARD STATE: FALSE\n");
+                        }
+                        else if(strcmp(arg1, arg_test_short) == 0)
+                        {
+                                printf("FORWARD STATE: FALSE\n");
+                        }
+                        else if(strcmp(arg1, arg_direct) == 0)
+                        {
+                                printw("FORWARD STATE: FALSE\n");
+                        }
+                        else if(strcmp(arg1, arg_direct_short) == 0)
+                        {
+                                printw("FORWARD STATE: FALSE\n");
+                        }
+                        else if(strcmp(arg1, arg_headless) == 0)
+                        {
+                                //DO NOTHING.
+                        }
+                        else if(strcmp(arg1, arg_headless_short) == 0)
+                        {
+                                //DO NOTHING.
+                        }
+                        else if(strcmp(arg1, arg_remote) == 0)
+                        {
+                                printw("FORWARD STATE: FALSE\n");
+                        }
+                        else if(strcmp(arg1, arg_remote_short) == 0)
+                        {
+                                printw("FORWARD STATE: FALSE\n");
+                        }
+                        else
+                        {
+                                printf("EXCEPTION OCCURED: FORWARD ELSE ARG CALLED (NEG)\n");
+                        }
+
 		}
 		else
 		{

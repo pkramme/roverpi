@@ -42,9 +42,9 @@ int test()
 		pin_test("onepintorulethemall", RPI_GPIO_P1_12, 3, 2000);
 		//pin_test("anotherpin", RPI_GPIO_P1_11, 3, 2000);
 		forward("init");
-		forward("online");
+		forward("switch");
 		forward("status");
-		forward("offline");
+		forward("switch");
 		forward("status");
 
 		bcm2835_close();
