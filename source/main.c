@@ -21,10 +21,11 @@ int main(int argc, char *argv[])
 		arg3 = argv[3];
 		*/
 		strcpy(arg1, argv[1]);
+		printf("%s", arg1);
 		/*
 		TEST MODE ARG LINK
 		*/
-		if(strcmp((argv)[1], arg_test) == 0)
+		if(strcmp(arg1, arg_test) == 0)
 		{
 			printf("MODE: TEST MODE\n");
 			/*

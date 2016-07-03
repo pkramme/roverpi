@@ -17,25 +17,28 @@ char status_offline[] = "offline";
 char status_status[] = "status";
 char status_init[] = "init";
 
+int forward_state = 0;
+
 void forward(char status[])
 {
-	int state = 0;
+	//int state = 0;
 	int init = 0;
 	if(strcmp(status, status_online) == 0)
 	{
 		//SET ONLINE
-		state = 1;
+		forward_state = 1;
+		//printf("%d", state);
 		bcm2835_gpio_write(forward_def, 0x1);
 	}
 	else if(strcmp(status, status_offline) == 0)
 	{
 		//SET OFFLINE
-		state = 0;
+		forward_state = 0;
 		bcm2835_gpio_write(forward_def, 0x0);
 	}
 	else if(strcmp(status, status_status) == 0)
 	{
-		if(state == 1)
+		if(forward_state == 1)
 		{
 			if(strcmp(arg1, arg_test) == 0)
 			{
@@ -74,9 +77,13 @@ void forward(char status[])
 				printf("EXCEPTION OCCURED: FORWARD ELSE ARG CALLED\n");
 			}
 		}
-		else if(state == 0)
+		else if(forward_state == 0)
 		{
 			printf("FORWARD STATE: FALSE");
+		}
+		else
+		{
+			printf("EXCEPTION OCCURED: FORWARD STATE BOOL LEFT BINARY STATE");
 		}
 	}
 	else if(strcmp(status, status_init) == 0)

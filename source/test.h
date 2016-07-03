@@ -20,9 +20,9 @@ void pin_test(char mesg_name[256], char pin, int time, int delay)
 	}
 	printf("Activating %d\n", pin);
 	bcm2835_gpio_fsel(pin, BCM2835_GPIO_FSEL_OUTP);
-	bcm2835_gpio_write(pin, HIGH);
+	bcm2835_gpio_write(pin, 0x1);
 	bcm2835_delay(delay);
-	bcm2835_gpio_write(pin, LOW);
+	bcm2835_gpio_write(pin, 0x0);
 	printf("Deactivating %d\n", pin);
 }
 
@@ -40,7 +40,13 @@ int test()
 	{
 		printf("BCM2835 INITIALIZATION SUCCESSFUL.\n");
 		pin_test("onepintorulethemall", RPI_GPIO_P1_12, 3, 2000);
-		pin_test("anotherpin", RPI_GPIO_P1_11, 3, 2000);
+		//pin_test("anotherpin", RPI_GPIO_P1_11, 3, 2000);
+		forward("init");
+		forward("online");
+		forward("status");
+		forward("offline");
+		forward("status");
+
 		bcm2835_close();
 		if(bcm2835_close() == 0)
 		{
