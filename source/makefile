@@ -1,2 +1,2 @@
 all:
-	clang main.c -l bcm2835 -lncurses
+	clang main.c -l bcm2835

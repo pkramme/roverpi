@@ -2,24 +2,8 @@
 #define _DIRECTMODE_H_
 
 #include<bcm2835.h>
-#include<ncurses.h>
 #include"move.h"
-
-void terminator()
-{
-	endwin();
-}
-
-void screen_setup()
-{
-	//ncursesinit here!
-	printf("NCURSES SETUP INITIATED");
-	initscr();
-	raw();
-	keypad(stdscr, TRUE);
-	noecho();
-	printw("NCURSES SETUP COMPLETE");
-}
+#include"getch.h"
 
 int input()
 {
@@ -27,32 +11,30 @@ int input()
 	while(1)
 	{
 		input = getch();
-		clear();
 		switch(input)
 		{
 			case 'w':
 			{
-				forward("init");
-				forward("online");
+				//setvbuf(stdout, NULL, _IOBLF, 0);
+				//forward("init");
+				forward("switch");
 				forward("status");
 				break;
 			}
 			case 'a':
 			{
-				printw("LEFT\n");
+				printf("LEFT\n");
 				break;
 			}
 
 			case 'q':
 			{
-				clear();
-				endwin();
 				printf("QUIT\n");
 				return 0;
 			}
 			default:
 			{
-				printw("KEY ERROR");
+				printf("KEY ERROR");
 			}
 		}
 	}
@@ -62,7 +44,6 @@ int input()
 void direct_init()
 {
 	//pin_setup();
-	screen_setup();
 	input();
 }
 #endif

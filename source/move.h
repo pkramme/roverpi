@@ -3,7 +3,7 @@
 
 #include<bcm2835.h>
 #include"argument.h"
-#include<ncurses.h>
+//#include<ncurses.h>
 
 #define forward_def RPI_GPIO_P1_16
 #define backward_def RPI_GPIO_P1_12
@@ -15,13 +15,16 @@
 char status_switch[] = "switch";
 char status_status[] = "status";
 char status_init[] = "init";
+char status_online[] = "online";
+char status_offline[] = "offline";
 
 int forward_state = 0;
+int forward_init = 1;
 
 void forward(char status[])
 {
 	//int state = 0;
-	int init = 0;
+	//int init = 0;
 	if(strcmp(status, status_switch) == 0)
 	{
 		if(forward_state == 0)
@@ -34,6 +37,16 @@ void forward(char status[])
 			forward_state = 0;
 			bcm2835_gpio_write(forward_def, 0x0);
 		}
+	}
+	else if(strcmp(status, status_online) == 0)
+	{
+		forward_state = 1;
+		bcm2835_gpio_write(forward_def, 0x1);
+	}
+	else if(strcmp(status, status_offline) == 0)
+	{
+		forward_state = 0;
+		bcm2835_gpio_write(forward_def, 0x0);
 	}
 	else if(strcmp(status, status_status) == 0)
 	{
@@ -49,11 +62,11 @@ void forward(char status[])
 			}
 			else if(strcmp(arg1, arg_direct) == 0)
 			{
-				printw("FORWARD STATE: TRUE\n");
+				printf("FORWARD STATE: TRUE\n");
 			}
 			else if(strcmp(arg1, arg_direct_short) == 0)
 			{
-				printw("FORWARD STATE: TRUE\n");
+				printf("FORWARD STATE: TRUE\n");
 			}
 			else if(strcmp(arg1, arg_headless) == 0)
 			{
@@ -65,11 +78,11 @@ void forward(char status[])
 			}
 			else if(strcmp(arg1, arg_remote) == 0)
 			{
-				printw("FORWARD STATE: TRUE\n");
+				printf("FORWARD STATE: TRUE\n");
 			}
 			else if(strcmp(arg1, arg_remote_short) == 0)
 			{
-				printw("FORWARD STATE: TRUE\n");
+				printf("FORWARD STATE: TRUE\n");
 			}
 			else
 			{
@@ -88,11 +101,11 @@ void forward(char status[])
                         }
                         else if(strcmp(arg1, arg_direct) == 0)
                         {
-                                printw("FORWARD STATE: FALSE\n");
+                                printf("FORWARD STATE: FALSE\n");
                         }
                         else if(strcmp(arg1, arg_direct_short) == 0)
                         {
-                                printw("FORWARD STATE: FALSE\n");
+                                printf("FORWARD STATE: FALSE\n");
                         }
                         else if(strcmp(arg1, arg_headless) == 0)
                         {
@@ -104,11 +117,11 @@ void forward(char status[])
                         }
                         else if(strcmp(arg1, arg_remote) == 0)
                         {
-                                printw("FORWARD STATE: FALSE\n");
+                                printf("FORWARD STATE: FALSE\n");
                         }
                         else if(strcmp(arg1, arg_remote_short) == 0)
                         {
-                                printw("FORWARD STATE: FALSE\n");
+                                printf("FORWARD STATE: FALSE\n");
                         }
                         else
                         {
@@ -123,7 +136,7 @@ void forward(char status[])
 	}
 	else if(strcmp(status, status_init) == 0)
 	{
-		if(init != 1)
+		if(forward_init != 1)
 		{
 			if(bcm2835_init() == 0)
 			{
@@ -135,7 +148,7 @@ void forward(char status[])
 				}
 			}
 			bcm2835_gpio_fsel(forward_def, BCM2835_GPIO_FSEL_OUTP);
-			init = 1;
+			forward_init = 1;
 		}
 	}
 	else
