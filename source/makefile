@@ -1,2 +1,2 @@
 all:
-	clang main.c -l bcm2835
+	clang -Wall main.c -l bcm2835
