@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<string.h>
+#include"argument.h"
 #include"test.h"
+#include"directmode.h"
 
 int main(int argc, char *argv[])
 {
@@ -11,26 +13,17 @@ int main(int argc, char *argv[])
 		return 1;
 	}
 	else
-	{	
+	{
+		strcpy(arg1, argv[1]);
 		/*
 		TEST MODE ARG LINK
 		*/
-		if(strcmp((argv)[1], "--test") == 0)
+		if(strcmp(arg1, arg_test) == 0)
 		{
 			printf("MODE: TEST MODE\n");
-			/*
-			if(strcmp((argv)[2], "override") == 0)
-			{
-				test();
-			}
-			else
-			{
-				testinit();
-			}
-			*/
-			testinit(); //REMOVE IF ABOVE BLOCK IS UNCOMMENTED!
+			testinit();
 		}
-		else if(strcmp((argv)[1], "-t") == 0)
+		else if(strcmp((argv)[1], arg_test_short) == 0)
 		{
 			printf("MODE: TEST MODE\n");
 			testinit();
@@ -39,23 +32,25 @@ int main(int argc, char *argv[])
 		/*
 		DIRECT MODE ARG LINK
 		*/
-		else if(strcmp((argv)[1], "--direct") == 0)
+		else if(strcmp((argv)[1], arg_direct) == 0)
 		{
 			printf("MODE: DIRECT MODE\n");
+			direct_init();
 		}
-		else if(strcmp((argv)[1], "-d") == 0)
+		else if(strcmp((argv)[1], arg_direct_short) == 0)
 		{
 			printf("MODE: DIRECT MODE\n");
+			direct_init();
 		}
 		
 		/*
 		HEADLESS MODE ARG LINK
 		*/
-		else if(strcmp((argv)[1], "--headless") == 0)
+		else if(strcmp((argv)[1], arg_headless) == 0)
 		{
 			printf("MODE: HEADLESS MODE\n");
 		}
-		else if(strcmp((argv)[1], "-h") == 0)
+		else if(strcmp((argv)[1], arg_headless_short) == 0)
 		{
 			printf("MODE: HEADLESS MODE\n");
 		}
@@ -63,11 +58,11 @@ int main(int argc, char *argv[])
 		/*
 		REMOTE MODE ARG LINK
 		*/
-		else if(strcmp((argv)[1], "--remote") == 0)
+		else if(strcmp((argv)[1], arg_remote) == 0)
 		{
 			printf("MODE: REMOTE MODE\n");
 		}
-		else if(strcmp((argv)[1], "-r") == 0)
+		else if(strcmp((argv)[1], arg_remote_short) == 0)
 		{
 			printf("MODE: REMOTE MODE\n");
 		}
