@@ -77,7 +77,7 @@ void testinit()
 	printf("This test uses the Broadcom pin numberings.\nDo you want to continue? (y/n)\n");
 	char answer;
 	//char positiv = 'y';
-	answer = getch();
+	answer = getche();
 	switch(answer)
 	{
 		case 'y':
