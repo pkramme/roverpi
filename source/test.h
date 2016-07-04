@@ -7,7 +7,7 @@
 #include"move.h"
 #include"getch.h"
 
-void pin_test(char mesg_name[256], char pin, int time, int delay)
+void pin_test(char mesg_name[256], uint8_t pin, int time, unsigned int delay)
 {
 	bcm2835_gpio_fsel(pin, BCM2835_GPIO_FSEL_OUTP);
 	int internalcounter = 0;
@@ -75,8 +75,7 @@ void testinit()
 {
 	printf("TEST MODE INITIALISING\n");
 	printf("This test uses the Broadcom pin numberings.\nDo you want to continue? (y/n)\n");
-	char answer;
-	//char positiv = 'y';
+	int answer;
 	answer = getche();
 	printf("\n");
 	switch(answer)

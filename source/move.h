@@ -9,6 +9,7 @@
 #define left_def RPI_GPIO_P1_13
 #define right_def RPI_GPIO_P1_11
 
+//const short int protect = 1;
 
 int forward_state = 0;
 int forward_init = 0;
@@ -270,8 +271,10 @@ int right_status(void)
         return 0;
 }
 
+/*
 int lr_state = 0;
 int lr_init = 0;
+
 
 void lr_set(int arg, int value)
 {
@@ -279,14 +282,16 @@ void lr_set(int arg, int value)
 	{
 		bcm2835_gpio_fsel(right_def, BCM2835_GPIO_FSEL_ALT5);
 		bcm2835_gpio_fsel(left_def, BCM2835_GPIO_FSEL_ALT5);
+		bcm2835_pwm_set_clock
 		lr_init = 1;
 	}
 	switch(arg)
 	{
 		case 0:
 		{
-			printf("SOMETHING");
+			
 		}
 	}
 }
+*/
 #endif

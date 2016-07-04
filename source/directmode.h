@@ -1,6 +1,8 @@
 #ifndef _DIRECTMODE_H_
 #define _DIRECTMODE_H_
 
+#define PROTECT 1
+
 #include<bcm2835.h>
 #include"move.h"
 #include"getch.h"
@@ -17,7 +19,17 @@ int input()
 		{
 			case 'w':
 			{
-				forward_set(2);
+				if(PROTECT && forward_status() == 0)
+				{
+					backward_set(0);
+					left_set(0);
+					right_set(0);
+					forward_set(2);
+				}
+				else
+				{
+					forward_set(2);
+				}
 				if(forward_status() == 1)
 				{
 					printf("FORWARD ACTIVATED\n");
@@ -34,7 +46,17 @@ int input()
 			}
 			case 'a':
 			{
-				left_set(2);
+				if(PROTECT && left_status() == 0)
+				{
+					backward_set(0);
+					forward_set(0);
+					right_set(0);
+					left_set(2);
+				}
+				else
+				{
+					left_set(2);
+				}
 				if(left_status() == 1)
 				{
 					printf("LEFT ACTIVATED\n");
@@ -51,7 +73,17 @@ int input()
 			}
 			case 's':
 			{
-				backward_set(2);
+				if(PROTECT && backward_status() == 0)
+				{
+					forward_set(0);
+					left_set(0);
+					right_set(0);
+					backward_set(2);
+				}
+				else
+				{
+					backward_set(2);
+				}
 				if(backward_status() == 1)
                                 {
                                         printf("BACKWARD ACTIVATED\n");
@@ -69,7 +101,17 @@ int input()
 			}
 			case 'd':
 			{
-				right_set(2);
+				if(PROTECT && right_status() == 0)
+				{
+					forward_set(0);
+					backward_set(0);
+					left_set(0);
+					right_set(2);
+				}
+				else
+				{
+					right_set(2);
+				}
 				if(right_status() == 1)
                                 {
                                         printf("RIGHT ACTIVATED\n");

@@ -17,7 +17,6 @@ int main(int argc, char *argv[])
 	else
 	{
 		strcpy(arg1, argv[1]);
-		strcpy(arg2, argv[2]);
 		/*
 		TEST MODE ARG LINK
 		*/
