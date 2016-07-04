@@ -5,7 +5,7 @@
 #include<stdio.h>
 #include<string.h>
 #include"move.h"
-
+#include"getch.h"
 
 void pin_test(char mesg_name[256], char pin, int time, int delay)
 {
@@ -74,27 +74,27 @@ int test()
 void testinit()
 {
 	printf("TEST MODE INITIALISING\n");
-	printf("This test uses the Broadcom pin numberings.\nDo you want to continue? (yes/no)\n");
-	char answer[4];
-	char positiv[4] = "yes";
-	//gets(&answer); /*gets depreceated*/
-	if(fgets(answer, sizeof(answer), stdin))
+	printf("This test uses the Broadcom pin numberings.\nDo you want to continue? (y/n)\n");
+	char answer;
+	//char positiv = 'y';
+	answer = getch();
+	switch(answer)
 	{
-		/*DO NOTHING input worked*/
-	}
-	else
-	{
-		printf("INPUT FAILED.");
-	}
-	if(strcmp(answer, positiv) == 0)
-	{
-		printf("EXECUTE TEST.\n");
-		//setup();
-		test();
-	}
-	else
-	{
-		printf("TEST ABORTED.\n");
+		case 'y':
+		{
+			test();
+			break;
+		}
+		case 'j':
+		{
+			test();
+			break;
+		}
+		default:
+		{
+			printf("ABORT.\n");
+			break;
+		}
 	}
 }
 
