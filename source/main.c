@@ -1,7 +1,5 @@
 #define BCM2835_DEBUG_MODE_SWITCH 1
 
-typedef enum { false, true } bool;
-
 #include<stdio.h>
 #include<string.h>
 #include"argument.h"
@@ -18,30 +16,15 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		/*
-		arg1 = argv[1];
-		arg2 = argv[2];
-		arg3 = argv[3];
-		*/
 		strcpy(arg1, argv[1]);
-		printf("%s", arg1);
+		strcpy(arg2, argv[2]);
 		/*
 		TEST MODE ARG LINK
 		*/
 		if(strcmp(arg1, arg_test) == 0)
 		{
 			printf("MODE: TEST MODE\n");
-			/*
-			if(strcmp((argv)[2], "override") == 0)
-			{
-				test();
-			}
-			else
-			{
-				testinit();
-			}
-			*/
-			testinit(); //REMOVE IF ABOVE BLOCK IS UNCOMMENTED!
+			testinit();
 		}
 		else if(strcmp((argv)[1], arg_test_short) == 0)
 		{

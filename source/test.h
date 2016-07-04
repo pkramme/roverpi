@@ -78,6 +78,7 @@ void testinit()
 	char answer;
 	//char positiv = 'y';
 	answer = getche();
+	printf("\n");
 	switch(answer)
 	{
 		case 'y':
