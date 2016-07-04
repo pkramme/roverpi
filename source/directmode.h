@@ -17,10 +17,6 @@ int input()
 		{
 			case 'w':
 			{
-				//setvbuf(stdout, NULL, _IOBLF, 0);
-				//forward("init");
-				//forward("switch");
-				//forward("status");
 				forward_set(2);
 				if(forward_status() == 1)
 				{
@@ -38,13 +34,64 @@ int input()
 			}
 			case 'a':
 			{
-				printf("LEFT\n");
+				left_set(2);
+				if(left_status() == 1)
+				{
+					printf("LEFT ACTIVATED\n");
+                                }
+                                else if(left_status() == 0)
+                                {
+                                        printf("LEFT DEACTIVATED\n");
+                                }
+                                else
+                                {
+                                        printf("EXCEPTION OCCURED: LEFT STATUS ELSE\n");
+                                }
 				break;
 			}
+			case 's':
+			{
+				backward_set(2);
+				if(backward_status() == 1)
+                                {
+                                        printf("BACKWARD ACTIVATED\n");
+                                }
+                                else if(backward_status() == 0)
+                                {
+                                        printf("BACKWARD DEACTIVATED\n");
+                                }
+                                else
+                                {
+                                        printf("EXCEPTION OCCURED: BACKWARD STATUS ELSE\n");
+                                }
 
+				break;
+			}
+			case 'd':
+			{
+				right_set(2);
+				if(right_status() == 1)
+                                {
+                                        printf("RIGHT ACTIVATED\n");
+                                }
+                                else if(right_status() == 0)
+                                {
+                                        printf("RIGHT DEACTIVATED\n");
+                                }
+                                else
+                                {
+                                        printf("EXCEPTION OCCURED: RIGHT STATUS ELSE\n");
+                                }
+
+				break;
+			}
 			case 'q':
 			{
 				printf("QUIT\n");
+				forward_set(0);
+				backward_set(0);
+				left_set(0);
+				right_set(0);
 				bcm2835_close();
 				return 0;
 			}
