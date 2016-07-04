@@ -1,5 +1,3 @@
-#define BCM2835_DEBUG_MODE_SWITCH 1
-
 #include<stdio.h>
 #include<string.h>
 #include"argument.h"

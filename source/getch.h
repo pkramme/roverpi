@@ -1,5 +1,5 @@
-#ifndef _GETCH_H_
-#define _GETCH_H_
+#ifndef GETCH_H_INCLUDED
+#define GETCH_H_INCLUDED
 
 #include <termios.h>
 #include <unistd.h>

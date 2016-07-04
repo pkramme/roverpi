@@ -1,0 +1,7 @@
+#ifndef DEFINE_H_INCLUDED
+#define DEFINE_H_INCLUDED
+
+#define BCM2835_DEBUG_MODE_SWITCH 1
+#define PROTECT 1
+
+#endif
