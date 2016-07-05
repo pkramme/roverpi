@@ -5,8 +5,8 @@
 #include<bcm2835.h>
 #include"move.h"
 #include"getch.h"
+#include"input.h"
 
-int input(void);
 void direct_init(void);
 
 #endif
