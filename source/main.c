@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 			printf("TEST MODE\n");
 			testinit();
 		}
-		else if(strcmp((argv)[1], arg_test_short) == 0)
+		else if(strcmp(arg1, arg_test_short) == 0)
 		{
 			printf("TEST MODE\n");
 			testinit();
@@ -56,12 +56,12 @@ int main(int argc, char *argv[])
 		/*
 		DIRECT MODE ARG LINK
 		*/
-		else if(strcmp((argv)[1], arg_direct) == 0)
+		else if(strcmp(arg1, arg_direct) == 0)
 		{
 			printf("DIRECT MODE\n");
 			direct_init();
 		}
-		else if(strcmp((argv)[1], arg_direct_short) == 0)
+		else if(strcmp(arg1, arg_direct_short) == 0)
 		{
 			printf("DIRECT MODE\n");
 			direct_init();
@@ -70,11 +70,11 @@ int main(int argc, char *argv[])
 		/*
 		HEADLESS MODE ARG LINK
 		*/
-		else if(strcmp((argv)[1], arg_headless) == 0)
+		else if(strcmp(arg1, arg_headless) == 0)
 		{
 			printf("HEADLESS MODE\n");
 		}
-		else if(strcmp((argv)[1], arg_headless_short) == 0)
+		else if(strcmp(arg1, arg_headless_short) == 0)
 		{
 			printf("HEADLESS MODE\n");
 		}
@@ -82,11 +82,11 @@ int main(int argc, char *argv[])
 		/*
 		REMOTE MODE ARG LINK
 		*/
-		else if(strcmp((argv)[1], arg_remote) == 0)
+		else if(strcmp(arg1, arg_remote) == 0)
 		{
 			printf("REMOTE MODE\n");
 		}
-		else if(strcmp((argv)[1], arg_remote_short) == 0)
+		else if(strcmp(arg1, arg_remote_short) == 0)
 		{
 			printf("REMOTE MODE\n");
 		}
@@ -94,7 +94,7 @@ int main(int argc, char *argv[])
 		/*
 		HELP MESSAGE
 		*/
-		else if(strcmp((argv)[1], "--help") == 0)
+		else if(strcmp(arg1, "--help") == 0)
 		{
 			printf("USAGE: %s mode\n\nDirect mode: Same as in v1\nHeadless mode: REPLACE\nRemote mode: REPLACE\nTest mode: REPLACE\n", argv[0]);
 		}
