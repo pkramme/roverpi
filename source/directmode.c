@@ -36,3 +36,4 @@ void direct_init()
 		input(1);
 	}
 }
+
