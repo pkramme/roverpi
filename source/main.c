@@ -45,12 +45,12 @@ int main(int argc, char *argv[])
 		if(strcmp(arg1, arg_test) == 0)
 		{
 			printf("TEST MODE\n");
-			testinit();
+			test_init();
 		}
 		else if(strcmp(arg1, arg_test_short) == 0)
 		{
 			printf("TEST MODE\n");
-			testinit();
+			test_init();
 		}
 
 		/*

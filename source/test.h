@@ -35,6 +35,6 @@ void pin_test(char mesg_name[256], uint8_t pin, int time, unsigned int delay);
 
 int test(void);
 
-void testinit(void);
+void test_init(void);
 
 #endif

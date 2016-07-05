@@ -87,7 +87,7 @@ int test()
 	return 0;  
 }
 	
-void testinit()
+void test_init()
 {
 	printf("TEST MODE INITIALISING\n");
 	printf("This test uses the Broadcom pin numberings.\nDo you want to continue? (y/n)\n");
