@@ -20,15 +20,21 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
 */
-#ifndef INPUT_H_INCLUDED
-#define INPUT_H_INCLUDED
-
+#include"directmode.h"
 #include"define.h"
-#include<bcm2835.h>
-#include"move.h"
-#include"getch.h"
 
-int input(int verbose);
+void direct_init()
+{
+	bcm2835_set_debug(BCM2835_DEBUG_MODE_SWITCH);
+	if(!bcm2835_init())
+	{
+		printf("INITIALIZATION FAILED.\n");
+	}
+	else
+	{
+		input(1);
+	}
+}
 
-#endif

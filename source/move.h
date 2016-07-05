@@ -21,14 +21,35 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-#ifndef INPUT_H_INCLUDED
-#define INPUT_H_INCLUDED
+#ifndef MOVE_H_INCLUDED
+#define MOVE_H_INCLUDED
 
-#include"define.h"
 #include<bcm2835.h>
-#include"move.h"
-#include"getch.h"
+#include"argument.h"
 
-int input(int verbose);
+extern int forward_state;
+extern int forward_init;
+void forward_set(int arg);
+int forward_status(void);
 
+extern int backward_state;
+extern int backward_init;
+void backward_set(int arg);
+int backward_status(void);
+
+extern int left_state;
+extern int left_init;
+void left_set(int arg);
+int left_status(void);
+
+extern int right_state;
+extern int right_init;
+void right_set(int arg);
+int right_status(void);
+
+/*
+extern int lr_state;
+extern int lr_init;
+void lr_set(int arg, int value);
+*/
 #endif

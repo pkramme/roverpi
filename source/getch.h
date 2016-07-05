@@ -20,15 +20,17 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
 */
-#ifndef INPUT_H_INCLUDED
-#define INPUT_H_INCLUDED
+#ifndef GETCH_H_INCLUDED
+#define GETCH_H_INCLUDED
 
-#include"define.h"
-#include<bcm2835.h>
-#include"move.h"
-#include"getch.h"
+#include <termios.h>
+#include <unistd.h>
+#include <stdio.h>
 
-int input(int verbose);
+int getch(void);
+
+int getche(void);
 
 #endif
