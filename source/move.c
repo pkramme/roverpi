@@ -79,18 +79,7 @@ void forward_set(int arg)
 
 int forward_status(void)
 {
-	switch(forward_state)
-	{
-		case 1:
-		{
-			return 1;
-		}
-		case 0:
-		{
-			return 0;
-		}
-	}
-	return 0;
+	return forward_state;
 }
 
 int backward_state = 0;
@@ -143,18 +132,7 @@ void backward_set(int arg)
 }
 int backward_status(void)
 {
-        switch(backward_state)
-        {
-                case 1:
-                {
-                        return 1;
-                }
-                case 0:
-                {
-                        return 0;
-                }
-        }
-        return 0;
+	return backward_state;
 }
 
 
@@ -209,18 +187,7 @@ void left_set(int arg)
 
 int left_status(void)
 {
-        switch(left_state)
-        {
-                case 1:
-                {
-                        return 1;
-                }
-                case 0:
-                {
-                        return 0;
-                }
-        }
-        return 0;
+	return left_state; 
 }
 
 int right_state = 0;
@@ -274,18 +241,7 @@ void right_set(int arg)
 
 int right_status(void)
 {
-        switch(right_state)
-        {
-                case 1:
-                {
-                        return 1;
-                }
-                case 0:
-                {
-                        return 0;
-                }
-        }
-        return 0;
+        return right_state;
 }
 
 /*
