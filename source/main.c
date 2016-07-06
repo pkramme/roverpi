@@ -29,11 +29,13 @@ SOFTWARE.
 
 int main(int argc, char *argv[])
 {
-	printf("RoverPi Software v2.0-beta.3\n(C) 2016 Paul Kramme\nDistributed under MIT License\n");
-	printf("To optain a full copy of this license read LICENSE.md or visit\nhttps://opensource.org/licenses/MIT\n");
+	printf("RoverPi Software v2.0-beta.3\n");
+	printf("(C) 2016 Paul Kramme\nDistributed under MIT License\n");
+	printf("Read License in LICENSE.md or at\n");
+	printf("https://opensource.com/license\n");
 	if(argc != 2)
 	{
-		printf("\nUSAGE: %s mode\n\n", argv[0]);
+		printf("\n	USAGE: %s mode\n\n", argv[0]);
 		return 1;
 	}
 	else
