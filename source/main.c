@@ -59,12 +59,14 @@ int main(int argc, char *argv[])
 		else if(strcmp(arg1, arg_direct) == 0)
 		{
 			printf("DIRECT MODE\n");
-			direct_init();
+			//direct_init();
+			input(1);
 		}
 		else if(strcmp(arg1, arg_direct_short) == 0)
 		{
 			printf("DIRECT MODE\n");
-			direct_init();
+			//direct_init();
+			input(1);
 		}
 		
 		/*

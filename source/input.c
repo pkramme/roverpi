@@ -25,6 +25,15 @@ SOFTWARE.
 
 int input(int verbose)
 {
+	bcm2835_set_debug(BCM2835_DEBUG_MODE_SWITCH);
+	if(!bcm2835_init())
+	{
+		if(verbose)
+		{
+			printf("INITIALIZATION FAILED.");
+		}
+		return 1;
+	}
 	int input;
 	while(1)
 	{
