@@ -10,3 +10,7 @@ RoverPi started out as an idea for a nessasary school project for electric engen
 
 ## Software Walkthrough
 Most Raspberry Pi software that has to acess GPIOs is written in Python, but i choosed C++ for the first version of the now named RoverPi project software, due to previous experience in C++, and i choosed WiringPi as the first library. I was not experienced in handling more than two source files and made many mistakes which lead to the development of version 2, which primary language is C and for the library the more low-level bcm2835 library which for the sake of GPL License couldn't be included in the source files.
+
+## Who's this software for?
+This software is for people who want to build their own RoverPi, that means a rover based on a pi, who don't have the skills or the time to work out a solution from scratch. I write an API for people who want to use my librarys to extend this library or to use it for their own projects. This project also works as a learning ground for me and the team.
+
