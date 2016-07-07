@@ -29,18 +29,26 @@ SOFTWARE.
 
 int main(int argc, char *argv[])
 {
-	printf("RoverPi Software v2.0-beta.3\n");
+	printf("RoverPi Software v2.1.0-beta.2\n");
 	printf("(C) 2016 Paul Kramme\nDistributed under MIT License\n");
 	printf("Read License in LICENSE.md or at\n");
 	printf("https://opensource.org/license/MIT\n");
-	if(argc != 2)
+	if(argc < 2)
 	{
+		printf("Not enough arguments given.\n");
+		printf("\n	USAGE: %s mode\n\n", argv[0]);
+		return 1;
+	}
+	else if(argc > 3)
+	{
+		printf("TOO MUCH ARGUMENTS GIVEN\n");
 		printf("\n	USAGE: %s mode\n\n", argv[0]);
 		return 1;
 	}
 	else
 	{
 		strcpy(arg1, argv[1]);
+		strcpy(arg2, argv[2]);
 		/*
 		TEST MODE ARG LINK
 		*/
@@ -61,14 +69,12 @@ int main(int argc, char *argv[])
 		else if(strcmp(arg1, arg_direct) == 0)
 		{
 			printf("DIRECT MODE\n");
-			//direct_init();
-			input(1);
+			input(VERBOSE);
 		}
 		else if(strcmp(arg1, arg_direct_short) == 0)
 		{
 			printf("DIRECT MODE\n");
-			//direct_init();
-			input(1);
+			input(VERBOSE);
 		}
 		
 		/*
@@ -76,11 +82,11 @@ int main(int argc, char *argv[])
 		*/
 		else if(strcmp(arg1, arg_headless) == 0)
 		{
-			printf("HEADLESS MODE\n");
+			printf("HEADLESS MODE has not been implemented yet.\n");
 		}
 		else if(strcmp(arg1, arg_headless_short) == 0)
 		{
-			printf("HEADLESS MODE\n");
+			printf("HEADLESS MODE has not been implemented yet.\n");
 		}
 
 		/*
@@ -88,11 +94,11 @@ int main(int argc, char *argv[])
 		*/
 		else if(strcmp(arg1, arg_remote) == 0)
 		{
-			printf("REMOTE MODE\n");
+			printf("REMOTE MODE has not been implemented yet.\n");
 		}
 		else if(strcmp(arg1, arg_remote_short) == 0)
 		{
-			printf("REMOTE MODE\n");
+			printf("REMOTE MODE has not been implemented yet.\n");
 		}
 
 		/*

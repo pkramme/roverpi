@@ -82,7 +82,7 @@ int test()
 	}
 	else
 	{
-		printf("UNKNOWN EXCEPTION AT INIT.\n");
+		printf("Initialization failed.\n");
 	}
 	return 0;  
 }
