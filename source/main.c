@@ -30,7 +30,7 @@ SOFTWARE.
 
 int main(int argc, char *argv[])
 {
-	printf("RoverPi Software v2.1.1\n");
+	printf("RoverPi Software\n");
 	printf("(C) 2016 Paul Kramme\nDistributed under MIT License\n");
 	printf("Read License in LICENSE.md or at\n");
 	printf("https://opensource.org/license/MIT\n");
