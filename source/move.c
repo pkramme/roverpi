@@ -23,10 +23,10 @@ SOFTWARE.
 */
 #include"move.h"
 
-#define forward_def RPI_GPIO_P1_16
-#define backward_def RPI_GPIO_P1_12
-#define left_def RPI_GPIO_P1_13
-#define right_def RPI_GPIO_P1_11
+#define forward_def RPI_GPIO_P1_22
+#define backward_def RPI_GPIO_P1_18
+#define left_def RPI_GPIO_P1_12
+#define right_def RPI_GPIO_P1_13
 
 int forward_state = 0;
 int forward_init = 0;
