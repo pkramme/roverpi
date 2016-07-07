@@ -27,29 +27,16 @@ SOFTWARE.
 #include<bcm2835.h>
 #include"argument.h"
 
-//static extern int forward_state;
-//static extern int forward_init;
 int forward_set(int arg);
 int forward_status(void);
 
-//static extern int backward_state;
-//extern int backward_init;
 int backward_set(int arg);
 int backward_status(void);
 
-//static extern int left_state;
-//extern int left_init;
 int left_set(int arg);
 int left_status(void);
 
-//static extern int right_state;
-//static extern int right_init;
 int right_set(int arg);
 int right_status(void);
 
-/*
-extern int lr_state;
-extern int lr_init;
-int lr_set(int arg, int value);
-*/
 #endif
