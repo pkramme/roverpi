@@ -22,9 +22,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 #include"headless.h"
-
+#include"input.h"
 int server()
 {
+	int server_input;
 	char server_read[2];
 	int listen_fd, comm_fd;
 	struct sockaddr_in servaddr;
@@ -39,8 +40,12 @@ int server()
 	comm_fd = accept(listen_fd, (struct sockaddr*) NULL, NULL);
 	while(1)
 	{
+		server_input = 0;
 		memset(server_read, '\0', 2);
 		read(comm_fd, server_read, 2);
-		printf("%s", server_read);
+		//printf("%s", server_read);
+		server_input = server_read[0];
+		printf("%d\n", server_input);
+		headlessinput(server_input, 0);
 	}
 }
