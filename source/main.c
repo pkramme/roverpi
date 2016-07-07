@@ -26,6 +26,7 @@ SOFTWARE.
 #include"argument.h"
 #include"test.h"
 #include"directmode.h"
+#include"headless.h"
 
 int main(int argc, char *argv[])
 {
@@ -48,7 +49,7 @@ int main(int argc, char *argv[])
 	else
 	{
 		strcpy(arg1, argv[1]);
-		strcpy(arg2, argv[2]);
+		//strcpy(arg2, argv[2]);
 		/*
 		TEST MODE ARG LINK
 		*/
@@ -82,11 +83,13 @@ int main(int argc, char *argv[])
 		*/
 		else if(strcmp(arg1, arg_headless) == 0)
 		{
-			printf("HEADLESS MODE has not been implemented yet.\n");
+			printf("HEADLESS MODE\n");
+			server();
 		}
 		else if(strcmp(arg1, arg_headless_short) == 0)
 		{
-			printf("HEADLESS MODE has not been implemented yet.\n");
+			printf("HEADLESS MODE\n");
+			server();
 		}
 
 		/*
