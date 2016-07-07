@@ -30,7 +30,7 @@ int input(int verbose)
 	{
 		if(verbose)
 		{
-			printf("INITIALIZATION FAILED.");
+			printf("Initialization failed.");
 		}
 		return 1;
 	}

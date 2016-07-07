@@ -29,6 +29,9 @@ SOFTWARE.
 #include"move.h"
 #include"getch.h"
 
+#define VERBOSE 1
+#define NO_VERBOSE 0
+
 int input(int verbose);
 
 #endif

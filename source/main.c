@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 		{
 			printf("DIRECT MODE\n");
 			//direct_init();
-			input(1);
+			input(VERBOSE);
 		}
 		else if(strcmp(arg1, arg_direct_short) == 0)
 		{

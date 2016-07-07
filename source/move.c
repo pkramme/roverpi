@@ -31,7 +31,7 @@ SOFTWARE.
 int forward_state = 0;
 int forward_init = 0;
 
-void forward_set(int arg)
+int forward_set(int arg)
 {
 	if(!forward_init)
 	{
@@ -42,39 +42,36 @@ void forward_set(int arg)
 	{
 		case 2:
 		{
-			//printf("SWITCH MODE\n");
 			switch(forward_state)
 			{
 				case 0:
 				{
-					//printf("ACTIVATE\n");
 					bcm2835_gpio_write(forward_def, 0x1);
 					forward_state = 1;
-					break;
+					return 0;
 				}
 				case 1:
 				{
-					//printf("DEACTIVATE\n");
 					bcm2835_gpio_write(forward_def, 0x0);
 					forward_state = 0;
-					break;
+					return 0;
 				}
 			}
-			break;
 		}
 		case 0:
 		{
 			bcm2835_gpio_write(forward_def, 0x0);
 			forward_state = 0;
-			break;
+			return 0;
 		}
 		case 1:
 		{
 			bcm2835_gpio_write(forward_def, 0x1);
 			forward_state = 1;
-			break;
+			return 0;
 		}
 	}
+	return 0;
 }
 
 int forward_status(void)
@@ -96,7 +93,7 @@ int forward_status(void)
 int backward_state = 0;
 int backward_init = 0;
 
-void backward_set(int arg)
+int backward_set(int arg)
 {
 	if(!backward_init)
         {
@@ -107,39 +104,36 @@ void backward_set(int arg)
         {
                 case 2:
                 {
-                        //printf("SWITCH MODE\n");
                         switch(backward_state)
                         {
                                 case 0:
                                 {
-                                        //printf("ACTIVATE\n");
                                         bcm2835_gpio_write(backward_def, 0x1);
                                         backward_state = 1;
-                                        break;
+                                        return 0; 
                                 }
                                 case 1:
                                 {
-                                        //printf("DEACTIVATE\n");
                                         bcm2835_gpio_write(backward_def, 0x0);
                                         backward_state = 0;
-                                        break;
+                                        return 0;
                                 }
                         }
-                        break;
                 }
                 case 0:
                 {
                         bcm2835_gpio_write(backward_def, 0x0);
                         backward_state = 0;
-                        break;
+                        return 0;
                 }
                 case 1:
                 {
                         bcm2835_gpio_write(backward_def, 0x1);
                         backward_state = 1;
-                        break;
+                        return 0;
                 }
         }
+	return 0;
 }
 int backward_status(void)
 {
@@ -161,7 +155,7 @@ int backward_status(void)
 int left_state = 0;
 int left_init = 0;
 
-void left_set(int arg)
+int left_set(int arg)
 {
 	if(!left_init)
         {
@@ -172,39 +166,36 @@ void left_set(int arg)
         {
                 case 2:
                 {
-                        //printf("SWITCH MODE\n");
                         switch(left_state)
                         {
                                 case 0:
                                 {
-                                        //printf("ACTIVATE\n");
                                         bcm2835_gpio_write(left_def, 0x1);
                                         left_state = 1;
-                                        break;
+                                        return 0;
                                 }
                                 case 1:
                                 {
-                                        //printf("DEACTIVATE\n");
                                         bcm2835_gpio_write(left_def, 0x0);
                                         left_state = 0;
-                                        break;
+                                        return 0;
                                 }
                         }
-                        break;
                 }
                 case 0:
                 {
                         bcm2835_gpio_write(left_def, 0x0);
                         left_state = 0;
-                        break;
+			return 0;
                 }
                 case 1:
                 {
                         bcm2835_gpio_write(left_def, 0x1);
                         left_state = 1;
-                        break;
+                        return 0;
                 }
         }
+	return 0;
 }
 
 int left_status(void)
@@ -226,7 +217,7 @@ int left_status(void)
 int right_state = 0;
 int right_init = 0;
 
-void right_set(int arg)
+int right_set(int arg)
 {
 	if(!right_init)
         {
@@ -237,39 +228,36 @@ void right_set(int arg)
         {
                 case 2:
                 {
-                        //printf("SWITCH MODE\n");
                         switch(right_state)
                         {
                                 case 0:
                                 {
-                                        //printf("ACTIVATE\n");
                                         bcm2835_gpio_write(right_def, 0x1);
                                         right_state = 1;
-                                        break;
+                                        return 0;
                                 }
                                 case 1:
                                 {
-                                        //printf("DEACTIVATE\n");
                                         bcm2835_gpio_write(right_def, 0x0);
                                         right_state = 0;
-                                        break;
+                                        return 0;
                                 }
                         }
-                        break;
                 }
                 case 0:
                 {
                         bcm2835_gpio_write(right_def, 0x0);
                         right_state = 0;
-                        break;
+                        return 0;
                 }
                 case 1:
                 {
                         bcm2835_gpio_write(right_def, 0x1);
                         right_state = 1;
-                        break;
+                        return 0;
                 }
         }
+	return 0;
 }
 
 int right_status(void)
@@ -293,7 +281,7 @@ int lr_state = 0;
 int lr_init = 0;
 
 
-void lr_set(int arg, int value)
+int lr_set(int arg, int value)
 {
 	if(!lr_init && !left_init && !right_init)
 	{
