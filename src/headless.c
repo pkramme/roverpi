@@ -23,6 +23,7 @@ SOFTWARE.
 */
 #include"headless.h"
 #include"input.h"
+#include"headlessinput.h"
 int server()
 {
 	int server_input;
@@ -45,7 +46,12 @@ int server()
 		read(comm_fd, server_read, 2);
 		//printf("%s", server_read);
 		server_input = server_read[0];
-		printf("%d\n", server_input);
-		headlessinput(server_input, 0);
+		//printf("%d\n", server_input);
+		if(server_input == 'q')
+		{
+			headlessinput('q');
+			return 0;
+		}
+		headlessinput(server_input);
 	}
 }

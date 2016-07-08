@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 #include"input.h"
-
+#include"headlessinput.h"
 //int global_init = 0;
 
 int headlessinput(int key)
