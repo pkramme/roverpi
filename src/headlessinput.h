@@ -29,7 +29,6 @@ SOFTWARE.
 #include"move.h"
 #include"getch.h"
 
-//extern int global_init;
 int headlessinput(int key);
 
 #endif
