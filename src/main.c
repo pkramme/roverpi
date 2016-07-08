@@ -34,6 +34,12 @@ int main(int argc, char *argv[])
 	printf("(C) 2016 Paul Kramme\nDistributed under MIT License\n");
 	printf("Read License in LICENSE.md or at\n");
 	printf("https://opensource.org/license/MIT\n");
+	if(BCM2835_DEBUG_MODE_SWITCH)
+	{
+		printf("//////////////////////////////////////////\n");
+		printf("WARNING: RoverPi is running in DEBUG MODE.\n");
+		printf("//////////////////////////////////////////\n");
+	}
 	if(argc < 2)
 	{
 		printf("Not enough arguments given.\n");
