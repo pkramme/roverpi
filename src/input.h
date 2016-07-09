@@ -32,6 +32,7 @@ SOFTWARE.
 #define VERBOSE 1
 #define NO_VERBOSE 0
 
+extern int global_init;
 int input(int verbose);
 
 #endif

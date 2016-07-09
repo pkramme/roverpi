@@ -26,13 +26,20 @@ SOFTWARE.
 #include"argument.h"
 #include"test.h"
 #include"directmode.h"
+#include"headless.h"
 
 int main(int argc, char *argv[])
 {
-	printf("RoverPi Software v2.1.1\n");
+	printf("RoverPi Software\n");
 	printf("(C) 2016 Paul Kramme\nDistributed under MIT License\n");
 	printf("Read License in LICENSE.md or at\n");
 	printf("https://opensource.org/license/MIT\n");
+	if(BCM2835_DEBUG_MODE_SWITCH)
+	{
+		printf("//////////////////////////////////////////\n");
+		printf("WARNING: RoverPi is running in DEBUG MODE.\n");
+		printf("//////////////////////////////////////////\n");
+	}
 	if(argc < 2)
 	{
 		printf("Not enough arguments given.\n");
@@ -48,7 +55,7 @@ int main(int argc, char *argv[])
 	else
 	{
 		strcpy(arg1, argv[1]);
-		strcpy(arg2, argv[2]);
+		//strcpy(arg2, argv[2]);
 		/*
 		TEST MODE ARG LINK
 		*/
@@ -82,11 +89,13 @@ int main(int argc, char *argv[])
 		*/
 		else if(strcmp(arg1, arg_headless) == 0)
 		{
-			printf("HEADLESS MODE has not been implemented yet.\n");
+			printf("HEADLESS MODE\n");
+			server();
 		}
 		else if(strcmp(arg1, arg_headless_short) == 0)
 		{
-			printf("HEADLESS MODE has not been implemented yet.\n");
+			printf("HEADLESS MODE\n");
+			server();
 		}
 
 		/*

@@ -21,35 +21,18 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-#ifndef MOVE_H_INCLUDED
-#define MOVE_H_INCLUDED
+#ifndef HEADLESS_H_INCLUDED
+#define HEADLESS_H_INCLUDED
 
-#include<bcm2835.h>
-#include"argument.h"
+#include<sys/types.h>
+#include<sys/socket.h>
+#include<netdb.h>
+#include<stdio.h>
+#include<unistd.h>
+#include<string.h>
 
-extern int forward_state;
-extern int forward_init;
-int forward_set(int arg);
-int forward_status(void);
+//REMOVE STDIO LATER!
 
-extern int backward_state;
-extern int backward_init;
-int backward_set(int arg);
-int backward_status(void);
+int server(void);
 
-extern int left_state;
-extern int left_init;
-int left_set(int arg);
-int left_status(void);
-
-extern int right_state;
-extern int right_init;
-int right_set(int arg);
-int right_status(void);
-
-/*
-extern int lr_state;
-extern int lr_init;
-int lr_set(int arg, int value);
-*/
 #endif
