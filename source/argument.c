@@ -20,13 +20,12 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 */
 #include"argument.h"
 
 char arg1[256];
-char arg2[256];
-char arg3[256];
+//char arg2[256];
+//char arg3[256];
 
 char arg_test[] = "--test";
 char arg_test_short[] = "-t";
@@ -36,4 +35,3 @@ char arg_headless[] = "--headless";
 char arg_headless_short[] = "-h";
 char arg_remote[] = "--remote";
 char arg_remote_short[] = "-r";
-
