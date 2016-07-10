@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		strcpy(arg1, argv[1]);
+		strcpy(arg1, argv[1]);	/*copy string to arguments.h for global usability*/
 		/*
 		TEST MODE ARG LINK
 		*/
@@ -110,7 +110,6 @@ int main(int argc, char *argv[])
 			printf("REMOTE MODE has not been implemented yet.\n");
 		}
 
-
 		else
 		{
 			printf("Choose between 'direct', 'headless', 'remote' and 'test'\n");
@@ -118,3 +117,4 @@ int main(int argc, char *argv[])
 	}
 	return 0;
 }
+
