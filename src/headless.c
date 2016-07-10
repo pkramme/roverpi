@@ -23,8 +23,9 @@ SOFTWARE.
 */
 
 #include"headless.h"
-#include"input.h"
+#include"directinput.h"
 #include"headlessinput.h"
+
 int server()
 {
 	int server_input;

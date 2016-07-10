@@ -27,7 +27,7 @@ SOFTWARE.
 #include"argument.h"
 #include"test.h"
 #include"headless.h"
-#include"input.h"
+#include"directinput.h"
 
 int main(int argc, char *argv[])
 {

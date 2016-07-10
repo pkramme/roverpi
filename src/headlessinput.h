@@ -28,6 +28,7 @@ SOFTWARE.
 #include<bcm2835.h>
 #include"move.h"
 #include"getch.h"
+#include"directinput.h"
 
 int headlessinput(int key);
 
