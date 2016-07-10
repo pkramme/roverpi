@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+
 #include"headless.h"
 #include"input.h"
 #include"headlessinput.h"
@@ -31,7 +32,6 @@ int server()
 	int listen_fd, comm_fd;
 	struct sockaddr_in servaddr;
 	listen_fd = socket(AF_INET, SOCK_STREAM, 0);
-	//memset(server_read, '\0', 8);
 	memset(&servaddr, '\0', sizeof(servaddr));
 	servaddr.sin_family = AF_INET;
 	servaddr.sin_addr.s_addr = htons(INADDR_ANY);
@@ -44,9 +44,7 @@ int server()
 		server_input = 0;
 		memset(server_read, '\0', 2);
 		read(comm_fd, server_read, 2);
-		//printf("%s", server_read);
 		server_input = server_read[0];
-		//printf("%d\n", server_input);
 		if(server_input == 'q')
 		{
 			headlessinput('q');
@@ -55,3 +53,4 @@ int server()
 		headlessinput(server_input);
 	}
 }
+
