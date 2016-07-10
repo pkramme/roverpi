@@ -33,6 +33,10 @@ static int forward_init = 0;
 
 int forward_set(int arg)
 {
+	if(arg > 2 || arg < 0)
+	{
+		return 0;
+	}
 	if(!forward_init)
 	{
 		bcm2835_gpio_fsel(forward_def, BCM2835_GPIO_FSEL_OUTP);
@@ -84,6 +88,10 @@ static int backward_init = 0;
 
 int backward_set(int arg)
 {
+	if(arg > 2 || arg < 0)
+        {
+                return 0;
+        }
 	if(!backward_init)
         {
                 bcm2835_gpio_fsel(backward_def, BCM2835_GPIO_FSEL_OUTP);
@@ -135,6 +143,10 @@ static int left_init = 0;
 
 int left_set(int arg)
 {
+	if(arg > 2 || arg < 0)
+        {
+                return 0;
+        }
 	if(!left_init)
         {
                 bcm2835_gpio_fsel(left_def, BCM2835_GPIO_FSEL_OUTP);
@@ -186,6 +198,10 @@ static int right_init = 0;
 
 int right_set(int arg)
 {
+	if(arg > 2 || arg < 0)
+        {
+                return 0;
+        }
 	if(!right_init)
         {
                 bcm2835_gpio_fsel(right_def, BCM2835_GPIO_FSEL_OUTP);

@@ -27,6 +27,10 @@ int global_init = 0;
 
 int input(int verbose)
 {
+	if(verbose > 1 || verbose < 0)
+	{
+		return 1;
+	}
 	bcm2835_set_debug(BCM2835_DEBUG_MODE_SWITCH);
 	if(!global_init)
 	{
