@@ -45,35 +45,25 @@ int forward_set(int arg)
 	switch(arg)
 	{
 		case 2:
-		{
 			switch(forward_state)
 			{
 				case 0:
-				{
 					bcm2835_gpio_write(forward_def, 0x1);
 					forward_state = 1;
 					return 0;
-				}
 				case 1:
-				{
 					bcm2835_gpio_write(forward_def, 0x0);
 					forward_state = 0;
 					return 0;
-				}
 			}
-		}
 		case 0:
-		{
 			bcm2835_gpio_write(forward_def, 0x0);
 			forward_state = 0;
 			return 0;
-		}
 		case 1:
-		{
 			bcm2835_gpio_write(forward_def, 0x1);
 			forward_state = 1;
 			return 0;
-		}
 	}
 	return 0;
 }
@@ -100,35 +90,25 @@ int backward_set(int arg)
 	switch(arg)
         {
                 case 2:
-                {
                         switch(backward_state)
                         {
                                 case 0:
-                                {
                                         bcm2835_gpio_write(backward_def, 0x1);
                                         backward_state = 1;
                                         return 0; 
-                                }
                                 case 1:
-                                {
                                         bcm2835_gpio_write(backward_def, 0x0);
                                         backward_state = 0;
                                         return 0;
-                                }
                         }
-                }
                 case 0:
-                {
                         bcm2835_gpio_write(backward_def, 0x0);
                         backward_state = 0;
                         return 0;
-                }
                 case 1:
-                {
                         bcm2835_gpio_write(backward_def, 0x1);
                         backward_state = 1;
                         return 0;
-                }
         }
 	return 0;
 }
@@ -155,35 +135,25 @@ int left_set(int arg)
 	switch(arg)
         {
                 case 2:
-                {
                         switch(left_state)
                         {
                                 case 0:
-                                {
                                         bcm2835_gpio_write(left_def, 0x1);
                                         left_state = 1;
                                         return 0;
-                                }
                                 case 1:
-                                {
                                         bcm2835_gpio_write(left_def, 0x0);
                                         left_state = 0;
                                         return 0;
-                                }
                         }
-                }
                 case 0:
-                {
                         bcm2835_gpio_write(left_def, 0x0);
                         left_state = 0;
 			return 0;
-                }
                 case 1:
-                {
                         bcm2835_gpio_write(left_def, 0x1);
                         left_state = 1;
                         return 0;
-                }
         }
 	return 0;
 }
@@ -210,35 +180,25 @@ int right_set(int arg)
         switch(arg)
         {
                 case 2:
-                {
                         switch(right_state)
                         {
                                 case 0:
-                                {
                                         bcm2835_gpio_write(right_def, 0x1);
                                         right_state = 1;
                                         return 0;
-                                }
                                 case 1:
-                                {
                                         bcm2835_gpio_write(right_def, 0x0);
                                         right_state = 0;
                                         return 0;
-                                }
                         }
-                }
                 case 0:
-                {
                         bcm2835_gpio_write(right_def, 0x0);
                         right_state = 0;
                         return 0;
-                }
                 case 1:
-                {
                         bcm2835_gpio_write(right_def, 0x1);
                         right_state = 1;
                         return 0;
-                }
         }
 	return 0;
 }
@@ -248,26 +208,4 @@ int right_status(void)
         return right_state;
 }
 
-/*
-int lr_state = 0;
-int lr_init = 0;
 
-
-int lr_set(int arg, int value)
-{
-	if(!lr_init && !left_init && !right_init)
-	{
-		bcm2835_gpio_fsel(right_def, BCM2835_GPIO_FSEL_ALT5);
-		bcm2835_gpio_fsel(left_def, BCM2835_GPIO_FSEL_ALT5);
-		bcm2835_pwm_set_clock
-		lr_init = 1;
-	}
-	switch(arg)
-	{
-		case 0:
-		{
-			
-		}
-	}
-}
-*/
