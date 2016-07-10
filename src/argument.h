@@ -33,8 +33,6 @@ extern const char arg_direct[];
 extern const char arg_direct_short[];
 extern const char arg_headless[];
 extern const char arg_headless_short[];
-extern const char arg_remote[];
-extern const char arg_remote_short[];
 
 #endif
 

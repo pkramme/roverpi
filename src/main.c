@@ -98,18 +98,6 @@ int main(int argc, char *argv[])
 			server();
 		}
 
-		/*
-		REMOTE MODE ARG LINK
-		*/
-		else if(strcmp(arg1, arg_remote) == 0)
-		{
-			printf("REMOTE MODE has not been implemented yet.\n");
-		}
-		else if(strcmp(arg1, arg_remote_short) == 0)
-		{
-			printf("REMOTE MODE has not been implemented yet.\n");
-		}
-
 		else
 		{
 			printf("Choose between 'direct', 'headless' and 'test'\n");

@@ -32,6 +32,4 @@ const char arg_direct[] = "--direct";
 const char arg_direct_short[] = "-d";
 const char arg_headless[] = "--headless";
 const char arg_headless_short[] = "-h";
-const char arg_remote[] = "--remote";
-const char arg_remote_short[] = "-r";
 
