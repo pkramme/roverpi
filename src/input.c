@@ -25,21 +25,14 @@ SOFTWARE.
 
 int global_init = 0;
 
-int input(int verbose)
+int input(void)
 {
-	if(verbose > 1 || verbose < 0)
-	{
-		return 1;
-	}
 	bcm2835_set_debug(BCM2835_DEBUG_MODE_SWITCH);
 	if(!global_init)
 	{
 		if(!bcm2835_init())
 		{
-			if(verbose)
-			{
-				printf("Initialization failed.");
-			}
+			printf("Initialization failed.");
 			return 1;
 		}
 		global_init = 1;
@@ -63,20 +56,14 @@ int input(int verbose)
 				{
 					forward_set(2);
 				}
-				if(verbose)
+				switch(forward_status())
 				{
-					if(forward_status() == 1)
-					{
-						printf("FORWARD ACTIVATED\n");
-					}
-					else if(forward_status() == 0)
-					{
-						printf("FORWARD DEACTIVATED\n");
-					}
-					else
-					{
-						printf("EXCEPTION OCCURED: FORWARD STATUS ELSE\n");
-					}
+					case 0:
+						printf("forward low");
+						break;
+					case 1:
+						printf("forward high");
+						break;
 				}
 				break;
 			}
@@ -93,20 +80,14 @@ int input(int verbose)
 				{
 					left_set(2);
 				}
-				if(verbose)
+				switch(left_status())
 				{
-					if(left_status() == 1)
-					{
-						printf("LEFT ACTIVATED\n");
-                	                }
-                	                else if(left_status() == 0)
-                	                {
-                	                        printf("LEFT DEACTIVATED\n");
-                	                }
-                	                else
-					{
-						printf("EXCEPTION OCCURED: LEFT STATUS ELSE\n");
-					}
+					case 0:
+						printf("left low");
+						break;
+					case 1:
+						printf("left high");
+						break;
 				}
 				break;
 			}
@@ -123,20 +104,14 @@ int input(int verbose)
 				{
 					backward_set(2);
 				}
-				if(verbose)
+				switch(backward_status())
 				{
-					if(backward_status() == 1)
-                        	        {
-                        	                printf("BACKWARD ACTIVATED\n");
-                        	        }
-                        	        else if(backward_status() == 0)
-                        	        {
-                                	        printf("BACKWARD DEACTIVATED\n");
-                        	        }
-					else
-					{
-					printf("EXCEPTION OCCURED: BACKWARD STATUS ELSE\n");
-					}
+					case 0:
+						printf("backward low");
+						break;
+					case 1:
+						printf("backward high");
+						break;
 				}
 				break;
 			}
@@ -153,20 +128,14 @@ int input(int verbose)
 				{
 					right_set(2);
 				}
-				if(verbose)
+				switch(right_status())
 				{
-					if(right_status() == 1)
-					{
-						printf("RIGHT ACTIVATED\n");
-					}
-                               		else if(right_status() == 0)
-                           		{
-                                        	printf("RIGHT DEACTIVATED\n");
-                               		}
-                                	else
-                                	{
-                                        	printf("EXCEPTION OCCURED: RIGHT STATUS ELSE\n");
-                                	}
+					case 0:
+						printf("right low");
+						break;
+					case 1:
+						printf("right high");
+						break;
 				}
 				break;
 			}
