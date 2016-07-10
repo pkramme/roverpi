@@ -51,23 +51,6 @@ int headlessinput(int key)
 			{
 				forward_set(2);
 			}
-			/*
-			if(verbose)
-			{
-				if(forward_status() == 1)
-				{
-					printf("FORWARD ACTIVATED\n");
-				}
-				else if(forward_status() == 0)
-				{
-					printf("FORWARD DEACTIVATED\n");
-				}
-				else
-				{
-					printf("EXCEPTION OCCURED: FORWARD STATUS ELSE\n");
-				}
-			}
-			*/
 			break;
 		}
 		case 'a':
@@ -83,22 +66,6 @@ int headlessinput(int key)
 			{
 				left_set(2);
 			}
-			/*
-			if(verbose)
-			{
-				if(left_status() == 1)
-				{
-					printf("LEFT ACTIVATED\n");
-               	                }
-               	                else if(left_status() == 0)
-               	                {
-               	                        printf("LEFT DEACTIVATED\n");
-               	                }
-               	                else
-				{
-					printf("EXCEPTION OCCURED: LEFT STATUS ELSE\n");
-				}
-			}*/
 			break;
 		}
 		case 's':
@@ -114,21 +81,6 @@ int headlessinput(int key)
 			{
 				backward_set(2);
 			}
-			/*if(verbose)
-			{
-				if(backward_status() == 1)
-                       	        {
-                       	                printf("BACKWARD ACTIVATED\n");
-                       	        }
-                       	        else if(backward_status() == 0)
-                       	        {
-                               	        printf("BACKWARD DEACTIVATED\n");
-                       	        }
-				else
-				{
-				printf("EXCEPTION OCCURED: BACKWARD STATUS ELSE\n");
-				}
-			}*/
 			break;
 		}
 		case 'd':
@@ -144,26 +96,10 @@ int headlessinput(int key)
 			{
 				right_set(2);
 			}
-			/*if(verbose)
-			{
-				if(right_status() == 1)
-				{
-					printf("RIGHT ACTIVATED\n");
-				}
-                           	else if(right_status() == 0)
-                          	{
-					printf("RIGHT DEACTIVATED\n");
-                             	}
-                               	else
-                               	{
-                                       	printf("EXCEPTION OCCURED: RIGHT STATUS ELSE\n");
-                               	}
-			}*/
 			break;
-			}
+		}
 		case 'q':
 		{
-			//printf("QUIT\n");
 			forward_set(0);
 			backward_set(0);
 			left_set(0);
@@ -174,7 +110,7 @@ int headlessinput(int key)
 		}
 		default:
 		{
-			printf("KEY ERROR\n");
+			break;
 		}
 	}
 	return 0;

@@ -21,12 +21,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+
 #include<stdio.h>
 #include<string.h>
 #include"argument.h"
 #include"test.h"
-#include"directmode.h"
 #include"headless.h"
+#include"input.h"
 
 int main(int argc, char *argv[])
 {
@@ -36,9 +37,9 @@ int main(int argc, char *argv[])
 	printf("https://opensource.org/license/MIT\n");
 	if(BCM2835_DEBUG_MODE_SWITCH)
 	{
-		printf("//////////////////////////////////////////\n");
+		printf("\n//////////////////////////////////////////\n");
 		printf("WARNING: RoverPi is running in DEBUG MODE.\n");
-		printf("//////////////////////////////////////////\n");
+		printf("//////////////////////////////////////////\n\n");
 	}
 	if(argc < 2)
 	{
@@ -48,14 +49,13 @@ int main(int argc, char *argv[])
 	}
 	else if(argc > 3)
 	{
-		printf("TOO MUCH ARGUMENTS GIVEN\n");
+		printf("Too much arguments given.\n");
 		printf("\n	USAGE: %s mode\n\n", argv[0]);
 		return 1;
 	}
 	else
 	{
 		strcpy(arg1, argv[1]);
-		//strcpy(arg2, argv[2]);
 		/*
 		TEST MODE ARG LINK
 		*/
@@ -76,12 +76,12 @@ int main(int argc, char *argv[])
 		else if(strcmp(arg1, arg_direct) == 0)
 		{
 			printf("DIRECT MODE\n");
-			input(VERBOSE);
+			input(1);
 		}
 		else if(strcmp(arg1, arg_direct_short) == 0)
 		{
 			printf("DIRECT MODE\n");
-			input(VERBOSE);
+			input(1);
 		}
 		
 		/*
@@ -110,13 +110,7 @@ int main(int argc, char *argv[])
 			printf("REMOTE MODE has not been implemented yet.\n");
 		}
 
-		/*
-		HELP MESSAGE
-		*/
-		else if(strcmp(arg1, "--help") == 0)
-		{
-			printf("USAGE: %s mode\n\nDirect mode: Same as in v1\nHeadless mode: REPLACE\nRemote mode: REPLACE\nTest mode: REPLACE\n", argv[0]);
-		}
+
 		else
 		{
 			printf("Choose between 'direct', 'headless', 'remote' and 'test'\n");

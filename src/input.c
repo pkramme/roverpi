@@ -184,6 +184,7 @@ int input(int verbose)
 			default:
 			{
 				printf("KEY ERROR\n");
+				break;
 			}
 		}
 	}
