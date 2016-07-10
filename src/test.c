@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+
 #include"test.h"
 
 void pin_test(char mesg_name[256], uint8_t pin, int time, unsigned int delay)
@@ -44,45 +45,34 @@ void pin_test(char mesg_name[256], uint8_t pin, int time, unsigned int delay)
 int test()
 {
 	bcm2835_set_debug(BCM2835_DEBUG_MODE_SWITCH);
-	bcm2835_init();
-	if(bcm2835_init() == 0)
+	switch(bcm2835_init())
 	{
-		printf("BCM2835 INITIALIZATION FAILED.\n");
-		printf("ABORTING.\n");
-		return 1;
+		case 0:
+			printf("BCM2835 INITIALIZATION FAILED.\n");
+			printf("ABORTING.\n");
+			return 1;
+		case 1:
+			break;
 	}
-	else if(bcm2835_init() == 1)
-	{
-		printf("BCM2835 INITIALIZATION SUCCESSFUL.\n");
-		/*
-		YOUR PINS FROM HERE...
-		*/
-		pin_test("onepintorulethemall", RPI_GPIO_P1_12, 3, 2000);
-		forward_set(1);
-		forward_status();
-		forward_set(0);
-		forward_status();
+	/*
+	YOUR PINS FROM HERE...
+	*/
+	pin_test("onepintorulethemall", RPI_GPIO_P1_12, 3, 2000);
+	forward_set(1);
+	forward_status();
+	forward_set(0);
+	forward_status();
 
-		/*
-		...TO HERE.
-		*/
-		bcm2835_close();
-		if(bcm2835_close() == 0)
-		{
-			printf("BCM2835 CLOSING FAILED.\n");
-		}
-		else if(bcm2835_close() == 1)
-		{
-			printf("BCM2835 CLOSING SUCCESSFUL.\n");
-		}
-		else
-		{
-			printf("UNKNOWN EXCEPTION AT CLOSING.\n");
-		}
-	}
-	else
+	/*
+	...TO HERE.
+	*/
+	switch(bcm2835_close())
 	{
-		printf("Initialization failed.\n");
+		case 0:
+			printf("ERROR CLOSING BCM2835.");
+			return 1;
+		case 1:
+			break;
 	}
 	return 0;  
 }
