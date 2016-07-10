@@ -26,6 +26,7 @@ SOFTWARE.
 
 void direct_init()
 {
+	printf("THIS FUNCTION WILL BE DELETED. IT'S USE IS DEPRECEATED.");
 	bcm2835_set_debug(BCM2835_DEBUG_MODE_SWITCH);
 	if(!bcm2835_init())
 	{
