@@ -41,15 +41,9 @@ int main(int argc, char *argv[])
 		printf("WARNING: RoverPi is running in DEBUG MODE.\n");
 		printf("//////////////////////////////////////////\n\n");
 	}
-	if(argc < 2)
+	if(argc < 2 || argc > 3)
 	{
-		printf("Not enough arguments given.\n");
-		printf("\n	USAGE: %s mode\n\n", argv[0]);
-		return 1;
-	}
-	else if(argc > 3)
-	{
-		printf("Too much arguments given.\n");
+		printf("Insufficient arguments.\n");
 		printf("\n	USAGE: %s mode\n\n", argv[0]);
 		return 1;
 	}
