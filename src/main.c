@@ -61,12 +61,10 @@ int main(int argc, char *argv[])
 		*/
 		if(strcmp(arg1, arg_test) == 0)
 		{
-			printf("TEST MODE\n");
 			test_init();
 		}
 		else if(strcmp(arg1, arg_test_short) == 0)
 		{
-			printf("TEST MODE\n");
 			test_init();
 		}
 
@@ -75,12 +73,10 @@ int main(int argc, char *argv[])
 		*/
 		else if(strcmp(arg1, arg_direct) == 0)
 		{
-			printf("DIRECT MODE\n");
 			input();
 		}
 		else if(strcmp(arg1, arg_direct_short) == 0)
 		{
-			printf("DIRECT MODE\n");
 			input();
 		}
 		
@@ -89,12 +85,10 @@ int main(int argc, char *argv[])
 		*/
 		else if(strcmp(arg1, arg_headless) == 0)
 		{
-			printf("HEADLESS MODE\n");
 			server();
 		}
 		else if(strcmp(arg1, arg_headless_short) == 0)
 		{
-			printf("HEADLESS MODE\n");
 			server();
 		}
 

@@ -27,6 +27,7 @@ int global_init = 0;
 
 int input(void)
 {
+	printf("---DIRECT MODE---\n");
 	bcm2835_set_debug(BCM2835_DEBUG_MODE_SWITCH);
 	if(!global_init)
 	{
@@ -59,10 +60,10 @@ int input(void)
 				switch(forward_status())
 				{
 					case 0:
-						printf("forward low");
+						printf("forward low\n");
 						break;
 					case 1:
-						printf("forward high");
+						printf("forward high\n");
 						break;
 				}
 				break;
@@ -83,10 +84,10 @@ int input(void)
 				switch(left_status())
 				{
 					case 0:
-						printf("left low");
+						printf("left low\n");
 						break;
 					case 1:
-						printf("left high");
+						printf("left high\n");
 						break;
 				}
 				break;
@@ -107,10 +108,10 @@ int input(void)
 				switch(backward_status())
 				{
 					case 0:
-						printf("backward low");
+						printf("backward low\n");
 						break;
 					case 1:
-						printf("backward high");
+						printf("backward high\n");
 						break;
 				}
 				break;
@@ -131,10 +132,10 @@ int input(void)
 				switch(right_status())
 				{
 					case 0:
-						printf("right low");
+						printf("right low\n");
 						break;
 					case 1:
-						printf("right high");
+						printf("right high\n");
 						break;
 				}
 				break;
