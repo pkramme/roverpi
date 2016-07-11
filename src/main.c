@@ -27,7 +27,7 @@ SOFTWARE.
 #include"argument.h"
 #include"test.h"
 #include"headless.h"
-#include"input.h"
+#include"directinput.h"
 
 int main(int argc, char *argv[])
 {
@@ -41,15 +41,9 @@ int main(int argc, char *argv[])
 		printf("WARNING: RoverPi is running in DEBUG MODE.\n");
 		printf("//////////////////////////////////////////\n\n");
 	}
-	if(argc < 2)
+	if(argc < 2 || argc > 3)
 	{
-		printf("Not enough arguments given.\n");
-		printf("\n	USAGE: %s mode\n\n", argv[0]);
-		return 1;
-	}
-	else if(argc > 3)
-	{
-		printf("Too much arguments given.\n");
+		printf("Insufficient arguments.\n");
 		printf("\n	USAGE: %s mode\n\n", argv[0]);
 		return 1;
 	}
@@ -61,12 +55,10 @@ int main(int argc, char *argv[])
 		*/
 		if(strcmp(arg1, arg_test) == 0)
 		{
-			printf("TEST MODE\n");
 			test_init();
 		}
 		else if(strcmp(arg1, arg_test_short) == 0)
 		{
-			printf("TEST MODE\n");
 			test_init();
 		}
 
@@ -75,13 +67,11 @@ int main(int argc, char *argv[])
 		*/
 		else if(strcmp(arg1, arg_direct) == 0)
 		{
-			printf("DIRECT MODE\n");
-			input(1);
+			input();
 		}
 		else if(strcmp(arg1, arg_direct_short) == 0)
 		{
-			printf("DIRECT MODE\n");
-			input(1);
+			input();
 		}
 		
 		/*
@@ -89,18 +79,16 @@ int main(int argc, char *argv[])
 		*/
 		else if(strcmp(arg1, arg_headless) == 0)
 		{
-			printf("HEADLESS MODE\n");
 			server();
 		}
 		else if(strcmp(arg1, arg_headless_short) == 0)
 		{
-			printf("HEADLESS MODE\n");
 			server();
 		}
 
 		else
 		{
-			printf("Choose between 'direct', 'headless' and 'test'\n");
+			printf("Choose between '--direct', '--headless' and '--test'\n");
 		}
 	}
 	return 0;

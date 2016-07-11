@@ -1,2 +1,2 @@
 all:
-	clang -Weverything main.c getch.c move.c argument.c directmode.c input.c test.c headless.c headlessinput.c -o roverpi-v.2.2.2 -l bcm2835
+	clang -Weverything main.c getch.c move.c argument.c directinput.c test.c headless.c headlessinput.c -o roverpi-v.3.0.0 -l bcm2835

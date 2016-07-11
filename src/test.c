@@ -79,7 +79,7 @@ int test()
 	
 void test_init()
 {
-	printf("TEST MODE INITIALISING\n");
+	printf("---TEST MODE---\n");
 	printf("This test uses the Broadcom pin numberings.\nDo you want to continue? (y/n)\n");
 	int answer;
 	answer = getche();
@@ -98,7 +98,7 @@ void test_init()
 		}
 		default:
 		{
-			printf("ABORT.\n");
+			printf("Abort\n");
 			break;
 		}
 	}

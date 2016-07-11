@@ -29,10 +29,7 @@ SOFTWARE.
 #include"move.h"
 #include"getch.h"
 
-#define VERBOSE 1
-#define NO_VERBOSE 0
-
 extern int global_init;
-int input(int verbose);
+int input(void);
 
 #endif
