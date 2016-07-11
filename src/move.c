@@ -35,7 +35,7 @@ int forward_set(int arg)
 {
 	if(arg > 2 || arg < 0)
 	{
-		return 0;
+		return 1;
 	}
 	if(!forward_init)
 	{
@@ -80,7 +80,7 @@ int backward_set(int arg)
 {
 	if(arg > 2 || arg < 0)
         {
-                return 0;
+                return 1;
         }
 	if(!backward_init)
         {
@@ -125,7 +125,7 @@ int left_set(int arg)
 {
 	if(arg > 2 || arg < 0)
         {
-                return 0;
+                return 1;
         }
 	if(!left_init)
         {
@@ -170,7 +170,7 @@ int right_set(int arg)
 {
 	if(arg > 2 || arg < 0)
         {
-                return 0;
+                return 1;
         }
 	if(!right_init)
         {

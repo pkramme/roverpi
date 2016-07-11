@@ -98,7 +98,7 @@ void test_init()
 		}
 		default:
 		{
-			printf("ABORT.\n");
+			printf("Abort\n");
 			break;
 		}
 	}
