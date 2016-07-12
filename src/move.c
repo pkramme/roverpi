@@ -208,4 +208,3 @@ int right_status(void)
         return right_state;
 }
 
-
