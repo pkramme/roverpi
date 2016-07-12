@@ -91,11 +91,6 @@ void test_init()
 			test();
 			break;
 		}
-		case 'j':
-		{
-			test();
-			break;
-		}
 		default:
 		{
 			printf("Abort\n");
