@@ -28,14 +28,7 @@ SOFTWARE.
 int headlessinput(int key)
 {
 	bcm2835_set_debug(BCM2835_DEBUG_MODE_SWITCH);
-	if(!global_init)
-	{
-		if(!bcm2835_init())
-		{
-			return 1;
-		}
-		global_init = 1;
-	}
+	init(1);
 	switch(key)
 	{
 		case 'w':
@@ -104,8 +97,7 @@ int headlessinput(int key)
 			backward_set(0);
 			left_set(0);
 			right_set(0);
-			bcm2835_close();
-			global_init = 0;
+			init(0);
 			return 0;
 		}
 		default:

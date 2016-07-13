@@ -30,6 +30,7 @@ SOFTWARE.
 #include<string.h>
 #include"move.h"
 #include"getch.h"
+#include"init.h"
 
 void pin_test(char mesg_name[256], uint8_t pin, int time, unsigned int delay);
 

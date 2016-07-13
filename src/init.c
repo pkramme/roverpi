@@ -22,65 +22,35 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#include"test.h"
+#include"init.h"
 
-void pin_test(char mesg_name[256], uint8_t pin, int time, unsigned int delay)
+static short unsigned int global_init = 0;
+
+int init(int arg)
 {
-	bcm2835_gpio_fsel(pin, BCM2835_GPIO_FSEL_OUTP);
-	int internalcounter = 0;
-	while(internalcounter <= time)
+	switch(arg)
 	{
-		printf("Activating %s in %d\n", mesg_name, time);
-		bcm2835_delay(1000);
-		--time;
+		case 0:
+			switch(global_init)
+			{
+				case 1:
+					bcm2835_close();
+					global_init = 0;
+					return 0;
+				case 0:
+					return 1;
+			}
+		case 1:
+			switch(global_init)
+			{
+				case 1:
+					return 1;
+				case 0:
+					bcm2835_init();
+					global_init = 1;
+					return 0;
+			}
 	}
-	printf("Activating %d\n", pin);
-	bcm2835_gpio_fsel(pin, BCM2835_GPIO_FSEL_OUTP);
-	bcm2835_gpio_write(pin, 0x1);
-	bcm2835_delay(delay);
-	bcm2835_gpio_write(pin, 0x0);
-	printf("Deactivating %d\n", pin);
-}
-
-int test()
-{
-	bcm2835_set_debug(BCM2835_DEBUG_MODE_SWITCH);
-	init(1);
-	/*
-	YOUR PINS FROM HERE...
-	*/
-	pin_test("onepintorulethemall", RPI_GPIO_P1_12, 3, 2000);
-	forward_set(1);
-	forward_status();
-	forward_set(0);
-	forward_status();
-
-	/*
-	...TO HERE.
-	*/
-	init(0);
-	return 0;  
-}
-	
-void test_init()
-{
-	printf("---TEST MODE---\n");
-	printf("This test uses the Broadcom pin numberings.\nDo you want to continue? (y/n)\n");
-	int answer;
-	answer = getche();
-	printf("\n");
-	switch(answer)
-	{
-		case 'y':
-		{
-			test();
-			break;
-		}
-		default:
-		{
-			printf("Abort\n");
-			break;
-		}
-	}
+	return 0;
 }
 

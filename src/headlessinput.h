@@ -29,6 +29,7 @@ SOFTWARE.
 #include"move.h"
 #include"getch.h"
 #include"directinput.h"
+#include"init.h"
 
 int headlessinput(int key);
 
