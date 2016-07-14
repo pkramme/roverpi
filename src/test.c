@@ -26,7 +26,7 @@ SOFTWARE.
 
 void pin_test(char mesg_name[256], uint8_t pin, int time, unsigned int delay)
 {
-	bcm2835_gpio_fsel(pin, BCM2835_GPIO_FSEL_OUTP);
+	//bcm2835_gpio_fsel(pin, BCM2835_GPIO_FSEL_OUTP);
 	int internalcounter = 0;
 	while(internalcounter <= time)
 	{
