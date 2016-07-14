@@ -46,7 +46,10 @@ int init(int arg)
 				case 1:
 					return 1;
 				case 0:
-					bcm2835_init();
+					if(bcm2835_init())
+					{
+						return 1;
+					}
 					global_init = 1;
 					return 0;
 			}

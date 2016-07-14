@@ -141,6 +141,7 @@ int input(void)
 						printf("Headlight ON\n");
 						break;
 				}
+				break;
 			case 't':
 				underlight_set(2);
 				switch(underlight_status())
@@ -152,6 +153,7 @@ int input(void)
 						printf("Underlight ON\n");
 						break;
 				}
+				break;
 			/*ADD ABOVE*/
 			case 'q':
 			{
