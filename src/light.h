@@ -3,7 +3,10 @@
 
 #include"init.h"
 
-int headlight(int arg);
+int headlight_set(int arg);
+int headlight_status(void);
+int underlight_set(int arg);
+int underlight_status(void);
 
 #endif
 
