@@ -130,6 +130,29 @@ int input(void)
 				}
 				break;
 			}
+			case 'r':
+				headlight_set(2);
+				switch(headlight_status())
+				{
+					case 0:
+						printf("Headlight OFF\n");
+						break;
+					case 1:
+						printf("Headlight ON\n");
+						break;
+				}
+			case 't':
+				underlight_set(2);
+				switch(underlight_status())
+				{
+					case 0:
+						printf("Underlight OFF\n");
+						break;
+					case 1:
+						printf("Underlight ON\n");
+						break;
+				}
+			/*ADD ABOVE*/
 			case 'q':
 			{
 				printf("QUIT\n");

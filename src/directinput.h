@@ -29,6 +29,7 @@ SOFTWARE.
 #include"move.h"
 #include"getch.h"
 #include"init.h"
+#include"light.h"
 
 int input(void);
 
