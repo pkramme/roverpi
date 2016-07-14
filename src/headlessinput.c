@@ -23,7 +23,6 @@ SOFTWARE.
 */
 
 #include"headlessinput.h"
-//int global_init = 0;
 
 int headlessinput(int key)
 {
@@ -91,6 +90,10 @@ int headlessinput(int key)
 			}
 			break;
 		}
+		case 'r':
+			headlight_set(2);
+		case 't':
+			underlight_set(2);
 		case 'q':
 		{
 			forward_set(0);
