@@ -45,15 +45,7 @@ void pin_test(char mesg_name[256], uint8_t pin, int time, unsigned int delay)
 int test()
 {
 	bcm2835_set_debug(BCM2835_DEBUG_MODE_SWITCH);
-	switch(bcm2835_init())
-	{
-		case 0:
-			printf("BCM2835 INITIALIZATION FAILED.\n");
-			printf("ABORTING.\n");
-			return 1;
-		case 1:
-			break;
-	}
+	init(1);
 	/*
 	YOUR PINS FROM HERE...
 	*/
@@ -66,14 +58,7 @@ int test()
 	/*
 	...TO HERE.
 	*/
-	switch(bcm2835_close())
-	{
-		case 0:
-			printf("ERROR CLOSING BCM2835.");
-			return 1;
-		case 1:
-			break;
-	}
+	init(0);
 	return 0;  
 }
 	

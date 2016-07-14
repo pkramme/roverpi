@@ -21,16 +21,36 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-#ifndef HEADLESSINPUT_H_INCLUDED
-#define HEADLESSINPUT_H_INCLUDED
 
-#include"define.h"
-#include<bcm2835.h>
-#include"move.h"
-#include"getch.h"
-#include"directinput.h"
 #include"init.h"
 
-int headlessinput(int key);
+static short unsigned int global_init = 0;
 
-#endif
+int init(int arg)
+{
+	switch(arg)
+	{
+		case 0:
+			switch(global_init)
+			{
+				case 1:
+					bcm2835_close();
+					global_init = 0;
+					return 0;
+				case 0:
+					return 1;
+			}
+		case 1:
+			switch(global_init)
+			{
+				case 1:
+					return 1;
+				case 0:
+					bcm2835_init();
+					global_init = 1;
+					return 0;
+			}
+	}
+	return 0;
+}
+

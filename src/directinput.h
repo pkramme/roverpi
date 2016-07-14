@@ -28,8 +28,8 @@ SOFTWARE.
 #include<bcm2835.h>
 #include"move.h"
 #include"getch.h"
+#include"init.h"
 
-extern int global_init;
 int input(void);
 
 #endif

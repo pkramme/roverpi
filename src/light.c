@@ -1,5 +1,6 @@
 #include"light.h"
 
+<<<<<<< HEAD
 #define headlight_def /*ADD PIN HERE*/
 
 static unsigned short int headlight_state = 0;
@@ -68,4 +69,6 @@ int underlight_status(void)
 {
 	return underlight_state;
 }
+=======
+>>>>>>> master
 
