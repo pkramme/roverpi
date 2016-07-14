@@ -30,6 +30,7 @@ SOFTWARE.
 #include"getch.h"
 #include"directinput.h"
 #include"init.h"
+#include"light.h"
 
 int headlessinput(int key);
 
