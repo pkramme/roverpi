@@ -35,7 +35,7 @@ int headlight_status(void)
 }
 
 
-#define underlight_def /*ADD PIN HERE*/
+#define underlight_def /*SOME PIN*/
 
 static unsigned short int underlight_state = 0;
 
