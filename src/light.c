@@ -2,6 +2,7 @@
 
 int headlight(int arg)
 {
+	init(1);
 	switch(arg)
 	{
 		case 0:
