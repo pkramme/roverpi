@@ -1,7 +1,6 @@
 #include"light.h"
 
-<<<<<<< HEAD
-#define headlight_def /*ADD PIN HERE*/
+#define headlight_def RPI_GPIO_P1_15
 
 static unsigned short int headlight_state = 0;
 
@@ -11,11 +10,11 @@ int headlight_set(int arg)
 	switch(arg)
 	{
 		case 0:
-			bcm2835_gpio_write(/*ADD PIN HERE*/, 0x0);
+			bcm2835_gpio_write(headlight_def, 0x0);
 			headlight_state = 0;
 			return 0;
 		case 1:
-			bcm2835_gpio_write(/*ADD PIN HERE*/, 0x1);
+			bcm2835_gpio_write(headlight_def, 0x1);
 			headlight_state = 1;
 			return 0;
 		case 2:
@@ -36,7 +35,7 @@ int headlight_status(void)
 }
 
 
-#define underlight_def /*SOME PIN*/
+#define underlight_def RPI_GPIO_P1_18
 
 static unsigned short int underlight_state = 0;
 
@@ -46,11 +45,11 @@ int underlight_set(int arg)
 	switch(arg)
 	{
 		case 0:
-			bcm2835_gpio_write(/*ADD PIN HERE*/, 0x0);
+			bcm2835_gpio_write(underlight_def, 0x0);
 			underlight_state = 0;
 			return 0;
 		case 1:
-			bcm2835_gpio_write(/*ADD PIN HERE*/, 0x1);
+			bcm2835_gpio_write(underlight_def, 0x1);
 			underlight_state = 1;
 			return 0;
 		case 2:
@@ -69,6 +68,4 @@ int underlight_status(void)
 {
 	return underlight_state;
 }
-=======
->>>>>>> master
 
