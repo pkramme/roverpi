@@ -32,6 +32,7 @@ SOFTWARE.
 int main(int argc, char *argv[])
 {
 	puts("RoverPi Software");
+	puts("Checkout project at https://github.com/paulkramme/roverpi");
 	puts("(C) 2016 Paul Kramme\nDistributed under MIT License");
 	puts("Read License in LICENSE.md or at");
 	puts("https://opensource.org/license/MIT");
@@ -45,6 +46,10 @@ int main(int argc, char *argv[])
 	{
 		puts("Insufficient arguments.");
 		printf("\n	USAGE: %s mode\n\n", argv[0]);
+		puts("Following modes are possible:");
+		puts(" --direct / -d for SSH controll");
+		puts(" --headless / -h for use with client");
+		puts(" --test / -t for testing the pins");
 		return 1;
 	}
 	else
@@ -91,7 +96,7 @@ int main(int argc, char *argv[])
 			puts("Choose between modes");
 			puts("--direct / -d");
 			puts("--headless / -h");
-			puts("--test / -t")
+			puts("--test / -t");
 		}
 	}
 	return 0;
