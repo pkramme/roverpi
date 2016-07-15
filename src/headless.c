@@ -26,7 +26,7 @@ SOFTWARE.
 #include"directinput.h"
 #include"headlessinput.h"
 
-int server()
+int server(void)
 {
 	int server_input;
 	char server_read[2];
