@@ -88,7 +88,10 @@ int main(int argc, char *argv[])
 
 		else
 		{
-			puts("Choose between '--direct', '--headless' and '--test'");
+			puts("Choose between modes");
+			puts("--direct / -d");
+			puts("--headless / -h");
+			puts("--test / -t")
 		}
 	}
 	return 0;
