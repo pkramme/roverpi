@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
 MIT License
 
@@ -34,4 +33,3 @@ int underlight_set(int arg);
 int underlight_status(void);
 
 #endif
-
