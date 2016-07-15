@@ -25,7 +25,7 @@ SOFTWARE.
 
 int input(void)
 {
-	printf("---DIRECT MODE---\n");
+	puts("==================DIRECT MODE==================");
 	bcm2835_set_debug(BCM2835_DEBUG_MODE_SWITCH);
 	init(1);
 	int input;
@@ -50,10 +50,10 @@ int input(void)
 				switch(forward_status())
 				{
 					case 0:
-						printf("forward low\n");
+						puts("forward low");
 						break;
 					case 1:
-						printf("forward high\n");
+						puts("forward high");
 						break;
 				}
 				break;
@@ -74,10 +74,10 @@ int input(void)
 				switch(left_status())
 				{
 					case 0:
-						printf("left low\n");
+						puts("left low");
 						break;
 					case 1:
-						printf("left high\n");
+						puts("left high");
 						break;
 				}
 				break;
@@ -98,10 +98,10 @@ int input(void)
 				switch(backward_status())
 				{
 					case 0:
-						printf("backward low\n");
+						puts("backward low");
 						break;
 					case 1:
-						printf("backward high\n");
+						puts("backward high");
 						break;
 				}
 				break;
@@ -122,10 +122,10 @@ int input(void)
 				switch(right_status())
 				{
 					case 0:
-						printf("right low\n");
+						puts("right low");
 						break;
 					case 1:
-						printf("right high\n");
+						puts("right high");
 						break;
 				}
 				break;
@@ -135,10 +135,10 @@ int input(void)
 				switch(headlight_status())
 				{
 					case 0:
-						printf("Headlight OFF\n");
+						puts("Headlight OFF");
 						break;
 					case 1:
-						printf("Headlight ON\n");
+						puts("Headlight ON");
 						break;
 				}
 				break;
@@ -147,17 +147,17 @@ int input(void)
 				switch(underlight_status())
 				{
 					case 0:
-						printf("Underlight OFF\n");
+						puts("Underlight OFF");
 						break;
 					case 1:
-						printf("Underlight ON\n");
+						puts("Underlight ON");
 						break;
 				}
 				break;
 			/*ADD ABOVE*/
 			case 'q':
 			{
-				printf("QUIT\n");
+				puts("QUIT");
 				forward_set(0);
 				backward_set(0);
 				left_set(0);
@@ -167,7 +167,7 @@ int input(void)
 			}
 			default:
 			{
-				printf("KEY ERROR\n");
+				puts("Key not defined.");
 				break;
 			}
 		}

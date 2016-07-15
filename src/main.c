@@ -31,19 +31,19 @@ SOFTWARE.
 
 int main(int argc, char *argv[])
 {
-	printf("RoverPi Software\n");
-	printf("(C) 2016 Paul Kramme\nDistributed under MIT License\n");
-	printf("Read License in LICENSE.md or at\n");
-	printf("https://opensource.org/license/MIT\n");
+	puts("RoverPi Software");
+	puts("(C) 2016 Paul Kramme\nDistributed under MIT License");
+	puts("Read License in LICENSE.md or at");
+	puts("https://opensource.org/license/MIT");
 	if(BCM2835_DEBUG_MODE_SWITCH)
 	{
-		printf("\n//////////////////////////////////////////\n");
-		printf("WARNING: RoverPi is running in DEBUG MODE.\n");
-		printf("//////////////////////////////////////////\n\n");
+		puts("\n//////////////////////////////////////////");
+		puts("WARNING: RoverPi is running in DEBUG MODE.");
+		puts("//////////////////////////////////////////\n");
 	}
 	if(argc < 2 || argc > 3)
 	{
-		printf("Insufficient arguments.\n");
+		puts("Insufficient arguments.");
 		printf("\n	USAGE: %s mode\n\n", argv[0]);
 		return 1;
 	}
@@ -88,7 +88,7 @@ int main(int argc, char *argv[])
 
 		else
 		{
-			printf("Choose between '--direct', '--headless' and '--test'\n");
+			puts("Choose between '--direct', '--headless' and '--test'");
 		}
 	}
 	return 0;
