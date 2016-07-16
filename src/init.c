@@ -46,7 +46,7 @@ int init(int arg)
 				case 1:
 					return 1;
 				case 0:
-					if(bcm2835_init())
+					if(!bcm2835_init())
                                         {
                                              exit(1);
 					}
