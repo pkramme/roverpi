@@ -24,7 +24,7 @@ SOFTWARE.
 
 #include"argument.h"
 
-char arg1[256];
+char arg1[100];
 
 const char arg_test[] = "--test";
 const char arg_test_short[] = "-t";
