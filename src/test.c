@@ -65,7 +65,8 @@ int test()
 void test_init()
 {
 	puts("==================TEST MODE==================");
-	puts("This test uses the Broadcom pin numberings.\nDo you want to continue? (y/n)");
+	puts("This test uses the Broadcom pin numberings.");
+	puts("Do you want to continue? (y/n)");
 	int answer;
 	answer = getche();
 	printf("\n");
