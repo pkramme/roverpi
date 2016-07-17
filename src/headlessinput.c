@@ -92,8 +92,10 @@ int headlessinput(int key)
 		}
 		case 'r':
 			headlight_set(2);
+			break;
 		case 't':
 			underlight_set(2);
+			break;
 		case 'q':
 		{
 			forward_set(0);
