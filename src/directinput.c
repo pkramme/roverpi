@@ -37,7 +37,7 @@ int input(void)
 		{
 			case 'w':
 			{
-				if(PROTECT && forward_status() == 0)
+				if(PROTECT && !forward_status())
 				{
 					backward_set(0);
 					left_set(0);
@@ -61,7 +61,7 @@ int input(void)
 			}
 			case 'a':
 			{
-				if(PROTECT && left_status() == 0)
+				if(PROTECT && !left_status())
 				{
 					backward_set(0);
 					forward_set(0);
@@ -85,7 +85,7 @@ int input(void)
 			}
 			case 's':
 			{
-				if(PROTECT && backward_status() == 0)
+				if(PROTECT && !backward_status())
 				{
 					forward_set(0);
 					left_set(0);
@@ -109,7 +109,7 @@ int input(void)
 			}
 			case 'd':
 			{
-				if(PROTECT && right_status() == 0)
+				if(PROTECT && !right_status())
 				{
 					forward_set(0);
 					backward_set(0);
