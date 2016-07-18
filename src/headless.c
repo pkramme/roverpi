@@ -49,6 +49,7 @@ int server(void)
 		if(server_input == 'q')
 		{
 			headlessinput('q');
+			init(0);
 			return 0;
 		}
 		headlessinput(server_input);
