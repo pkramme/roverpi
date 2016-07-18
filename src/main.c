@@ -36,6 +36,8 @@ int main(int argc, char *argv[])
 	puts("(C) 2016 Paul Kramme\nDistributed under MIT License");
 	puts("Read License in LICENSE.md or at");
 	puts("https://opensource.org/license/MIT");
+	char helpmessage[] = "Following moded are available:\n--direct / -d for direct controll over SSH\n--headless / -h for use with client\n--test / -t for testing";
+				
 	if(BCM2835_DEBUG_MODE_SWITCH)
 	{
 		puts(" ______   _______  _______  __   __  _______  __   __  _______  ______   _______ ");
@@ -45,18 +47,12 @@ int main(int argc, char *argv[])
 		puts("| |_|   ||    ___||  _   | |       ||   ||  ||       ||  |_|  || |_|   ||    ___|");
 		puts("|       ||   |___ | |_|   ||       ||   |_| || ||_|| ||       ||       ||   |___ ");
 		puts("|______| |_______||_______||_______||_______||_|   |_||_______||______| |_______|");
-		puts("\n//////////////////////////////////////////");
-		puts("WARNING: RoverPi is running in DEBUG MODE.");
-		puts("//////////////////////////////////////////\n");
 	}
 	if(argc < 2 || argc > 3)
 	{
 		puts("Insufficient arguments.");
-		printf("\n	USAGE: %s mode\n\n", argv[0]);
-		puts("Following modes are possible:");
-		puts(" --direct / -d for SSH controll");
-		puts(" --headless / -h for use with client");
-		puts(" --test / -t for testing the pins");
+		printf("\nUSAGE: %s mode\n\n", argv[0]);
+		puts(helpmessage);
 		return 1;
 	}
 	else
@@ -100,10 +96,7 @@ int main(int argc, char *argv[])
 
 		else
 		{
-			puts("Choose between modes");
-			puts("--direct / -d");
-			puts("--headless / -h");
-			puts("--test / -t");
+			puts(helpmessage);
 		}
 	}
 	return 0;

@@ -51,10 +51,10 @@ int input(void)
 				switch(forward_status())
 				{
 					case 0:
-						puts("forward low");
+						puts("Forward OFF");
 						break;
 					case 1:
-						puts("forward high");
+						puts("Forward ON");
 						break;
 				}
 				break;
@@ -75,10 +75,10 @@ int input(void)
 				switch(left_status())
 				{
 					case 0:
-						puts("left low");
+						puts("Left OFF");
 						break;
 					case 1:
-						puts("left high");
+						puts("Left ON");
 						break;
 				}
 				break;
@@ -99,10 +99,10 @@ int input(void)
 				switch(backward_status())
 				{
 					case 0:
-						puts("backward low");
+						puts("Backward OFF");
 						break;
 					case 1:
-						puts("backward high");
+						puts("Backward ON");
 						break;
 				}
 				break;
@@ -123,10 +123,10 @@ int input(void)
 				switch(right_status())
 				{
 					case 0:
-						puts("right low");
+						puts("Right OFF");
 						break;
 					case 1:
-						puts("right high");
+						puts("Right ON");
 						break;
 				}
 				break;
