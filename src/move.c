@@ -56,6 +56,8 @@ int forward_set(int arg)
 					bcm2835_gpio_write(forward_def, 0x0);
 					forward_state = 0;
 					return 0;
+				default:
+					return 1;
 			}
 		case 0:
 			bcm2835_gpio_write(forward_def, 0x0);
@@ -65,6 +67,8 @@ int forward_set(int arg)
 			bcm2835_gpio_write(forward_def, 0x1);
 			forward_state = 1;
 			return 0;
+		default:
+			return 1;
 	}
 	return 0;
 }
@@ -101,6 +105,8 @@ int backward_set(int arg)
                                         bcm2835_gpio_write(backward_def, 0x0);
                                         backward_state = 0;
                                         return 0;
+				default:
+					return 1;
                         }
                 case 0:
                         bcm2835_gpio_write(backward_def, 0x0);
@@ -110,6 +116,8 @@ int backward_set(int arg)
                         bcm2835_gpio_write(backward_def, 0x1);
                         backward_state = 1;
                         return 0;
+		default:
+			return 1;
         }
 	return 0;
 }
@@ -146,6 +154,8 @@ int left_set(int arg)
                                         bcm2835_gpio_write(left_def, 0x0);
                                         left_state = 0;
                                         return 0;
+				default:
+					return 1;
                         }
                 case 0:
                         bcm2835_gpio_write(left_def, 0x0);
@@ -155,6 +165,8 @@ int left_set(int arg)
                         bcm2835_gpio_write(left_def, 0x1);
                         left_state = 1;
                         return 0;
+		default:
+			return 1;
         }
 	return 0;
 }
@@ -191,6 +203,8 @@ int right_set(int arg)
                                         bcm2835_gpio_write(right_def, 0x0);
                                         right_state = 0;
                                         return 0;
+				default:
+					return 1;
                         }
                 case 0:
                         bcm2835_gpio_write(right_def, 0x0);
@@ -200,6 +214,8 @@ int right_set(int arg)
                         bcm2835_gpio_write(right_def, 0x1);
                         right_state = 1;
                         return 0;
+		default:
+			return 1;
         }
 	return 0;
 }
