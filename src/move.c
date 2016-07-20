@@ -70,7 +70,6 @@ int forward_set(int arg)
 		default:
 			return 1;
 	}
-	return 0;
 }
 
 int forward_status(void)
@@ -119,7 +118,6 @@ int backward_set(int arg)
 		default:
 			return 1;
         }
-	return 0;
 }
 int backward_status(void)
 {
@@ -168,7 +166,6 @@ int left_set(int arg)
 		default:
 			return 1;
         }
-	return 0;
 }
 
 int left_status(void)
@@ -217,7 +214,6 @@ int right_set(int arg)
 		default:
 			return 1;
         }
-	return 0;
 }
 
 int right_status(void)

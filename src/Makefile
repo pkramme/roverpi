@@ -3,6 +3,6 @@ all:
 debug:
 	clang -Weverything -std=c11 -D BCM2835_DEBUG_MODE_SWITCH=1 main.c init.c getch.c light.c move.c argument.c directinput.c test.c headless.c headlessinput.c -o roverpi-DEBUG -l bcm2835
 utest_move:
-	clang -Weverything -std=c11 -D BCM2835_DEBUG_MODE_SWITCH=1 utest_move.c move.c -l bcm2835
+	clang -Weverything -std=c11 -D BCM2835_DEBUG_MODE_SWITCH=1 utest_move.c move.c init.c -l bcm2835
 clean:
 	rm roverpi-*
