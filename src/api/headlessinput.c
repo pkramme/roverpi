@@ -26,7 +26,7 @@ SOFTWARE.
 
 int headlessinput(int key)
 {
-	bcm2835_set_debug(BCM2835_DEBUG_MODE_SWITCH);
+	//bcm2835_set_debug(BCM2835_DEBUG_MODE_SWITCH);
 	init(1);
 	switch(key)
 	{

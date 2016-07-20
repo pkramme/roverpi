@@ -23,8 +23,6 @@ SOFTWARE.
 */
 
 #include"headless.h"
-#include"directinput.h"
-#include"headlessinput.h"
 
 int server(void)
 {

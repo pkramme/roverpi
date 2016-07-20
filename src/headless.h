@@ -28,11 +28,9 @@ SOFTWARE.
 #include<sys/types.h>
 #include<sys/socket.h>
 #include<netdb.h>
-#include<stdio.h>
 #include<unistd.h>
 #include<string.h>
-
-//REMOVE STDIO LATER!
+#include"api/headlessinput.h"
 
 int server(void);
 
