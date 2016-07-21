@@ -29,7 +29,7 @@ SOFTWARE.
 #include<bcm2835.h>
 #include"move.h"
 #include"getch.h"
-#include"directinput.h"
+//#include"directinput.h"
 #include"init.h"
 #include"light.h"
 
