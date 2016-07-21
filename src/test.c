@@ -44,7 +44,6 @@ void pin_test(char mesg_name[256], uint8_t pin, int time, unsigned int delay)
 
 int test()
 {
-	bcm2835_set_debug(BCM2835_DEBUG_MODE_SWITCH);
 	init(1);
 	/*
 	YOUR PINS FROM HERE...
