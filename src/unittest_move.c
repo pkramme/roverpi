@@ -1,6 +1,6 @@
 #include<stdio.h>
-#include"move.h"
-#include"init.h"
+#include"api/move.h"
+#include"api/init.h"
 
 int unittest_move(void)
 {
