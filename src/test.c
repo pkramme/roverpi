@@ -42,6 +42,17 @@ void pin_test(char mesg_name[256], uint8_t pin, int time, unsigned int delay)
 	printf("Deactivating %d\n", pin);
 }
 
+/************************************************
+Function:	test
+
+Type:		int
+
+Return:		0
+
+Description:	Either tests pins via pin_test,
+		or by using the pin definitions from move.h header.
+*************************************************/
+		
 int test()
 {
 	init(1);
@@ -60,7 +71,18 @@ int test()
 	init(0);
 	return 0;  
 }
-	
+
+/*************************************************
+Function:	test_init
+
+Type:		void
+
+Return:		Nothing
+
+Description:	Checks if user really want to execute test mode.
+		After that, it executes test function.
+**************************************************/
+
 void test_init()
 {
 	puts("==================TEST MODE==================");

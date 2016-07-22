@@ -23,6 +23,17 @@ SOFTWARE.
 */
 
 #include"headless.h"
+/************************************************************
+Function:	server
+
+Type:		int
+
+Return:		0 for 'q' keypress
+
+Description:	Starts a socket to get keypresses from client.
+		Passes these inputs to the headlessinput function
+		in the headlessinput header.
+*************************************************************/
 
 int server(void)
 {
