@@ -26,9 +26,10 @@ SOFTWARE.
 
 int input(void)
 {
+	int input;
+
 	puts("==================DIRECT MODE==================");
 	init(1);
-	int input;
 	while(1)
 	{
 		input = getch();

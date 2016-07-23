@@ -42,12 +42,13 @@ Description:	Displays, gets and executes the different modes.
 
 int main(int argc, char *argv[])
 {
+	char helpmessage[] = "Following modes are available:\n--direct / -d for direct control over SSH\n--headless / -h for use with client\n--test / -t for testing";
+
 	puts("RoverPi Software");
 	puts("Checkout project at https://github.com/paulkramme/roverpi");
 	puts("(C) 2016 Paul Kramme\nDistributed under MIT License");
 	puts("Read License in LICENSE.md or at");
 	puts("https://opensource.org/license/MIT");
-	char helpmessage[] = "Following moded are available:\n--direct / -d for direct controll over SSH\n--headless / -h for use with client\n--test / -t for testing";
 				
 	if(BCM2835_DEBUG_MODE_SWITCH)
 	{

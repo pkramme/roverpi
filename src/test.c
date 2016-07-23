@@ -26,7 +26,6 @@ SOFTWARE.
 
 void pin_test(char mesg_name[256], uint8_t pin, int time, unsigned int delay)
 {
-	//bcm2835_gpio_fsel(pin, BCM2835_GPIO_FSEL_OUTP);
 	int internalcounter = 0;
 	while(internalcounter <= time)
 	{
@@ -85,10 +84,10 @@ Description:	Checks if user really want to execute test mode.
 
 void test_init()
 {
+	int answer;
 	puts("==================TEST MODE==================");
 	puts("This test uses the Broadcom pin numberings.");
 	puts("Do you want to continue? (y/n)");
-	int answer;
 	answer = getche();
 	printf("\n");
 	switch(answer)
