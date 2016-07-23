@@ -69,7 +69,9 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		strcpy(arg1, argv[1]);	/*copy string to arguments.h for global usability*/
+		/*global usability as arg1*/
+		strcpy(arg1, argv[1]);
+
 		/*
 		TEST MODE ARG LINK
 		*/
