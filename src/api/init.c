@@ -46,7 +46,9 @@ int init(int arg)
 				case 1:
 					return 1;
 				case 0:
-					bcm2835_set_debug(BCM2835_DEBUG_MODE_SWITCH);
+#ifdef DEBUG
+					bcm2835_set_debug(1);
+#endif
 					if(!bcm2835_init())
                                         {
                                              exit(1);
