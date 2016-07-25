@@ -1,6 +1,4 @@
-#include<stdio.h>
-#include"api/move.h"
-#include"api/init.h"
+#include"unittest_move.h"
 
 int unittest_move_forward(void)
 {
@@ -58,6 +56,7 @@ int unittest_move_right(void)
 		return 1;
 	}
 	init(0);
+	return 0;
 }
 
 int unittest_move_backward(void)
@@ -76,4 +75,6 @@ int unittest_move_backward(void)
 		return 1;
 	}
 	init(0);
+	return 0;
 }
+
