@@ -49,7 +49,6 @@ int main(int argc, char *argv[])
 	puts("(C) 2016 Paul Kramme\nDistributed under MIT License");
 	puts("Read License in LICENSE.md or at");
 	puts("https://opensource.org/license/MIT");
-				
 #ifdef DEBUG
 	puts(" ______   _______  _______  __   __  _______  __   __  _______  ______   _______ ");
 	puts("|      | |       ||  _    ||  | |  ||       ||  |_|  ||       ||      | |       |");
