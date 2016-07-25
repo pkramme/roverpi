@@ -60,7 +60,7 @@ int unittest_move_right(void)
 	init(0);
 }
 
-int unittest_move_right(void)
+int unittest_move_backward(void)
 {
 	init(1);
 	if(backward_set(1))
