@@ -37,14 +37,11 @@ Information: Function executes an infinitive loop, waits for input
 
 int input(void)
 {
-	int input;
-
 	puts("==================DIRECT MODE==================");
 	init(1);
 	for(;;)
 	{
-		input = getch();
-		switch(input)
+		switch(getch())
 		{
 			case 'w':
 			{

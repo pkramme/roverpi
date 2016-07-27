@@ -25,6 +25,8 @@ SOFTWARE.
 #ifndef MOVE_H_INCLUDED
 #define MOVE_H_INCLUDED
 
+#define SWITCH 2
+
 #include<bcm2835.h>
 #include"argument.h"
 
