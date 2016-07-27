@@ -24,6 +24,19 @@ SOFTWARE.
 
 #include"test.h"
 
+/************************************************
+Function:	pin_test
+
+Type:		void
+
+Return:		Nothing (void)
+
+Description:	Contains a timer which waits a given time.
+		After that, it activated a given pin for a given time.
+		The pin has to match a predefined pin in BCM2835 lib.
+		The specified name will be written to standart output.
+************************************************/
+
 void pin_test(char mesg_name[256], uint8_t pin, int time, unsigned int delay)
 {
 	int internalcounter = 0;
