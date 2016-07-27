@@ -24,6 +24,16 @@ SOFTWARE.
 
 #include"directinput.h"
 
+/**************************************
+Function: input
+
+Params: None (void)
+
+Return: 0 for exit
+
+Information: Function executes an infinitive loop, waits for input
+		and launches the specified functions.
+**************************************/
 
 int input(void)
 {
