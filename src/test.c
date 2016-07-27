@@ -97,13 +97,9 @@ Description:	Checks if user really want to execute test mode.
 
 void test_init()
 {
-	int answer;
 	puts("==================TEST MODE==================");
-	puts("This test uses the Broadcom pin numberings.");
 	puts("Do you want to continue? (y/n)");
-	answer = getche();
-	printf("\n");
-	switch(answer)
+	switch(getch())
 	{
 		case 'y':
 		{
