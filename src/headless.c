@@ -23,6 +23,7 @@ SOFTWARE.
 */
 
 #include"headless.h"
+
 /************************************************************
 Function:	server
 

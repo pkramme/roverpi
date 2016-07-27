@@ -24,13 +24,14 @@ SOFTWARE.
 
 #include"directinput.h"
 
+
 int input(void)
 {
 	int input;
 
 	puts("==================DIRECT MODE==================");
 	init(1);
-	while(1)
+	for(;;)
 	{
 		input = getch();
 		switch(input)
