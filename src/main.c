@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
 	if(argc < 2 || argc > 3)
 	{
 		puts("Insufficient arguments.");
-		printf("\nUSAGE: %s mode\n\n", argv[0]);
+		printf("USAGE: %s mode\n", argv[0]);
 		puts(helpmessage);
 		return 1;
 	}
