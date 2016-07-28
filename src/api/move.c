@@ -29,8 +29,8 @@ SOFTWARE.
 #define left_def RPI_GPIO_P1_12
 #define right_def RPI_GPIO_P1_13
 
-static unsigned short int forward_state = 0;
-static unsigned short int forward_init = 0;
+static uint8_t forward_state = 0;
+static uint8_t forward_init = 0;
 
 int forward_set(int arg)
 {
@@ -77,8 +77,8 @@ int forward_status(void)
 	return forward_state;
 }
 
-static unsigned short int backward_state = 0;
-static unsigned short int backward_init = 0;
+static uint8_t backward_state = 0;
+static uint8_t backward_init = 0;
 
 int backward_set(int arg)
 {
@@ -125,8 +125,8 @@ int backward_status(void)
 }
 
 
-static unsigned short int left_state = 0;
-static unsigned short int left_init = 0;
+static uint8_t left_state = 0;
+static uint8_t left_init = 0;
 
 int left_set(int arg)
 {
@@ -173,8 +173,8 @@ int left_status(void)
 	return left_state; 
 }
 
-static unsigned short int right_state = 0;
-static unsigned short int right_init = 0;
+static uint8_t right_state = 0;
+static uint8_t right_init = 0;
 
 int right_set(int arg)
 {

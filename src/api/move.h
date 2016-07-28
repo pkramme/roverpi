@@ -27,6 +27,7 @@ SOFTWARE.
 
 #define SWITCH 2
 
+#include<stdint.h>
 #include<bcm2835.h>
 #include"argument.h"
 
