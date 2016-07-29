@@ -29,7 +29,7 @@ SOFTWARE.
 #include"headless.h"
 #include"directinput.h"
 
-/********************************************************************
+/************************************************
 Function:	main
 
 Type:		int
@@ -38,7 +38,7 @@ Return:		0 for success; 1 for failure
 
 Description:	Displays, gets and executes the different modes.
 		Displays autor information
-*********************************************************************/
+************************************************/
 
 int main(int argc, char *argv[])
 {
