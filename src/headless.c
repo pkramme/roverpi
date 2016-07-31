@@ -54,7 +54,10 @@ int server(void)
 	{
 		server_input = 0;
 		memset(server_read, '\0', 2);
-		read(comm_fd, server_read, 2);
+		if(read(comm_fd, server_read, 2) == -1)
+		{
+			return 1;
+		}
 		server_input = server_read[0];
 		if(server_input == 'q')
 		{
