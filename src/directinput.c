@@ -157,7 +157,7 @@ int input(void)
 				break;
 			/*ADD ABOVE*/
 			case 'e':
-				puts("Killall")
+				puts("Killall");
 				forward_set(0);
 				backward_set(0);
 				left_set(0);
