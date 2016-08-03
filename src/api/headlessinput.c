@@ -95,6 +95,11 @@ int headlessinput(int key)
 		case 't':
 			underlight_set(2);
 			break;
+		case 'e':
+			forward_set(0);
+			backward_set(0);
+			left_set(0);
+			right_set(0);
 		case 'q':
 		{
 			forward_set(0);
