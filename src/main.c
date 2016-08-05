@@ -29,16 +29,14 @@ SOFTWARE.
 #include"headless.h"
 #include"directinput.h"
 
-/********************************************************************
-Function:	main
 
-Type:		int
-
-Return:		0 for success; 1 for failure
-
-Description:	Displays, gets and executes the different modes.
-		Displays autor information
-*********************************************************************/
+/*	Function:	main
+ *	Type:		int
+ *	Return:		0 = success
+ *			1 = failure
+ *	Parameters:	argc(int), argv(array char)
+ *	Description:	Executes different modes based on parameter flags
+ */
 
 int main(int argc, char *argv[])
 {
