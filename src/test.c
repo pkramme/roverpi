@@ -69,7 +69,7 @@ int test()
 {
 	init(1);
 	/*
-	YOUR PINS FROM HERE...
+	Add your pins below...
 	*/
 	pin_test("onepintorulethemall", RPI_GPIO_P1_12, 3, 2000);
 	forward_set(1);
@@ -77,9 +77,6 @@ int test()
 	forward_set(0);
 	forward_status();
 
-	/*
-	...TO HERE.
-	*/
 	init(0);
 	return 0;  
 }
