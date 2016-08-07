@@ -65,7 +65,7 @@ Description:	Either tests pins via pin_test,
 		or by using the pin definitions from move.h header.
 *************************************************/
 		
-int test()
+int test(void)
 {
 	init(1);
 	/*
