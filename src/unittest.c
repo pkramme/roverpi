@@ -1,4 +1,4 @@
-#include<stdio.h> //unnecessary but included
+#include<stdio.h> /*unnecessary but included*/
 
 #include"unittest_move.h"
 
