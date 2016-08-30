@@ -37,7 +37,7 @@ Information: Function executes an infinitive loop, waits for input
 
 int input(void)
 {
-	puts("==================DIRECT MODE==================");
+	puts("==================|DIRECT MODE|==================");
 	init(1);
 	for(;;)
 	{

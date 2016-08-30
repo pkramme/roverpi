@@ -94,7 +94,7 @@ Description:	Checks if user really want to execute test mode.
 
 void test_init()
 {
-	puts("==================TEST MODE==================");
+	puts("==================|TEST MODE|==================");
 	puts("Do you want to continue? (y/n)");
 	switch(getch())
 	{
