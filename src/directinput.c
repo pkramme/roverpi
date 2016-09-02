@@ -161,6 +161,7 @@ int input(void)
 				backward_set(0);
 				left_set(0);
 				right_set(0);
+				break;
 			case 'q':
 				puts("QUIT");
 				forward_set(0);
