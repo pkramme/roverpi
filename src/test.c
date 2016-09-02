@@ -65,11 +65,11 @@ Description:	Either tests pins via pin_test,
 		or by using the pin definitions from move.h header.
 *************************************************/
 		
-int test()
+int test(void)
 {
 	init(1);
 	/*
-	YOUR PINS FROM HERE...
+	Add your pins below...
 	*/
 	pin_test("onepintorulethemall", RPI_GPIO_P1_12, 3, 2000);
 	forward_set(1);
@@ -77,9 +77,6 @@ int test()
 	forward_set(0);
 	forward_status();
 
-	/*
-	...TO HERE.
-	*/
 	init(0);
 	return 0;  
 }
@@ -97,7 +94,7 @@ Description:	Checks if user really want to execute test mode.
 
 void test_init()
 {
-	puts("==================TEST MODE==================");
+	puts("==================|TEST MODE|==================");
 	puts("Do you want to continue? (y/n)");
 	switch(getch())
 	{

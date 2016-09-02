@@ -29,7 +29,6 @@ SOFTWARE.
 #include"headless.h"
 #include"directinput.h"
 
-
 /*	Function:	main
  *	Type:		int
  *	Return:		0 = success

@@ -36,14 +36,13 @@ SOFTWARE.
 
 int input(void)
 {
-	puts("==================DIRECT MODE==================");
+	puts("==================|DIRECT MODE|==================");
 	init(1);
 	for(;;)
 	{
 		switch(getch())
 		{
 			case 'w':
-			{
 				if(PROTECT && !forward_status())
 				{
 					backward_set(0);
@@ -65,9 +64,7 @@ int input(void)
 						break;
 				}
 				break;
-			}
 			case 'a':
-			{
 				if(PROTECT && !left_status())
 				{
 					backward_set(0);
@@ -89,9 +86,7 @@ int input(void)
 						break;
 				}
 				break;
-			}
 			case 's':
-			{
 				if(PROTECT && !backward_status())
 				{
 					forward_set(0);
@@ -113,9 +108,7 @@ int input(void)
 						break;
 				}
 				break;
-			}
 			case 'd':
-			{
 				if(PROTECT && !right_status())
 				{
 					forward_set(0);
@@ -137,7 +130,6 @@ int input(void)
 						break;
 				}
 				break;
-			}
 			case 'r':
 				headlight_set(2);
 				switch(headlight_status())
@@ -163,8 +155,13 @@ int input(void)
 				}
 				break;
 			/*ADD ABOVE*/
+			case 'e':
+				puts("Kill All");
+				forward_set(0);
+				backward_set(0);
+				left_set(0);
+				right_set(0);
 			case 'q':
-			{
 				puts("QUIT");
 				forward_set(0);
 				backward_set(0);
@@ -172,12 +169,9 @@ int input(void)
 				right_set(0);
 				init(0);
 				return 0;
-			}
 			default:
-			{
 				puts("Key not defined.");
 				break;
-			}
 		}
 	}
 }
