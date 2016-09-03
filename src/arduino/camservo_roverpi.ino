@@ -1,4 +1,4 @@
-#include <Servo.h>
+#include<Servo.h>
 
 Servo MSx;
 Servo MSy;
@@ -41,15 +41,6 @@ void setup()
 	pinMode(left, INPUT);
 	pinMode(right, INPUT);
 	pinMode(reset, INPUT);
-
- /* //Servotest
- MSx.write(15);
- MSy.write(15);
- delay(300);
- MSx.write(160);
- MSy.write(160);
- delay(500);
- */
 }
 
 void loop()
@@ -134,3 +125,4 @@ void ifreset()
 		}
 	}
 }
+
