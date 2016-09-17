@@ -154,7 +154,6 @@ int input(void)
 						break;
 				}
 				break;
-			/*ADD ABOVE*/
 			case 'e':
 				puts("Kill All");
 				forward_set(0);
