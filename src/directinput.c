@@ -163,6 +163,8 @@ int input(void)
 				break;
 			case 'q':
 				puts("QUIT");
+				underlight_set(0);
+				headlight_set(0);
 				forward_set(0);
 				backward_set(0);
 				left_set(0);

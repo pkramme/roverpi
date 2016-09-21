@@ -94,7 +94,7 @@ int main(int argc, char *argv[])
 		*/
 		else if(strcmp(arg1, arg_headless) == 0)
 		{
-			puts("This mode is not fully supported.")
+			puts("This mode is not fully supported.");
 			server();
 		}
 		else if(strcmp(arg1, arg_headless_short) == 0)
