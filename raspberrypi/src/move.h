@@ -22,16 +22,25 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#ifndef INPUT_H_INCLUDED
-#define INPUT_H_INCLUDED
+#ifndef MOVE_H_INCLUDED
+#define MOVE_H_INCLUDED
 
-#include"define.h"
+#define SWITCH 2
+
+#include<stdint.h>
 #include<bcm2835.h>
-#include"move.h"
-#include"getch.h"
-#include"init.h"
-#include"light.h"
+#include"argument.h"
 
-int input(void);
+int forward_set(int arg);
+int forward_status(void);
+
+int backward_set(int arg);
+int backward_status(void);
+
+int left_set(int arg);
+int left_status(void);
+
+int right_set(int arg);
+int right_status(void);
 
 #endif

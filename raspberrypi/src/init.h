@@ -1,5 +1,5 @@
 /*
-The MIT License (MIT)
+MIT License
 
 Copyright (c) 2016 Paul Kramme
 
@@ -22,16 +22,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#ifndef INPUT_H_INCLUDED
-#define INPUT_H_INCLUDED
+#ifndef INIT_H_INCLUDED
+#define INIT_H_INCLUDED
 
-#include"define.h"
+#include<stdlib.h>
 #include<bcm2835.h>
-#include"move.h"
-#include"getch.h"
-#include"init.h"
-#include"light.h"
 
-int input(void);
+int init(int arg);
 
 #endif

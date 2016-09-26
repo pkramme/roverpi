@@ -24,7 +24,7 @@ SOFTWARE.
 
 #include<stdio.h>
 #include<string.h>
-#include"api/argument.h"
+#include"argument.h"
 #include"test.h"
 #include"headless.h"
 #include"directinput.h"

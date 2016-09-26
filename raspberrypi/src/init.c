@@ -22,16 +22,41 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#ifndef INPUT_H_INCLUDED
-#define INPUT_H_INCLUDED
-
-#include"define.h"
-#include<bcm2835.h>
-#include"move.h"
-#include"getch.h"
 #include"init.h"
-#include"light.h"
 
-int input(void);
+static short unsigned int global_init = 0;
 
+int init(int arg)
+{
+	switch(arg)
+	{
+		case 0:
+			switch(global_init)
+			{
+				case 1:
+					bcm2835_close();
+					global_init = 0;
+					return 0;
+				case 0:
+					return 1;
+			}
+		case 1:
+			switch(global_init)
+			{
+				case 1:
+					return 1;
+				case 0:
+#ifdef DEBUG
+					bcm2835_set_debug(1);
 #endif
+					if(!bcm2835_init())
+                                        {
+                                             exit(1);
+					}
+					global_init = 1;
+					return 0;
+			}
+	}
+	return 1;
+}
+
