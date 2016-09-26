@@ -1,5 +1,5 @@
 /*
-The MIT License (MIT)
+MIT License
 
 Copyright (c) 2016 Paul Kramme
 
@@ -22,16 +22,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#ifndef INPUT_H_INCLUDED
-#define INPUT_H_INCLUDED
+#ifndef LIGHT_H_INCLUDED
+#define LIGHT_H_INCLUDED
 
-#include"define.h"
-#include<bcm2835.h>
-#include"move.h"
-#include"getch.h"
 #include"init.h"
-#include"light.h"
 
-int input(void);
+int headlight_set(int arg);
+int headlight_status(void);
+int underlight_set(int arg);
+int underlight_status(void);
 
 #endif
+

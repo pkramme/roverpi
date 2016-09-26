@@ -22,8 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#ifndef INPUT_H_INCLUDED
-#define INPUT_H_INCLUDED
+#ifndef HEADLESSINPUT_H_INCLUDED
+#define HEADLESSINPUT_H_INCLUDED
 
 #include"define.h"
 #include<bcm2835.h>
@@ -32,6 +32,6 @@ SOFTWARE.
 #include"init.h"
 #include"light.h"
 
-int input(void);
+int headlessinput(int key);
 
 #endif
