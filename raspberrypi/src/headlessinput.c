@@ -92,6 +92,7 @@ int headlessinput(int key)
 			backward_set(0);
 			left_set(0);
 			right_set(0);
+                        break;
 		case 'q':
 			forward_set(0);
 			backward_set(0);
