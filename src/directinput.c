@@ -40,8 +40,16 @@ int input(void)
 	init(1);
 	for(;;)
 	{
+#ifdef DEBUG
+		switch(getche())
+#endif
+#ifndef DEBUG
 		switch(getch())
+#endif
 		{
+#ifdef DEBUG
+			printf("\n");
+#endif
 			case 'w':
 				if(PROTECT && !forward_status())
 				{
