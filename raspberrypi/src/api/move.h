@@ -22,20 +22,25 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#ifndef TEST_H_INCLUDED
-#define TEST_H_INCLUDED
+#ifndef MOVE_H_INCLUDED
+#define MOVE_H_INCLUDED
 
-#include"api/define.h"
+#define SWITCH 2
+
+#include<stdint.h>
 #include<bcm2835.h>
-#include<stdio.h>
-#include<string.h>
-#include"api/move.h"
-#include"api/getch.h"
-#include"api/init.h"
+#include"argument.h"
 
-void pin_test(char mesg_name[256], uint8_t pin, int time, unsigned int delay);
-int test(void);
-void test_init(void);
+int forward_set(int arg);
+int forward_status(void);
+
+int backward_set(int arg);
+int backward_status(void);
+
+int left_set(int arg);
+int left_status(void);
+
+int right_set(int arg);
+int right_status(void);
 
 #endif
-

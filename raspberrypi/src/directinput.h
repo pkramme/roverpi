@@ -25,12 +25,12 @@ SOFTWARE.
 #ifndef INPUT_H_INCLUDED
 #define INPUT_H_INCLUDED
 
-#include"api/define.h"
+#include"define.h"
 #include<bcm2835.h>
-#include"api/move.h"
-#include"api/getch.h"
-#include"api/init.h"
-#include"api/light.h"
+#include"move.h"
+#include"getch.h"
+#include"init.h"
+#include"light.h"
 
 int input(void);
 
