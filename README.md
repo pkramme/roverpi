@@ -1,4 +1,6 @@
 # RoverPi Project
+## NOTE: There are a lot of warnings when you compile due to the BCM2835 library. However, the RoverPi source code where tested with every possible warning on and passed without one warning.
+## The RoverPi source code is written and tested by the Jet Propulsion Laboratory specifications for safe C code and by the MISRA C specifications. 
 The API Declaration can be found in the source files.
 In order to get this software working, you have to install the BCM2835 library. It can be obtained from  
 http://www.airspayce.com/mikem/bcm2835/index.html  
