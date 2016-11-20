@@ -26,7 +26,7 @@ SOFTWARE.
 #define TEST_H_INCLUDED
 
 #include"define.h"
-#include<bcm2835.h>
+#include"bcm2835/src/bcm2835.h"
 #include<stdio.h>
 #include<string.h>
 #include"move.h"

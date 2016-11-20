@@ -544,7 +544,7 @@ int bcm2835_spi_begin(void)
     /* Clear TX and RX fifos */
     bcm2835_peri_write_nb(paddr, BCM2835_SPI0_CS_CLEAR);
 
-    return 1; // OK
+    return 1; /* OK */
 }
 
 void bcm2835_spi_end(void)

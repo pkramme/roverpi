@@ -26,7 +26,7 @@ SOFTWARE.
 #define INIT_H_INCLUDED
 
 #include<stdlib.h>
-#include<bcm2835.h>
+#include"bcm2835/src/bcm2835.h"
 
 int init(int arg);
 

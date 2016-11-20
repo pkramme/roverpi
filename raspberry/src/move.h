@@ -28,7 +28,7 @@ SOFTWARE.
 #define SWITCH 2
 
 #include<stdint.h>
-#include<bcm2835.h>
+#include"bcm2835/src/bcm2835.h"
 #include"argument.h"
 
 int forward_set(int arg);

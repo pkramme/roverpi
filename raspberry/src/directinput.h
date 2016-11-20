@@ -26,7 +26,7 @@ SOFTWARE.
 #define INPUT_H_INCLUDED
 
 #include"define.h"
-#include<bcm2835.h>
+#include"bcm2835/src/bcm2835.h"
 #include"move.h"
 #include"getch.h"
 #include"init.h"
