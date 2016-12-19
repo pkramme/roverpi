@@ -4,8 +4,6 @@
 The API Declaration can be found in the source files.
 In order to get this software working, you have to install the BCM2835 library. It can be obtained from  
 http://www.airspayce.com/mikem/bcm2835/index.html  
-This software is distributed under the MIT-License which can be found in LICENSE or at  
-https://opensource.org/license/MIT  
 This software uses semantic versioning, the specification can be optained from  
 http://semver.org
 
