@@ -12,7 +12,7 @@ http://semver.org
 RoverPi started out as an idea for a necessary school project for electric engineering and became quickly the largest project we've done so far. The idea was to build a remote controlled rover based on the Raspberry Pi 3b, which could drive around and should feature a webcam to capture the surrounding environment and stream it to the users device. What began as a simple looking project started out to became big. I am the to this point only software engineer on this project, while my friend Robert handle the electrics. 
 
 ## How to get it
-You can either download the binary from here
+You can either download the binary from here  
 `https://dl.paukra.com/roverpi/roverpi-v.3.3.1`  
 or clone the repository and build it yourself with  
 `git clone https://git.paukra.com/paulkramme/roverpi.git`  
