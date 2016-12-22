@@ -2,7 +2,7 @@ build:
   stage: build
   script: 
     - cd raspberry/
-    - make debugnew
+    - make debug
   artifacts:
     paths:
       - roverpi
