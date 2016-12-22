@@ -7,7 +7,7 @@ RoverPi started out as an idea for a necessary school project for electric engin
 
 ## How to get it
 You can either download the binary from here  
-`https://dl.paukra.com/roverpi/roverpi-v.3.3.1`  
+https://dl.paukra.com/roverpi/roverpi-v.3.3.1  
 or clone the repository and build it yourself with  
 `git clone https://git.paukra.com/paulkramme/roverpi.git`  
 (You could also search the tags for your desired version.)
