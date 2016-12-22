@@ -10,7 +10,7 @@ You can either download the binary from here
 `https://dl.paukra.com/roverpi/roverpi-v.3.3.1`  
 or clone the repository and build it yourself with  
 `git clone https://git.paukra.com/paulkramme/roverpi.git`  
-(You could also search the tags for your desired version.
+(You could also search the tags for your desired version.)
 
 ## Software Walkthrough
 Most Raspberry Pi software that has to acess GPIOs is written in Python, but i choosed C++ for the first version of the now named RoverPi project software, due to previous experience in C++, and i choosed WiringPi as the first library. I was not experienced in handling more than two source files and made many mistakes, which lead to the development of version 2, which primary language is C and for the library the more low-level bcm2835 library.  
